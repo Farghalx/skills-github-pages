@@ -15,7 +15,6 @@
             box-sizing: border-box;
         }
 
-
         :root {
             --black: #000000;
             --dark-grey: #0a0a0a;
@@ -23,9 +22,8 @@
             --neon-yellow: #FFC200;
             --warm-taupe: #B8A28C;
             --off-white: #F5F5F5;
-            --whatsapp-green: #25D366;
+            --telegram-blue: #0088cc;
         }
-
 
         body {
             font-family: 'Inter', sans-serif;
@@ -34,7 +32,6 @@
             overflow-x: hidden;
             min-height: 100vh;
         }
-
 
         /* Background texture */
         body::before {
@@ -58,7 +55,6 @@
             z-index: -1;
         }
 
-
         /* Header */
         .header {
             position: fixed;
@@ -72,7 +68,6 @@
             padding: 15px 30px;
         }
 
-
         .header-content {
             display: flex;
             justify-content: space-between;
@@ -81,7 +76,6 @@
             margin: 0 auto;
         }
 
-
         .logo {
             font-family: 'Orbitron', monospace;
             font-size: 24px;
@@ -89,7 +83,6 @@
             color: var(--neon-yellow);
             text-shadow: 0 0 20px rgba(255, 194, 0, 0.5);
         }
-
 
         /* Mobile menu button */
         .mobile-menu-btn {
@@ -102,13 +95,11 @@
             z-index: 1001;
         }
 
-
         .nav-links {
             display: flex;
             gap: 30px;
             align-items: center;
         }
-
 
         .nav-link {
             color: var(--off-white);
@@ -118,14 +109,10 @@
             position: relative;
         }
 
-
         .nav-link:hover {
-
-put this link https:// put this link to the join whatsappto the join whatsapp
             color: var(--orange);
             text-shadow: 0 0 10px rgba(255, 111, 0, 0.5);
         }
-
 
         .nav-link::after {
             content: '';
@@ -138,11 +125,9 @@ put this link https:// put this link to the join whatsappto the join whatsapp
             transition: width 0.3s ease;
         }
 
-
         .nav-link:hover::after {
             width: 100%;
         }
-
 
         /* Main Container */
         .container {
@@ -154,7 +139,6 @@ put this link https:// put this link to the join whatsappto the join whatsapp
             position: relative;
             padding-top: 100px;
         }
-
 
         /* Radio Console */
         .radio-console {
@@ -173,7 +157,6 @@ put this link https:// put this link to the join whatsappto the join whatsapp
             overflow: hidden;
         }
 
-
         .radio-console::before {
             content: '';
             position: absolute;
@@ -188,11 +171,9 @@ put this link https:// put this link to the join whatsappto the join whatsapp
             transition: opacity 0.3s ease;
         }
 
-
         .radio-console:hover::before {
             opacity: 0.6;
         }
-
 
         /* Radio Display */
         .radio-display {
@@ -205,7 +186,6 @@ put this link https:// put this link to the join whatsappto the join whatsapp
             overflow: hidden;
         }
 
-
         .radio-display::before {
             content: '';
             position: absolute;
@@ -217,12 +197,10 @@ put this link https:// put this link to the join whatsappto the join whatsapp
             animation: scanline 3s linear infinite;
         }
 
-
         @keyframes scanline {
             0% { left: -100%; }
             100% { left: 100%; }
         }
-
 
         .sell-smarter {
             font-family: 'Orbitron', monospace;
@@ -238,7 +216,6 @@ put this link https:// put this link to the join whatsappto the join whatsapp
             animation: glow 2s ease-in-out infinite alternate;
         }
 
-
         @keyframes glow {
             from {
                 text-shadow: 0 0 30px rgba(255, 194, 0, 0.5);
@@ -250,7 +227,6 @@ put this link https:// put this link to the join whatsappto the join whatsapp
             }
         }
 
-
         .frequency-display {
             font-family: 'Orbitron', monospace;
             font-size: 14px;
@@ -260,12 +236,10 @@ put this link https:// put this link to the join whatsappto the join whatsapp
             animation: flicker 4s ease-in-out infinite;
         }
 
-
         @keyframes flicker {
             0%, 100% { opacity: 0.8; }
             50% { opacity: 1; }
         }
-
 
         /* Radio Buttons */
         .radio-buttons {
@@ -274,7 +248,6 @@ put this link https:// put this link to the join whatsappto the join whatsapp
             gap: 15px;
             margin-bottom: 30px;
         }
-
 
         .radio-button {
             display: flex;
@@ -292,7 +265,6 @@ put this link https:// put this link to the join whatsappto the join whatsapp
             color: var(--off-white);
         }
 
-
         .radio-button::before {
             content: '';
             position: absolute;
@@ -304,11 +276,9 @@ put this link https:// put this link to the join whatsappto the join whatsapp
             transition: left 0.5s ease;
         }
 
-
         .radio-button:hover::before {
             left: 100%;
         }
-
 
         .radio-button:hover {
             background: linear-gradient(135deg, rgba(255, 111, 0, 0.15) 0%, rgba(255, 194, 0, 0.08) 100%);
@@ -319,13 +289,11 @@ put this link https:// put this link to the join whatsappto the join whatsapp
             transform: translateY(-3px);
         }
 
-
         .button-left {
             display: flex;
             align-items: center;
             gap: 20px;
         }
-
 
         .button-icon {
             width: 28px;
@@ -334,15 +302,13 @@ put this link https:// put this link to the join whatsappto the join whatsapp
             filter: drop-shadow(0 0 10px rgba(255, 111, 0, 0.5));
         }
 
-
         .button-text {
             font-weight: 600;
             font-size: 18px;
             color: var(--off-white);
         }
 
-
-        .button-action {https://t.me/+hjjZRpBnIrg2ZmM1
+        .button-action {
             font-size: 14px;
             color: var(--warm-taupe);
             background: rgba(255, 255, 255, 0.1);
@@ -353,7 +319,6 @@ put this link https:// put this link to the join whatsappto the join whatsapp
             font-weight: 500;
         }
 
-
         .radio-button:hover .button-action {
             background: var(--orange);
             color: var(--black);
@@ -361,6 +326,23 @@ put this link https:// put this link to the join whatsappto the join whatsapp
             box-shadow: 0 0 15px rgba(255, 111, 0, 0.5);
         }
 
+        /* Telegram button specific styles */
+        .telegram-button:hover {
+            background: linear-gradient(135deg, rgba(0, 136, 204, 0.15) 0%, rgba(0, 136, 204, 0.08) 100%);
+            border-color: var(--telegram-blue);
+        }
+
+        .telegram-button:hover .button-action {
+            background: var(--telegram-blue);
+            color: white;
+            border-color: var(--telegram-blue);
+            box-shadow: 0 0 15px rgba(0, 136, 204, 0.5);
+        }
+
+        .telegram-button .button-icon {
+            color: var(--telegram-blue);
+            filter: drop-shadow(0 0 10px rgba(0, 136, 204, 0.5));
+        }
 
         /* Radio Control Knobs */
         .radio-controls {
@@ -369,7 +351,6 @@ put this link https:// put this link to the join whatsappto the join whatsapp
             padding: 20px 0;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
-
 
         .radio-knob {
             width: 35px;
@@ -385,7 +366,6 @@ put this link https:// put this link to the join whatsappto the join whatsapp
                 0 2px 8px rgba(0, 0, 0, 0.3);
         }
 
-
         .radio-knob::after {
             content: '';
             position: absolute;
@@ -399,7 +379,6 @@ put this link https:// put this link to the join whatsappto the join whatsapp
             box-shadow: 0 0 8px rgba(255, 111, 0, 0.5);
         }
 
-
         .radio-knob:hover {
             transform: rotate(15deg) scale(1.1);
             box-shadow:
@@ -407,11 +386,9 @@ put this link https:// put this link to the join whatsappto the join whatsapp
                 0 4px 15px rgba(255, 111, 0, 0.3);
         }
 
-
         .radio-knob:active {
             transform: rotate(45deg) scale(0.95);
         }
-
 
         /* Footer */
         .footer {
@@ -425,7 +402,6 @@ put this link https:// put this link to the join whatsappto the join whatsapp
             letter-spacing: 1px;
             opacity: 0.8;
         }
-
 
         /* Modal */
         .modal {
@@ -442,7 +418,6 @@ put this link https:// put this link to the join whatsappto the join whatsapp
             z-index: 2000;
         }
 
-
         .modal-content {
             background: linear-gradient(135deg, rgba(10, 10, 10, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%);
             border: 2px solid rgba(255, 111, 0, 0.4);
@@ -454,7 +429,6 @@ put this link https:// put this link to the join whatsappto the join whatsapp
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
         }
 
-
         .modal h2 {
             font-family: 'Orbitron', monospace;
             color: var(--neon-yellow);
@@ -462,14 +436,12 @@ put this link https:// put this link to the join whatsappto the join whatsapp
             font-size: 28px;
         }
 
-
         .modal p {
             color: var(--off-white);
             line-height: 1.8;
             margin-bottom: 30px;
             font-size: 16px;
         }
-
 
         .close-modal {
             background: linear-gradient(45deg, var(--orange), var(--neon-yellow));
@@ -485,12 +457,10 @@ put this link https:// put this link to the join whatsappto the join whatsapp
             letter-spacing: 1px;
         }
 
-
         .close-modal:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(255, 111, 0, 0.4);
         }
-
 
         /* Mobile Menu */
         .mobile-menu {
@@ -511,18 +481,15 @@ put this link https:// put this link to the join whatsappto the join whatsapp
             gap: 20px;
         }
 
-
         .mobile-menu.active {
             right: 0;
         }
-
 
         .mobile-menu .nav-link {
             font-size: 18px;
             padding: 10px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-
 
         /* Easter egg shake animation */
         @keyframes shake {
@@ -531,11 +498,9 @@ put this link https:// put this link to the join whatsappto the join whatsapp
             75% { transform: translateX(8px) rotate(2deg); }
         }
 
-
         .shake {
             animation: shake 0.6s ease-in-out;
         }
-
 
         /* Responsive Styles */
         @media (max-width: 768px) {
@@ -543,81 +508,66 @@ put this link https:// put this link to the join whatsappto the join whatsapp
                 padding: 12px 20px;
             }
 
-
             .logo {
                 font-size: 20px;
             }
-
 
             .nav-links {
                 display: none;
             }
 
-
             .mobile-menu-btn {
                 display: block;
             }
 
-
             .container {
                 padding: 80px 15px 15px;
             }
-
 
             .radio-console {
                 padding: 25px;
                 border-radius: 20px;
             }
 
-
             .sell-smarter {
                 font-size: 32px;
                 margin: 15px 0;
             }
 
-
             .radio-button {
                 padding: 15px 20px;
             }
 
-
             .button-text {
                 font-size: 16px;
             }
-
 
             .button-action {
                 font-size: 12px;
                 padding: 6px 12px;
             }
 
-
             .radio-knob {
                 width: 30px;
                 height: 30px;
             }
 
-
             .footer {
                 display: none;
             }
-
 
             .modal-content {
                 padding: 30px;
             }
 
-
             .modal h2 {
                 font-size: 24px;
             }
-
 
             .modal p {
                 font-size: 14px;
                 margin-bottom: 20px;
             }
-
 
             .close-modal {
                 padding: 12px 24px;
@@ -625,43 +575,35 @@ put this link https:// put this link to the join whatsappto the join whatsapp
             }
         }
 
-
         @media (max-width: 480px) {
             .radio-console {
                 padding: 20px;
             }
 
-
             .sell-smarter {
                 font-size: 28px;
             }
-
 
             .radio-button {
                 padding: 12px 15px;
             }
 
-
             .button-left {
                 gap: 12px;
             }
-
 
             .button-icon {
                 width: 24px;
                 height: 24px;
             }
 
-
             .button-text {
                 font-size: 14px;
             }
 
-
             .radio-controls {
                 padding: 15px 0;
             }
-
 
             .radio-knob {
                 width: 25px;
@@ -687,7 +629,6 @@ put this link https:// put this link to the join whatsappto the join whatsapp
         </div>
     </div>
 
-
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="#" class="nav-link">Home</a>
@@ -698,7 +639,6 @@ put this link https:// put this link to the join whatsappto the join whatsapp
         <a href="consulting.html" class="nav-link">Consulting</a>
     </div>
 
-
     <!-- Main Container -->
     <div class="container">
         <div class="radio-console">
@@ -707,7 +647,6 @@ put this link https:// put this link to the join whatsappto the join whatsapp
                 <div class="sell-smarter">SELL SMARTER.</div>
                 <div class="frequency-display">108.7 FM • ENTREPRENEUR SIGNAL • ON AIR</div>
             </div>
-
 
             <!-- Radio Buttons -->
             <div class="radio-buttons">
@@ -721,7 +660,6 @@ put this link https:// put this link to the join whatsappto the join whatsapp
                     <span class="button-action">Download</span>
                 </a>
 
-
                 <a href="https://drive.google.com/drive/folders/1Lg5L3WbJSESl58WH2nfqOY93rChf4Q9r?usp=drive_link" class="radio-button" target="_blank">
                     <div class="button-left">
                         <svg class="button-icon" fill="currentColor" viewBox="0 0 24 24">
@@ -732,22 +670,15 @@ put this link https:// put this link to the join whatsappto the join whatsapp
                     <span class="button-action">Download</span>
                 </a>
 
-
-               <a href="https://t.me/+hjjZRpBnIrg2ZmM1" class="radio-button" target="_blank" rel="noopener noreferrer">
-    <div class="button-left">
-        <svg class="button-icon" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335 .157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
-        </svg>
-        <span class="button-text">Join Telegram</span>
-    </div>
-    <span class="button-action">4.8K Members</span>
-</a>
-n>
-                        
+                <a href="https://t.me/+hjjZRpBnIrg2ZmM1" class="radio-button telegram-button" target="_blank" rel="noopener noreferrer">
+                    <div class="button-left">
+                        <svg class="button-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9.78,18.65L10.06,14.42L17.74,7.5C18.08,7.19 17.67,7.04 17.22,7.31L7.74,13.3L3.64,12C2.76,11.75 2.75,11.14 3.84,10.7L19.81,4.54C20.54,4.21 21.24,4.72 20.96,5.84L18.24,18.65C18.05,19.56 17.5,19.78 16.74,19.36L12.6,16.3L10.61,18.23C10.38,18.46 10.19,18.65 9.78,18.65Z"/>
+                        </svg>
+                        <span class="button-text">Join Telegram</span>
                     </div>
                     <span class="button-action">4.8K Members</span>
                 </a>
-
 
                 <a href="consulting.html" class="radio-button">
                     <div class="button-left">
@@ -758,7 +689,6 @@ n>
                     </div>
                     <span class="button-action">Apply</span>
                 </a>
-
 
                 <a href="support.html" class="radio-button">
                     <div class="button-left">
@@ -771,7 +701,6 @@ n>
                 </a>
             </div>
 
-
             <!-- Radio Control Knobs -->
             <div class="radio-controls">
                 <div class="radio-knob" data-function="volume"></div>
@@ -780,7 +709,6 @@ n>
             </div>
         </div>
     </div>
-
 
     <!-- Modal -->
     <div class="modal" id="modal">
@@ -791,18 +719,15 @@ n>
         </div>
     </div>
 
-
     <!-- Footer -->
     <div class="footer">
         Status: 4,823 users tuned in • Signal: Strong
     </div>
 
-
     <script>
         // Audio context for sound effects
         let audioContext;
         let isAudioInitialized = false;
-
 
         function initAudio() {
             if (!isAudioInitialized) {
@@ -810,7 +735,6 @@ n>
                 isAudioInitialized = true;
             }
         }
-
 
         // Sound effect functions
         function playClickSound() {
@@ -831,7 +755,6 @@ n>
             oscillator.stop(audioContext.currentTime + 0.1);
         }
 
-
         function playHoverSound() {
             initAudio();
             const oscillator = audioContext.createOscillator();
@@ -849,7 +772,6 @@ n>
             oscillator.start(audioContext.currentTime);
             oscillator.stop(audioContext.currentTime + 0.05);
         }
-
 
         function playKnobSound() {
             initAudio();
@@ -869,18 +791,15 @@ n>
             oscillator.stop(audioContext.currentTime + 0.15);
         }
 
-
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
-
 
         mobileMenuBtn.addEventListener('click', () => {
             playClickSound();
             mobileMenu.classList.toggle('active');
             mobileMenuBtn.textContent = mobileMenu.classList.contains('active') ? '✕' : '☰';
         });
-
 
         // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
@@ -889,7 +808,6 @@ n>
                 mobileMenuBtn.textContent = '☰';
             }
         });
-
 
         // Radio button interactions
         const radioButtons = document.querySelectorAll('.radio-button');
@@ -904,10 +822,8 @@ n>
             });
         });
 
-
         // Radio knob interactions
         const radioKnobs = document.querySelectorAll('.radio-knob');
-
 
         radioKnobs.forEach(knob => {
             knob.addEventListener('click', (e) => {
@@ -941,7 +857,6 @@ n>
             });
         });
 
-
         // Modal functions
         function showModal(title, text) {
             document.getElementById('modal-title').textContent = title;
@@ -949,12 +864,10 @@ n>
             document.getElementById('modal').style.display = 'flex';
         }
 
-
         function closeModal() {
             playClickSound();
             document.getElementById('modal').style.display = 'none';
         }
-
 
         // Keyboard shortcuts
         document.addEventListener('keydown', (e) => {
@@ -963,7 +876,6 @@ n>
             }
         });
 
-
         // Close modal when clicking outside
         document.getElementById('modal').addEventListener('click', (e) => {
             if (e.target.id === 'modal') {
@@ -971,11 +883,9 @@ n>
             }
         });
 
-
         // Initialize audio on first user interaction
         document.addEventListener('click', initAudio, { once: true });
         document.addEventListener('keydown', initAudio, { once: true });
-
 
         // Dynamic frequency display
         const frequencies = [
@@ -992,7 +902,6 @@ n>
             currentFreq = (currentFreq + 1) % frequencies.length;
             frequencyDisplay.textContent = frequencies[currentFreq];
         }, 5000);
-
 
         // Touch feedback for mobile
         radioButtons.forEach(button => {
