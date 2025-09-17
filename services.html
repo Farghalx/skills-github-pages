@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Implementation Services - FarghalX</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .background-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 165, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 165, 0, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 165, 0, 0.03) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #FFA500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-shadow: 0 0 20px rgba(255, 165, 0, 0.5);
+            margin-bottom: 1rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #FFA500;
+            opacity: 0.8;
+            letter-spacing: 0.05em;
+            margin-bottom: 2rem;
+        }
+        
+        .service-card {
+            background: rgba(255, 165, 0, 0.05);
+            border: 1px solid rgba(255, 165, 0, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card:hover {
+            background: rgba(255, 165, 0, 0.1);
+            border-color: rgba(255, 165, 0, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 165, 0, 0.2);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 165, 0, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .service-card:hover::before {
+            left: 100%;
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .card-icon {
+            font-size: 2rem;
+            margin-right: 1rem;
+            color: #FFA500;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .card-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .industry-explorer {
+            background: rgba(255, 165, 0, 0.03);
+            border: 1px solid rgba(255, 165, 0, 0.15);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .explorer-title {
+            font-size: 2rem;
+            color: #FFA500;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .explorer-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+        }
+        
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .industry-btn {
+            background: rgba(255, 165, 0, 0.1);
+            border: 1px solid rgba(255, 165, 0, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .industry-btn:hover {
+            background: rgba(255, 165, 0, 0.2);
+            border-color: rgba(255, 165, 0, 0.5);
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 165, 0, 0.3);
+        }
+        
+        .industry-btn.active {
+            background: rgba(255, 165, 0, 0.3);
+            border-color: #FFA500;
+            box-shadow: 0 0 20px rgba(255, 165, 0, 0.4);
+        }
+        
+        .industry-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .industry-name {
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .solutions-container {
+            margin-top: 2rem;
+            display: none;
+        }
+        
+        .solutions-container.show {
+            display: block;
+            animation: slideUp 0.5s ease;
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .solution-item {
+            background: rgba(255, 165, 0, 0.08);
+            border: 1px solid rgba(255, 165, 0, 0.2);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #FFA500;
+        }
+        
+        .solution-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #FFA500;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .solution-desc {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        .solution-benefits {
+            list-style: none;
+        }
+        
+        .solution-benefits li {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.3rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .solution-benefits li:before {
+            content: "▶";
+            color: #FFA500;
+            position: absolute;
+            left: 0;
+            font-size: 0.8rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, rgba(255, 165, 0, 0.2), rgba(255, 165, 0, 0.1));
+            border: 1px solid rgba(255, 165, 0, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-title {
+            font-size: 2rem;
+            color: #FFA500;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .cta-description {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            background: rgba(255, 165, 0, 0.2);
+            border: 1px solid rgba(255, 165, 0, 0.5);
+            color: #ffffff;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .cta-btn:hover {
+            background: rgba(255, 165, 0, 0.4);
+            border-color: #FFA500;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 165, 0, 0.3);
+        }
+        
+        .pulse-indicator {
+            width: 12px;
+            height: 12px;
+            background: #FFA500;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            margin: 0 auto 2rem;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        
+        .status-bar {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 0.05em;
+            border: 1px solid rgba(255, 165, 0, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .industry-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        /* Sound effect styles */
+        .sound-enabled {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-pattern"></div>
+    
+    <div class="container">
+        <div class="header">
+            <div class="pulse-indicator"></div>
+            <h1 class="main-title">AI Implementation</h1>
+            <p class="subtitle">BUILDING AI SOLUTIONS IN PUBLIC • LIVE</p>
+        </div>
+
+        <div class="service-card sound-enabled" onclick="playSound('click')">
+            <div class="card-header">
+                <span class="card-icon">🎯</span>
+                <h3 class="card-title">AI Strategy Consultation</h3>
+            </div>
+            <p class="card-description">
+                One-on-one sessions to identify AI opportunities in your business. We'll analyze your processes and create a roadmap for AI implementation that actually works in the real world.
+            </p>
+        </div>
+
+        <div class="service-card sound-enabled" onclick="playSound('click')">
+            <div class="card-header">
+                <span class="card-icon">🔧</span>
+                <h3 class="card-title">AI Implementation Guidance</h3>
+            </div>
+            <p class="card-description">
+                Step-by-step guidance on implementing AI solutions. Learn what tools to use, how to set them up, and what to expect. Based on real experience, not theory.
+            </p>
+        </div>
+
+        <div class="service-card sound-enabled" onclick="playSound('click')">
+            <div class="card-header">
+                <span class="card-icon">📊</span>
+                <h3 class="card-title">AI Performance Analysis</h3>
+            </div>
+            <p class="card-description">
+                Analyze your existing AI implementations. What's working, what's not, and how to optimize for better results. Data-driven insights from someone building in public.
+            </p>
+        </div>
+
+        <div class="service-card sound-enabled" onclick="playSound('click')">
+            <div class="card-header">
+                <span class="card-icon">🎓</span>
+                <h3 class="card-title">AI Training & Education</h3>
+            </div>
+            <p class="card-description">
+                Learn AI implementation from someone who's documenting every success and failure. Practical training based on real-world experience, not academic theory.
+            </p>
+        </div>
+
+        <div class="industry-explorer">
+            <h2 class="explorer-title">🔍 Explore AI by Industry</h2>
+            <p class="explorer-subtitle">Select your industry to discover specific AI implementations that are working for businesses like yours</p>
+            
+            <div class="industry-grid">
+                <div class="industry-btn sound-enabled" onclick="showSolutions('restaurant'); playSound('select')">
+                    <span class="industry-icon">🍽️</span>
+                    <div class="industry-name">Restaurant</div>
+                </div>
+                <div class="industry-btn sound-enabled" onclick="showSolutions('retail'); playSound('select')">
+                    <span class="industry-icon">🏪</span>
+                    <div class="industry-name">Retail</div>
+                </div>
+                <div class="industry-btn sound-enabled" onclick="showSolutions('automotive'); playSound('select')">
+                    <span class="industry-icon">🚗</span>
+                    <div class="industry-name">Automotive</div>
+                </div>
+                <div class="industry-btn sound-enabled" onclick="showSolutions('healthcare'); playSound('select')">
+                    <span class="industry-icon">🏥</span>
+                    <div class="industry-name">Healthcare</div>
+                </div>
+                <div class="industry-btn sound-enabled" onclick="showSolutions('realestate'); playSound('select')">
+                    <span class="industry-icon">🏠</span>
+                    <div class="industry-name">Real Estate</div>
+                </div>
+                <div class="industry-btn sound-enabled" onclick="showSolutions('education'); playSound('select')">
+                    <span class="industry-icon">📚</span>
+                    <div class="industry-name">Education</div>
+                </div>
+                <div class="industry-btn sound-enabled" onclick="showSolutions('agency'); playSound('select')">
+                    <span class="industry-icon">📈</span>
+                    <div class="industry-name">Agency</div>
+                </div>
+                <div class="industry-btn sound-enabled" onclick="showSolutions('professional'); playSound('select')">
+                    <span class="industry-icon">💼</span>
+                    <div class="industry-name">Professional</div>
+                </div>
+            </div>
+
+            <div id="solutions-container" class="solutions-container"></div>
+        </div>
+
+        <div class="cta-section">
+            <div class="pulse-indicator"></div>
+            <h2 class="cta-title">Ready to Explore AI?</h2>
+            <p class="cta-description">
+                Let's have a conversation about how AI can specifically help your industry and business model
+            </p>
+            <div class="cta-buttons">
+                <a href="#" class="cta-btn sound-enabled" onclick="playSound('success')">
+                    <span>📅</span> Schedule Consultation
+                </a>
+                <a href="#" class="cta-btn sound-enabled" onclick="playSound('success')">
+                    <span>💬</span> WhatsApp Questions
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="status-bar">
+        STATUS: AI SOLUTIONS READY • SIGNAL: STRONG
+    </div>
+
+    <script>
+        // Sound effects - you can replace these URLs with your actual sound files
+        const sounds = {
+            click: 'data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmQdDjuS2e++fS8INXHAs',
+            select: 'data:audio/wav;base64,UklGRnoGAABXQVZFZm24IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmQdDjuS2e++fS8INXHAs',
+            success: 'data:audio/wav;base64,UklGRnoGAABXQVZFZm30IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmQdDjuS2e++fS8INXHAs'
+        };
+
+        function playSound(type) {
+            const audio = new Audio(sounds[type]);
+            audio.volume = 0.3;
+            audio.play().catch(e => console.log('Sound play failed:', e));
+        }
+
+        const industryData = {
+            restaurant: {
+                title: "🍽️ Restaurant & F&B AI Solutions",
+                solutions: [
+                    {
+                        title: "AI WhatsApp Ordering System",
+                        description: "Automated order taking, menu recommendations, and delivery coordination",
+                        benefits: [
+                            "Handle 100+ orders simultaneously",
+                            "Reduce order errors by 80%",
+                            "24/7 ordering availability",
+                            "Automatic inventory checking"
+                        ]
+                    },
+                    {
+                        title: "Smart Reservation Management",
+                        description: "AI manages bookings, cancellations, and seating optimization",
+                        benefits: [
+                            "Reduce no-shows by 40%",
+                            "Optimize table utilization",
+                            "Automated reminder system",
+                            "POS system integration"
+                        ]
+                    },
+                    {
+                        title: "Inventory Prediction AI",
+                        description: "Predict daily needs based on weather, events, and data",
+                        benefits: [
+                            "Reduce food waste by 30%",
+                            "Never run out of popular items",
+                            "Automatic supplier ordering",
+                            "Cost optimization insights"
+                        ]
+                    }
+                ]
+            },
+            retail: {
+                title: "🏪 Retail & E-commerce AI Solutions",
+                solutions: [
+                    {
+                        title: "AI Customer Service Agent",
+                        description: "Handle inquiries, recommendations, and order tracking automatically",
+                        benefits: [
+                            "24/7 customer support",
+                            "Personalized recommendations",
+                            "Instant size/fit guidance",
+                            "Multi-language support"
+                        ]
+                    },
+                    {
+                        title: "Smart Inventory Management",
+                        description: "AI-powered stock optimization and automatic reordering",
+                        benefits: [
+                            "Reduce stockouts by 60%",
+                            "Optimize inventory costs",
+                            "Seasonal demand prediction",
+                            "Automated supplier communication"
+                        ]
+                    },
+                    {
+                        title: "Dynamic Pricing AI",
+                        description: "Auto-adjust prices based on demand and competition",
+                        benefits: [
+                            "Maximize profit margins",
+                            "Stay competitive automatically",
+                            "Clear old inventory faster",
+                            "Increase overall revenue"
+                        ]
+                    }
+                ]
+            },
+            automotive: {
+                title: "🚗 Automotive Industry AI Solutions",
+                solutions: [
+                    {
+                        title: "AI Sales Assistant",
+                        description: "Qualify leads, schedule test drives, provide vehicle info",
+                        benefits: [
+                            "Qualify serious buyers automatically",
+                            "24/7 inquiry handling",
+                            "Automatic appointment booking",
+                            "CRM system integration"
+                        ]
+                    },
+                    {
+                        title: "Vehicle Matching AI",
+                        description: "Match customers with perfect vehicles based on needs",
+                        benefits: [
+                            "Higher conversion rates",
+                            "Personalized recommendations",
+                            "Faster sales process",
+                            "Better customer satisfaction"
+                        ]
+                    },
+                    {
+                        title: "Service Booking Automation",
+                        description: "AI schedules maintenance and manages appointments",
+                        benefits: [
+                            "Reduce service no-shows",
+                            "Optimize mechanic schedules",
+                            "Proactive maintenance alerts",
+                            "Customer retention improvement"
+                        ]
+                    }
+                ]
+            },
+            healthcare: {
+                title: "🏥 Healthcare AI Solutions",
+                solutions: [
+                    {
+                        title: "AI Appointment Scheduler",
+                        description: "Smart scheduling considering availability and urgency",
+                        benefits: [
+                            "Reduce scheduling conflicts",
+                            "Optimize doctor utilization",
+                            "Automated reminder system",
+                            "Emergency slot management"
+                        ]
+                    },
+                    {
+                        title: "Patient Inquiry AI",
+                        description: "Handle health questions and appointment guidance",
+                        benefits: [
+                            "24/7 patient support",
+                            "Reduce staff workload",
+                            "Triage non-urgent cases",
+                            "Multilingual support"
+                        ]
+                    },
+                    {
+                        title: "Prescription Management",
+                        description: "AI manages refills, interactions, and notifications",
+                        benefits: [
+                            "Automated refill reminders",
+                            "Drug interaction alerts",
+                            "Insurance verification",
+                            "Patient compliance tracking"
+                        ]
+                    }
+                ]
+            },
+            realestate: {
+                title: "🏠 Real Estate AI Solutions",
+                solutions: [
+                    {
+                        title: "AI Property Matcher",
+                        description: "Match buyers with perfect properties automatically",
+                        benefits: [
+                            "Higher qualification rates",
+                            "Faster property matching",
+                            "Automated follow-ups",
+                            "Price negotiation insights"
+                        ]
+                    },
+                    {
+                        title: "Virtual Viewing Assistant",
+                        description: "AI schedules viewings and provides property details",
+                        benefits: [
+                            "24/7 viewing scheduling",
+                            "Instant property information",
+                            "Reduce agent workload",
+                            "Better lead qualification"
+                        ]
+                    },
+                    {
+                        title: "Market Analysis AI",
+                        description: "Automated valuation and market trend analysis",
+                        benefits: [
+                            "Accurate property pricing",
+                            "Market trend insights",
+                            "Competitive analysis",
+                            "Investment recommendations"
+                        ]
+                    }
+                ]
+            },
+            education: {
+                title: "📚 Education AI Solutions",
+                solutions: [
+                    {
+                        title: "AI Student Support",
+                        description: "24/7 assistance for enrollment and inquiries",
+                        benefits: [
+                            "Instant student support",
+                            "Automated enrollment process",
+                            "Schedule optimization",
+                            "Parent communication"
+                        ]
+                    },
+                    {
+                        title: "Smart Course Recommendations",
+                        description: "AI suggests courses based on interests and goals",
+                        benefits: [
+                            "Personalized learning paths",
+                            "Higher course completion",
+                            "Career guidance",
+                            "Student retention"
+                        ]
+                    },
+                    {
+                        title: "Administrative Automation",
+                        description: "Automate attendance, grading, and communications",
+                        benefits: [
+                            "Reduce administrative workload",
+                            "Automated attendance tracking",
+                            "Parent notification system",
+                            "Performance analytics"
+                        ]
+                    }
+                ]
+            },
+            agency: {
+                title: "📈 Marketing Agency AI Solutions",
+                solutions: [
+                    {
+                        title: "AI Content Generator",
+                        description: "Generate social media, ads, and blog content automatically",
+                        benefits: [
+                            "10x faster content creation",
+                            "Consistent brand voice",
+                            "Multi-platform optimization",
+                            "Client-specific customization"
+                        ]
+                    },
+                    {
+                        title: "Client Reporting AI",
+                        description: "Automatically generate reports with insights",
+                        benefits: [
+                            "Automated report generation",
+                            "Real-time performance insights",
+                            "Client satisfaction improvement",
+                            "Save 15+ hours/week"
+                        ]
+                    },
+                    {
+                        title: "Lead Qualification System",
+                        description: "AI qualifies clients and schedules calls automatically",
+                        benefits: [
+                            "Higher quality leads",
+                            "Automated follow-up sequences",
+                            "Better conversion rates",
+                            "Sales team efficiency"
+                        ]
+                    }
+                ]
+            },
+            professional: {
+                title: "💼 Professional Services AI Solutions",
+                solutions: [
+                    {
+                        title: "AI Client Intake",
+                        description: "Streamline onboarding with intelligent forms",
+                        benefits: [
+                            "Faster client onboarding",
+                            "Automated document collection",
+                            "Compliance checking",
+                            "Client satisfaction improvement"
+                        ]
+                    },
+                    {
+                        title: "Appointment Optimization",
+                        description: "Smart scheduling for maximum billable hours",
+                        benefits: [
+                            "Maximize billable hours",
+                            "Reduce scheduling conflicts",
+                            "Client preference learning",
+                            "Automated reminders"
+                        ]
+                    },
+                    {
+                        title: "Document Automation",
+                        description: "AI-powered contracts, proposals, and documents",
+                        benefits: [
+                            "Faster document creation",
+                            "Reduced errors",
+                            "Template optimization",
+                            "Client-specific customization"
+                        ]
+                    }
+                ]
+            }
+        };
+
+        function showSolutions(industry) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.industry-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to clicked button
+            event.target.closest('.industry-btn').classList.add('active');
+            
+            // Get solutions container
+            const container = document.getElementById('solutions-container');
+            
+            // Generate HTML for solutions
+            const data = industryData[industry];
+            let html = `
+                <div class="solutions-title" style="color: #FFA500; font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center; text-transform: uppercase; letter-spacing: 0.05em;">
+                    ${data.title}
+                </div>
+            `;
+            
+            data.solutions.forEach(solution => {
+                html += `
+                    <div class="solution-item">
+                        <div class="solution-title">${solution.title}</div>
+                        <div class="solution-desc">${solution.description}</div>
+                        <ul class="solution-benefits">
+                            ${solution.benefits.map(benefit => `<li>${benefit}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+            container.classList.add('show');
+        }
+
+        // Add sound effects to existing elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover sound effects
+            document.querySelectorAll('.sound-enabled').forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    // Subtle hover sound could be added here
+                });
+            });
+        });
+    </script>
+</body>
+</html>
