@@ -3,8 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Implementation Services - FarghalX</title>
-    <style>
+    <title>AI Implementation Services - FarghalX</ti        .industry-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+            transform: scale(1);
+            transition: transform 0.3s ease;
+        }
+        
+        .industry-btn:hover .industry-icon {
+            transform: scale(1.2);
+        }
+        
+        .industry-name {
+            font-weight: 700;
+            color: #ffffff;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .industry-name::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: #FFA500;
+            transition: width 0.3s ease;
+        }
+        
+        .industry-btn:hover .industry-name::after {
+            width: 50%;
+        }le>
         * {
             margin: 0;
             padding: 0;
@@ -123,12 +158,14 @@
         }
         
         .industry-explorer {
-            background: rgba(255, 165, 0, 0.03);
-            border: 1px solid rgba(255, 165, 0, 0.15);
-            border-radius: 20px;
-            padding: 2.5rem;
-            margin: 3rem 0;
+            background: linear-gradient(135deg, rgba(255, 165, 0, 0.05) 0%, rgba(255, 111, 0, 0.08) 100%);
+            border: 1px solid rgba(255, 165, 0, 0.2);
+            border-radius: 24px;
+            padding: 3rem;
+            margin: 4rem 0;
             text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
         
         .explorer-title {
@@ -151,23 +188,37 @@
             margin: 2rem 0;
         }
         
-        .industry-btn {
-            background: rgba(255, 165, 0, 0.1);
-            border: 1px solid rgba(255, 165, 0, 0.3);
-            border-radius: 15px;
-            padding: 1.5rem 1rem;
+                .industry-btn {
+            background: rgba(255, 165, 0, 0.08);
+            border: 1px solid rgba(255, 165, 0, 0.25);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
             position: relative;
             overflow: hidden;
         }
         
         .industry-btn:hover {
-            background: rgba(255, 165, 0, 0.2);
-            border-color: rgba(255, 165, 0, 0.5);
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(255, 165, 0, 0.3);
+            background: rgba(255, 165, 0, 0.15);
+            border-color: #FFA500;
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(255, 165, 0, 0.15);
+        }
+        
+        .industry-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: 0.5s;
+        }
+        
+        .industry-btn:hover::before {
+            left: 100%;
         }
         
         .industry-btn.active {
@@ -414,23 +465,23 @@
             
             <div class="industry-grid">
                 <div class="industry-btn sound-enabled" onclick="showSolutions('restaurant'); playSound('select')">
-                    <span class="industry-icon">🍽️</span>
+                    <span class="industry-icon">�</span>
                     <div class="industry-name">Restaurant</div>
                 </div>
                 <div class="industry-btn sound-enabled" onclick="showSolutions('retail'); playSound('select')">
-                    <span class="industry-icon">🏪</span>
+                    <span class="industry-icon">🛍️</span>
                     <div class="industry-name">Retail</div>
                 </div>
                 <div class="industry-btn sound-enabled" onclick="showSolutions('automotive'); playSound('select')">
-                    <span class="industry-icon">🚗</span>
+                    <span class="industry-icon">�</span>
                     <div class="industry-name">Automotive</div>
                 </div>
                 <div class="industry-btn sound-enabled" onclick="showSolutions('healthcare'); playSound('select')">
-                    <span class="industry-icon">🏥</span>
+                    <span class="industry-icon">⚕️</span>
                     <div class="industry-name">Healthcare</div>
                 </div>
                 <div class="industry-btn sound-enabled" onclick="showSolutions('realestate'); playSound('select')">
-                    <span class="industry-icon">🏠</span>
+                    <span class="industry-icon">�️</span>
                     <div class="industry-name">Real Estate</div>
                 </div>
                 <div class="industry-btn sound-enabled" onclick="showSolutions('education'); playSound('select')">
