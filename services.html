@@ -3,43 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Implementation Services - FarghalX</ti        .industry-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
-            transform: scale(1);
-            transition: transform 0.3s ease;
-        }
-        
-        .industry-btn:hover .industry-icon {
-            transform: scale(1.2);
-        }
-        
-        .industry-name {
-            font-weight: 700;
-            color: #ffffff;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-        
-        .industry-name::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background: #FFA500;
-            transition: width 0.3s ease;
-        }
-        
-        .industry-btn:hover .industry-name::after {
-            width: 50%;
-        }le>
+    <title>AI Implementation Services - FarghalX</title>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -48,6 +13,72 @@
         
         body {
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background: #0a0a0a;
+            padding: 2rem;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            color: #FFA500;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-shadow: 0 0 20px rgba(255, 165, 0, 0.5);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: rgba(255, 165, 0, 0.05);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 165, 0, 0.2);
+            box-shadow: 0 4px 6px rgba(255, 165, 0, 0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 165, 0, 0.1);
+            border-color: #FFA500;
+            box-shadow: 0 10px 20px rgba(255, 165, 0, 0.2);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #FFA500;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #FFA500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .service-description {
+            color: rgba(255, 255, 255, 0.8);
+        }
             background: #0a0a0a;
             color: #ffffff;
             min-height: 100vh;
@@ -425,17 +456,17 @@
                 <h3 class="card-title">AI Strategy Consultation</h3>
             </div>
             <p class="card-description">
-                One-on-one sessions to identify AI opportunities in your business. We'll analyze your processes and create a roadmap for AI implementation that actually works in the real world.
+                Business process audit + AI opportunity identification + ROI roadmap
             </p>
         </div>
 
         <div class="service-card sound-enabled" onclick="playSound('click')">
             <div class="card-header">
-                <span class="card-icon">🔧</span>
-                <h3 class="card-title">AI Implementation Guidance</h3>
+                <span class="card-icon">⚡</span>
+                <h3 class="card-title">AI Implementation Services</h3>
             </div>
             <p class="card-description">
-                Step-by-step guidance on implementing AI solutions. Learn what tools to use, how to set them up, and what to expect. Based on real experience, not theory.
+                WhatsApp automation + Lead qualification + CRM integration + Custom dashboards
             </p>
         </div>
 
@@ -445,17 +476,17 @@
                 <h3 class="card-title">AI Performance Analysis</h3>
             </div>
             <p class="card-description">
-                Analyze your existing AI implementations. What's working, what's not, and how to optimize for better results. Data-driven insights from someone building in public.
+                System optimization + Performance monitoring + Scaling recommendations
             </p>
         </div>
 
         <div class="service-card sound-enabled" onclick="playSound('click')">
             <div class="card-header">
-                <span class="card-icon">🎓</span>
+                <span class="card-icon">📚</span>
                 <h3 class="card-title">AI Training & Education</h3>
             </div>
             <p class="card-description">
-                Learn AI implementation from someone who's documenting every success and failure. Practical training based on real-world experience, not academic theory.
+                Team training + Documentation + Knowledge transfer + Ongoing support
             </p>
         </div>
 
