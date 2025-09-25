@@ -8,7 +8,39 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script async src="https://tally.so/widgets/embed.js"></script>
+    <script>
+      window.addEventListener('load', function() {
+        Tally.loadEmbeds();
+      });
+    </script>
+    <script async src="https://tally.so/widgets/embed.js"></script>
     <style>
+        .tally-popup-btn {
+            background: linear-gradient(135deg, var(--orange) 0%, var(--neon-yellow) 100%);
+            color: var(--black);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(255, 111, 0, 0.3);
+        }
+
+        .tally-popup-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 111, 0, 0.4);
+        }
+
+        .tally-popup-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(255, 111, 0, 0.3);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -48,6 +80,34 @@
                     0deg,
                     transparent,
                     transparent 2px,
+
+        /* Tally Button Styles */
+        .tally-button {
+            background: linear-gradient(135deg, var(--orange) 0%, var(--neon-yellow) 100%);
+            color: var(--black);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(255, 111, 0, 0.3);
+        }
+
+        .tally-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 111, 0, 0.4);
+        }
+
+        .tally-button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(255, 111, 0, 0.3);
+        },
                     rgba(255, 255, 255, 0.01) 2px,
                     rgba(255, 255, 255, 0.01) 4px
                 );
@@ -618,14 +678,21 @@
         <div class="header-content">
             <div class="logo">FARGHAL X</div>
             <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-            <nav class="nav-links">
+                        <nav class="nav-links">
                 <a href="#" class="nav-link">Home</a>
                 <a href="about.html" class="nav-link">About</a>
                 <a href="services.html" class="nav-link">Services</a>
                 <a href="blog.html" class="nav-link">Blog</a>
                 <a href="prompts.html" class="nav-link">Prompts</a>
-                <a href="vault.html" class="nav-link">Free Vault</a>
-                <a href="consulting.html" class="nav-link">Consulting</a>
+                <button
+                    class="tally-popup-btn ml-4"
+                    data-tally-open="mORN7A"
+                    data-tally-width="400"
+                    data-tally-emoji-text="👋"
+                    data-tally-emoji-animation="wave"
+                >
+                    Contact Us
+                </button>
             </nav>
         </div>
     </div>
