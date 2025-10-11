@@ -414,22 +414,193 @@
             border: 1px solid rgba(255, 165, 0, 0.2);
         }
         
+        /* Header Mobile Styles */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #FFA500;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            border-left: 1px solid rgba(255, 165, 0, 0.3);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 80px 30px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu .nav-link {
+            font-size: 18px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 165, 0, 0.1);
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #FFA500;
+        }
+
+        .header-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 165, 0, 0.2);
+            z-index: 1000;
+            padding: 15px 30px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Orbitron', monospace;
+            font-size: 24px;
+            font-weight: 900;
+            color: #FFA500;
+            text-shadow: 0 0 20px rgba(255, 165, 0, 0.5);
+            text-decoration: none;
+        }
+
         @media (max-width: 768px) {
             .main-title {
                 font-size: 2.5rem;
             }
-            
+
             .container {
                 padding: 1rem;
+                margin-top: 80px;
             }
-            
+
             .industry-grid {
                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
-            
+
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .header-nav {
+                padding: 12px 20px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+            }
+
+            .card-title {
+                font-size: 1.2rem;
+            }
+
+            .industry-explorer {
+                padding: 2rem;
+            }
+
+            .explorer-title {
+                font-size: 1.5rem;
+            }
+
+            .industry-btn {
+                padding: 1.5rem;
+            }
+
+            .industry-icon {
+                font-size: 2rem;
+            }
+
+            .cta-section {
+                padding: 2rem 1rem;
+            }
+
+            .cta-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0.5rem;
+            }
+
+            .service-card {
+                padding: 1rem;
+            }
+
+            .industry-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+            }
+
+            .industry-btn {
+                padding: 1rem;
+            }
+
+            .industry-icon {
+                font-size: 1.5rem;
+            }
+
+            .industry-name {
+                font-size: 0.8rem;
+            }
+
+            .cta-btn {
+                width: 100%;
+                justify-content: center;
             }
         }
         
@@ -441,7 +612,33 @@
 </head>
 <body>
     <div class="background-pattern"></div>
-    
+
+    <!-- Header -->
+    <div class="header-nav">
+        <div class="header-content">
+            <a href="index.html" class="logo">FARGHAL X</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link" style="color: #FFA500;">Services</a>
+                <a href="portfolio.html" class="nav-link">Portfolio</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="prompts.html" class="nav-link">Prompts</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="portfolio.html" class="nav-link">Portfolio</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="prompts.html" class="nav-link">Prompts</a>
+    </div>
+
     <div class="container">
         <div class="header">
             <div class="pulse-indicator"></div>
@@ -918,6 +1115,26 @@
             
             container.innerHTML = html;
             container.classList.add('show');
+        }
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                playSound('click');
+                mobileMenu.classList.toggle('active');
+                mobileMenuBtn.textContent = mobileMenu.classList.contains('active') ? '✕' : '☰';
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && e.target !== mobileMenuBtn) {
+                    mobileMenu.classList.remove('active');
+                    mobileMenuBtn.textContent = '☰';
+                }
+            });
         }
 
         // Add sound effects to existing elements

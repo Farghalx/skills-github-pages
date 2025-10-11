@@ -194,13 +194,133 @@
             transform: scale(1.02);
         }
 
+        /* Mobile Menu Styles */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--off-white);
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            border-left: 1px solid rgba(255, 111, 0, 0.3);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 80px 30px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu .nav-link {
+            font-size: 18px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
         @media (max-width: 768px) {
+            .header {
+                padding: 12px 20px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .header nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .container {
+                padding: 1rem;
+                margin: 5rem auto 2rem;
+            }
+
             .blog-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
-            
+
             .blog-content.expanded {
                 grid-column: span 1;
+            }
+
+            .blog-title {
+                font-size: 1.5rem;
+            }
+
+            .blog-content {
+                padding: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .preview-tags {
+                flex-wrap: wrap;
+            }
+
+            .preview-tag {
+                font-size: 0.7rem;
+                padding: 0.1rem 0.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0.5rem;
+            }
+
+            .blog-content {
+                padding: 1rem;
+            }
+
+            .blog-title {
+                font-size: 1.2rem;
+                padding-right: 25px;
+            }
+
+            .blog-title::after {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 1rem;
+            }
+
+            .highlight-box {
+                padding: 1rem;
+            }
+
+            .tip-list li {
+                padding-left: 1rem;
+                font-size: 0.9rem;
             }
         }
 
@@ -257,15 +377,27 @@
     <header class="header">
         <div class="flex justify-between items-center max-w-6xl mx-auto">
             <a href="index.html" class="logo">FARGHAL X</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
             <nav>
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="about.html" class="nav-link">About</a>
                 <a href="services.html" class="nav-link">Services</a>
+                <a href="portfolio.html" class="nav-link">Portfolio</a>
                 <a href="blog.html" class="nav-link">Blog</a>
                 <a href="prompts.html" class="nav-link">Prompts</a>
             </nav>
         </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="portfolio.html" class="nav-link">Portfolio</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="prompts.html" class="nav-link">Prompts</a>
+    </div>
 
     <div class="container">
         <div class="blog-grid">
@@ -441,6 +573,25 @@
     </div>
 
     <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+                mobileMenuBtn.textContent = mobileMenu.classList.contains('active') ? '✕' : '☰';
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && e.target !== mobileMenuBtn) {
+                    mobileMenu.classList.remove('active');
+                    mobileMenuBtn.textContent = '☰';
+                }
+            });
+        }
+
         // Blog expansion functionality
         function toggleExpand(element) {
             // Add animation class

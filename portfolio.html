@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Systems I've Built | Farghal X</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --dark-grey: #0a0a0a;
+            --orange: #FF6F00;
+            --neon-yellow: #FFC200;
+            --warm-taupe: #B8A28C;
+            --off-white: #F5F5F5;
+            --telegram-blue: #0088cc;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #1a1a1a 100%);
+            color: var(--off-white);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Background texture */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(255, 111, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 194, 0, 0.08) 0%, transparent 50%),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255, 255, 255, 0.01) 2px,
+                    rgba(255, 255, 255, 0.01) 4px
+                );
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 111, 0, 0.2);
+            z-index: 1000;
+            padding: 15px 30px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Orbitron', monospace;
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--neon-yellow);
+            text-shadow: 0 0 20px rgba(255, 194, 0, 0.5);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--off-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--orange);
+            text-shadow: 0 0 10px rgba(255, 111, 0, 0.5);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding-top: 120px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-bottom: 60px;
+        }
+
+        .page-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--neon-yellow), var(--orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(255, 194, 0, 0.5);
+        }
+
+        .page-subtitle {
+            text-align: center;
+            color: var(--warm-taupe);
+            font-size: 18px;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Project Cards */
+        .projects-grid {
+            display: grid;
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 111, 0, 0.3);
+            border-radius: 25px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--orange);
+            box-shadow: 0 25px 50px rgba(255, 111, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .project-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--neon-yellow);
+            margin-bottom: 10px;
+        }
+
+        .project-type {
+            color: var(--orange);
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            text-align: right;
+        }
+
+        .stat-item {
+            background: rgba(255, 111, 0, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--orange);
+            border: 1px solid rgba(255, 111, 0, 0.3);
+        }
+
+        .project-section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-weight: 700;
+            color: var(--orange);
+            font-size: 16px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-content {
+            color: var(--off-white);
+            line-height: 1.6;
+        }
+
+        .section-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .section-content li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+        }
+
+        .section-content li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--orange);
+            font-weight: bold;
+        }
+
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .tool-tag {
+            background: rgba(255, 194, 0, 0.1);
+            color: var(--neon-yellow);
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid rgba(255, 194, 0, 0.3);
+        }
+
+        .project-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .action-btn {
+            background: linear-gradient(135deg, var(--orange) 0%, var(--neon-yellow) 100%);
+            color: var(--black);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(255, 111, 0, 0.3);
+            font-size: 14px;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 111, 0, 0.4);
+        }
+
+        .action-btn.secondary {
+            background: transparent;
+            color: var(--orange);
+            border: 2px solid var(--orange);
+            box-shadow: none;
+        }
+
+        .action-btn.secondary:hover {
+            background: var(--orange);
+            color: var(--black);
+        }
+
+        /* Upcoming Systems Section */
+        .upcoming-section {
+            background: linear-gradient(135deg, rgba(255, 194, 0, 0.05) 0%, rgba(255, 111, 0, 0.02) 100%);
+            border: 2px solid rgba(255, 194, 0, 0.3);
+            border-radius: 25px;
+            padding: 40px;
+            margin-top: 60px;
+        }
+
+        .upcoming-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--neon-yellow);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .upcoming-subtitle {
+            text-align: center;
+            color: var(--warm-taupe);
+            margin-bottom: 40px;
+        }
+
+        .upcoming-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .upcoming-item {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 194, 0, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .upcoming-item:hover {
+            border-color: var(--neon-yellow);
+            box-shadow: 0 10px 30px rgba(255, 194, 0, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .upcoming-item h3 {
+            color: var(--neon-yellow);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .upcoming-item p {
+            color: var(--warm-taupe);
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                padding: 12px 20px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .main-content {
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-top: 100px;
+            }
+
+            .page-title {
+                font-size: 36px;
+            }
+
+            .project-card {
+                padding: 25px;
+            }
+
+            .project-header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .project-stats {
+                text-align: left;
+            }
+
+            .project-actions {
+                flex-direction: column;
+            }
+
+            .upcoming-section {
+                padding: 25px;
+            }
+
+            .upcoming-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">FARGHAL X</a>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="portfolio.html" class="nav-link" style="color: var(--orange);">Portfolio</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1 class="page-title">SYSTEMS I'VE BUILT</h1>
+        <p class="page-subtitle">Detailed showcase of AI automation systems that transformed businesses and saved thousands in operational costs</p>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+            <!-- Project 1: Car Dealership -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <h2 class="project-title">AI Sales Research Agent</h2>
+                        <div class="project-type">B2B Sales Automation</div>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat-item">70% Faster</div>
+                        <div class="stat-item">3x More Calls</div>
+                        <div class="stat-item">35% More Meetings</div>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <div class="section-title">Problem</div>
+                    <div class="section-content">
+                        Sales teams waste hours researching clients manually. B2B SaaS company's 5-person sales team spent 2-3 hours per prospect researching company websites, LinkedIn profiles, and recent news. This limited them to only 3-4 personalized calls per day with generic pitches having low conversion rates.
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <div class="section-title">Solution</div>
+                    <div class="section-content">
+                        Built an AI agent that summarizes LinkedIn + website insights in seconds:
+                        <ul>
+                            <li>Scrapes and analyzes target company's website automatically</li>
+                            <li>Extracts prospect's LinkedIn profile data and recent activity</li>
+                            <li>Generates consolidated "pre-call report" with company overview and conversation hooks</li>
+                            <li>Suggests personalized opening lines for outreach</li>
+                            <li>Delivers insights in under 10 minutes vs 2-3 hours</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <div class="section-title">Results</div>
+                    <div class="section-content">
+                        <ul>
+                            <li>Sales prep time: 2-3 hours → 20 minutes (70% reduction)</li>
+                            <li>Calls per rep per day: 3-4 → 10-12 personalized calls</li>
+                            <li>Call effectiveness: 35% increase in booked meetings</li>
+                            <li>Team productivity: 5 reps now doing work of 15 in terms of volume</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <div class="section-title">Tools Used</div>
+                    <div class="tools-list">
+                        <span class="tool-tag">Refelence AI</span>
+                        <span class="tool-tag">ChatGPT</span>
+                        <span class="tool-tag">Notion API</span>
+                        <span class="tool-tag">Custom Prompts</span>
+                    </div>
+                </div>
+
+                <div class="project-actions">
+                    <a href="#" class="action-btn">See Full Workflow</a>
+                    <a href="#" class="action-btn secondary">Try Demo</a>
+                </div>
+            </div>
+
+            <!-- Project 2: WhatsApp CRM -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <h2 class="project-title">WhatsApp CRM System</h2>
+                        <div class="project-type">Lead Automation</div>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat-item">RM2,400/Month Saved</div>
+                        <div class="stat-item">65% Faster Response</div>
+                        <div class="stat-item">24/7 Coverage</div>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <div class="section-title">Problem</div>
+                    <div class="section-content">
+                        Car dealership overwhelmed with 80+ daily WhatsApp inquiries asking repetitive questions about availability, pricing, and test drives. Manual responses consumed 6 hours daily (RM2,400/month in wasted labor) with 4+ hour response times causing lost leads to competitors.
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <div class="section-title">Solution</div>
+                    <div class="section-content">
+                        Designed end-to-end WhatsApp CRM automation:
+                        <ul>
+                            <li>AI recognizes inquiry intent (buy interest vs browsing vs booking)</li>
+                            <li>Calculates loan options automatically based on car price and budget</li>
+                            <li>Checks live inventory status from Airtable database</li>
+                            <li>Books test drives directly into Google Calendar</li>
+                            <li>Sends instant responses 24/7 with personalized recommendations</li>
+                            <li>Alerts sales team only for hot leads</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <div class="section-title">Results</div>
+                    <div class="section-content">
+                        <ul>
+                            <li>Response time: 4 hours → 15 minutes (65% reduction)</li>
+                            <li>Labor cost saved: RM2,400/month</li>
+                            <li>Sales team productivity: 80% time closing vs 20% answering FAQs</li>
+                            <li>12 qualified leads captured overnight (previously lost)</li>
+                            <li>System ROI: Paid for itself in 11 days</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <div class="section-title">Tools Used</div>
+                    <div class="tools-list">
+                        <span class="tool-tag">n8n</span>
+                        <span class="tool-tag">Airtable</span>
+                        <span class="tool-tag">Telegram Bot API</span>
+                        <span class="tool-tag">OpenAI GPT-4</span>
+                        <span class="tool-tag">Google Calendar</span>
+                    </div>
+                </div>
+
+                <div class="project-actions">
+                    <a href="#" class="action-btn">See Full Workflow</a>
+                    <a href="#" class="action-btn secondary">Request Quote</a>
+                </div>
+            </div>
+
+            <!-- Project 3: Inventory System -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <h2 class="project-title">Balqiso Trade Inventory Tracker</h2>
+                        <div class="project-type">Business Intelligence</div>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat-item">RM3,200/Month Saved</div>
+                        <div class="stat-item">80% Less Admin</div>
+                        <div class="stat-item">30% Better Turnover</div>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <div class="section-title">Problem</div>
+                    <div class="section-content">
+                        Wholesale clothing business owner spent 15 hours/week manually tracking inventory across 3 supplier spreadsheets and disconnected sales records. This led to frequent stockouts (RM5K+ monthly losses), over-ordering (RM8K+ tied up), and no real-time profit visibility.
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <div class="section-title">Solution</div>
+                    <div class="section-content">
+                        Created all-in-one Google Sheets system with automated intelligence:
+                        <ul>
+                            <li>Centralized dashboard with live stock levels for 100+ SKUs</li>
+                            <li>Automatic profit calculations with real-time margin tracking</li>
+                            <li>Automated reorder alerts when stock hits minimum threshold</li>
+                            <li>Supplier integration with costs, payment terms, and contacts</li>
+                            <li>Sales analytics with trend charts and performance insights</li>
+                            <li>Financial overview with inventory value and cash flow</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <div class="section-title">Results</div>
+                    <div class="section-content">
+                        <ul>
+                            <li>Admin time: 15 hours/week → 3 hours/week (80% reduction)</li>
+                            <li>Value of owner's time saved: RM3,200/month</li>
+                            <li>Stockout incidents: Reduced by 85% (automated alerts)</li>
+                            <li>Inventory turnover: Improved by 30% (data-driven purchasing)</li>
+                            <li>Real-time profitability insight (previously impossible)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <div class="section-title">Tools Used</div>
+                    <div class="tools-list">
+                        <span class="tool-tag">Google Sheets</span>
+                        <span class="tool-tag">Apps Script</span>
+                        <span class="tool-tag">Conditional Formatting</span>
+                        <span class="tool-tag">Data Validation</span>
+                    </div>
+                </div>
+
+                <div class="project-actions">
+                    <a href="#" class="action-btn">See Full Workflow</a>
+                    <a href="#" class="action-btn secondary">Get Template</a>
+                </div>
+            </div>
+
+            <!-- Project 4: AI Prompt Library -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div>
+                        <h2 class="project-title">AI Prompt Library</h2>
+                        <div class="project-type">Digital Product</div>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat-item">140+ Prompts</div>
+                        <div class="stat-item">1000+ Users</div>
+                        <div class="stat-item">RM7K Revenue</div>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <div class="section-title">Problem</div>
+                    <div class="section-content">
+                        Solopreneurs and freelancers struggle with creating effective AI prompts for marketing, branding, and business automation. They waste time with trial-and-error approaches and get inconsistent results from AI tools.
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <div class="section-title">Solution</div>
+                    <div class="section-content">
+                        Created comprehensive AI prompt packs with business toolkits:
+                        <ul>
+                            <li>140+ tested and optimized prompts for various business functions</li>
+                            <li>Marketing automation prompts for social media and content</li>
+                            <li>Branding prompts for positioning and messaging</li>
+                            <li>Business strategy prompts for planning and analysis</li>
+                            <li>Implementation templates and step-by-step guides</li>
+                            <li>Regular updates with new prompts and use cases</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <div class="section-title">Results</div>
+                    <div class="section-content">
+                        <ul>
+                            <li>1000+ users across social platforms</li>
+                            <li>RM7K revenue from digital products in 2024</li>
+                            <li>Used by solopreneurs and freelancers globally</li>
+                            <li>Positive feedback on time-saving and effectiveness</li>
+                            <li>Established authority in AI business automation space</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <div class="section-title">Tools Used</div>
+                    <div class="tools-list">
+                        <span class="tool-tag">ChatGPT</span>
+                        <span class="tool-tag">Claude</span>
+                        <span class="tool-tag">Gemini</span>
+                        <span class="tool-tag">Content Strategy</span>
+                        <span class="tool-tag">Digital Marketing</span>
+                    </div>
+                </div>
+
+                <div class="project-actions">
+                    <a href="prompts.html" class="action-btn">View Library</a>
+                    <a href="#" class="action-btn secondary">Download Free Pack</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upcoming Systems Section -->
+        <div class="upcoming-section">
+            <h2 class="upcoming-title">🔥 UPCOMING SYSTEMS</h2>
+            <p class="upcoming-subtitle">Next experiments and innovations in AI business automation</p>
+
+            <div class="upcoming-grid">
+                <div class="upcoming-item">
+                    <h3>AI Proposal Writer</h3>
+                    <p>Automated proposal generation for service businesses using client data and past successful proposals</p>
+                </div>
+
+                <div class="upcoming-item">
+                    <h3>Client Qualification Bot</h3>
+                    <p>WhatsApp bot that pre-qualifies leads before they reach sales team, scoring based on budget and needs</p>
+                </div>
+
+                <div class="upcoming-item">
+                    <h3>Social Media Autopilot</h3>
+                    <p>AI-powered content creation and scheduling system that maintains brand voice across platforms</p>
+                </div>
+
+                <div class="upcoming-item">
+                    <h3>Invoice & Payment Tracker</h3>
+                    <p>Automated invoicing system with payment reminders and cash flow forecasting for freelancers</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple hover effects and interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectCards = document.querySelectorAll('.project-card');
+
+            projectCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
