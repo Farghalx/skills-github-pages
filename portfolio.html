@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="smooothy-slider.js"></script>
     <style>
         * {
             margin: 0;
@@ -402,6 +403,143 @@
                 font-size: 24px;
             }
         }
+
+        /* Slider Styles */
+        .slider-container {
+            margin-bottom: 80px;
+            overflow: hidden;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .slider-viewport {
+            overflow: hidden;
+            border-radius: 25px;
+            border: 2px solid rgba(255, 111, 0, 0.3);
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%);
+        }
+
+        .slider-item {
+            padding: 40px;
+            min-height: 500px;
+        }
+
+        .slider-item[data-slide-content] {
+            opacity: 0.5;
+            transition: opacity 0.5s ease;
+        }
+
+        .slider-item[data-slide-content].active {
+            opacity: 1;
+        }
+
+        .slider-interface {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .slider-arrows {
+            display: flex;
+            gap: 15px;
+        }
+
+        .slider-arrow {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--neon-yellow) 100%);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: var(--black);
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(255, 111, 0, 0.3);
+        }
+
+        .slider-arrow:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(255, 111, 0, 0.4);
+        }
+
+        .slider-arrow:active {
+            transform: scale(0.95);
+        }
+
+        .slider-dots {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .slider-dot-wrapper {
+            cursor: pointer;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 111, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active-dot {
+            background: var(--orange);
+            box-shadow: 0 0 10px rgba(255, 111, 0, 0.5);
+            width: 40px;
+            border-radius: 6px;
+        }
+
+        .slider-dot-wrapper:hover .slider-dot {
+            background: var(--orange);
+            opacity: 0.7;
+        }
+
+        .slider-instructions {
+            text-align: center;
+            color: var(--warm-taupe);
+            font-size: 14px;
+            margin-top: 20px;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .slider-item {
+                padding: 25px;
+                min-height: auto;
+            }
+
+            .slider-interface {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .slider-arrows {
+                order: 2;
+            }
+
+            .slider-dots {
+                order: 1;
+            }
+
+            .slider-instructions {
+                font-size: 12px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -423,6 +561,199 @@
     <div class="main-content">
         <h1 class="page-title">SYSTEMS I'VE BUILT</h1>
         <p class="page-subtitle">Detailed showcase of AI automation systems that transformed businesses and saved thousands in operational costs</p>
+
+        <!-- Featured Projects Slider -->
+        <div class="slider-container" id="projectSlider">
+            <div class="slider-wrapper">
+                <div class="slider-viewport">
+                    <div data-slider>
+                        <!-- Slide 1: AI Sales Research Agent -->
+                        <div class="slider-item">
+                            <div data-slide-content>
+                                <div class="project-header">
+                                    <div>
+                                        <h2 class="project-title">AI Sales Research Agent</h2>
+                                        <div class="project-type">B2B Sales Automation</div>
+                                    </div>
+                                    <div class="project-stats">
+                                        <div class="stat-item">70% Faster</div>
+                                        <div class="stat-item">3x More Calls</div>
+                                        <div class="stat-item">35% More Meetings</div>
+                                    </div>
+                                </div>
+
+                                <div class="project-section">
+                                    <div class="section-title">Problem</div>
+                                    <div class="section-content">
+                                        Sales teams waste hours researching clients manually. B2B SaaS company's 5-person sales team spent 2-3 hours per prospect researching company websites, LinkedIn profiles, and recent news.
+                                    </div>
+                                </div>
+
+                                <div class="project-section">
+                                    <div class="section-title">Solution</div>
+                                    <div class="section-content">
+                                        Built an AI agent that summarizes LinkedIn + website insights in seconds with automated scraping, profile extraction, and personalized opening lines.
+                                    </div>
+                                </div>
+
+                                <div class="project-section">
+                                    <div class="section-title">Tools Used</div>
+                                    <div class="tools-list">
+                                        <span class="tool-tag">Refelence AI</span>
+                                        <span class="tool-tag">ChatGPT</span>
+                                        <span class="tool-tag">Notion API</span>
+                                        <span class="tool-tag">Custom Prompts</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2: WhatsApp CRM -->
+                        <div class="slider-item">
+                            <div data-slide-content>
+                                <div class="project-header">
+                                    <div>
+                                        <h2 class="project-title">WhatsApp CRM System</h2>
+                                        <div class="project-type">Lead Automation</div>
+                                    </div>
+                                    <div class="project-stats">
+                                        <div class="stat-item">RM2,400/Month Saved</div>
+                                        <div class="stat-item">65% Faster Response</div>
+                                        <div class="stat-item">24/7 Coverage</div>
+                                    </div>
+                                </div>
+
+                                <div class="project-section">
+                                    <div class="section-title">Problem</div>
+                                    <div class="section-content">
+                                        Car dealership overwhelmed with 80+ daily WhatsApp inquiries asking repetitive questions about availability, pricing, and test drives. 4+ hour response times caused lost leads.
+                                    </div>
+                                </div>
+
+                                <div class="project-section">
+                                    <div class="section-title">Solution</div>
+                                    <div class="section-content">
+                                        Designed end-to-end WhatsApp CRM automation with AI intent recognition, automatic loan calculations, live inventory checks, and 24/7 instant responses.
+                                    </div>
+                                </div>
+
+                                <div class="project-section">
+                                    <div class="section-title">Tools Used</div>
+                                    <div class="tools-list">
+                                        <span class="tool-tag">n8n</span>
+                                        <span class="tool-tag">Airtable</span>
+                                        <span class="tool-tag">Telegram Bot API</span>
+                                        <span class="tool-tag">OpenAI GPT-4</span>
+                                        <span class="tool-tag">Google Calendar</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3: Inventory Tracker -->
+                        <div class="slider-item">
+                            <div data-slide-content>
+                                <div class="project-header">
+                                    <div>
+                                        <h2 class="project-title">Balqiso Trade Inventory Tracker</h2>
+                                        <div class="project-type">Business Intelligence</div>
+                                    </div>
+                                    <div class="project-stats">
+                                        <div class="stat-item">RM3,200/Month Saved</div>
+                                        <div class="stat-item">80% Less Admin</div>
+                                        <div class="stat-item">30% Better Turnover</div>
+                                    </div>
+                                </div>
+
+                                <div class="project-section">
+                                    <div class="section-title">Problem</div>
+                                    <div class="section-content">
+                                        Wholesale clothing business owner spent 15 hours/week manually tracking inventory across 3 supplier spreadsheets, leading to frequent stockouts and over-ordering.
+                                    </div>
+                                </div>
+
+                                <div class="project-section">
+                                    <div class="section-title">Solution</div>
+                                    <div class="section-content">
+                                        Created all-in-one Google Sheets system with centralized dashboard, automatic profit calculations, reorder alerts, and real-time analytics.
+                                    </div>
+                                </div>
+
+                                <div class="project-section">
+                                    <div class="section-title">Tools Used</div>
+                                    <div class="tools-list">
+                                        <span class="tool-tag">Google Sheets</span>
+                                        <span class="tool-tag">Apps Script</span>
+                                        <span class="tool-tag">Conditional Formatting</span>
+                                        <span class="tool-tag">Data Validation</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4: AI Prompt Library -->
+                        <div class="slider-item">
+                            <div data-slide-content>
+                                <div class="project-header">
+                                    <div>
+                                        <h2 class="project-title">AI Prompt Library</h2>
+                                        <div class="project-type">Digital Product</div>
+                                    </div>
+                                    <div class="project-stats">
+                                        <div class="stat-item">140+ Prompts</div>
+                                        <div class="stat-item">1000+ Users</div>
+                                        <div class="stat-item">RM7K Revenue</div>
+                                    </div>
+                                </div>
+
+                                <div class="project-section">
+                                    <div class="section-title">Problem</div>
+                                    <div class="section-content">
+                                        Solopreneurs and freelancers struggle with creating effective AI prompts for marketing, branding, and business automation, wasting time with trial-and-error approaches.
+                                    </div>
+                                </div>
+
+                                <div class="project-section">
+                                    <div class="section-title">Solution</div>
+                                    <div class="section-content">
+                                        Created comprehensive AI prompt packs with 140+ tested prompts, marketing automation templates, branding guides, and business strategy tools.
+                                    </div>
+                                </div>
+
+                                <div class="project-section">
+                                    <div class="section-title">Tools Used</div>
+                                    <div class="tools-list">
+                                        <span class="tool-tag">ChatGPT</span>
+                                        <span class="tool-tag">Claude</span>
+                                        <span class="tool-tag">Gemini</span>
+                                        <span class="tool-tag">Content Strategy</span>
+                                        <span class="tool-tag">Digital Marketing</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slider Controls -->
+                <div class="slider-interface" data-interface>
+                    <div class="slider-arrows" data-arrows>
+                        <button class="slider-arrow" aria-label="Previous slide">←</button>
+                        <button class="slider-arrow" aria-label="Next slide">→</button>
+                    </div>
+                    <div class="slider-dots" data-dots>
+                        <div class="slider-dot-wrapper"><div class="slider-dot" data-dot></div></div>
+                        <div class="slider-dot-wrapper"><div class="slider-dot" data-dot></div></div>
+                        <div class="slider-dot-wrapper"><div class="slider-dot" data-dot></div></div>
+                        <div class="slider-dot-wrapper"><div class="slider-dot" data-dot></div></div>
+                    </div>
+                </div>
+
+                <p class="slider-instructions">
+                    Use arrow keys or swipe to navigate • Press numbers 0-4 to jump to slides • Spacebar for next
+                </p>
+            </div>
+        </div>
 
         <!-- Projects Grid -->
         <div class="projects-grid">
@@ -730,6 +1061,19 @@
                     this.style.transform = 'translateY(0) scale(1)';
                 });
             });
+
+            // Initialize the Smooothy Slider
+            const sliderContainer = document.getElementById('projectSlider');
+            if (sliderContainer && window.SmooothySlider) {
+                const slider = new SmooothySlider(sliderContainer, {
+                    infinite: true,
+                    draggable: true,
+                    friction: 0.15,
+                    threshold: 50
+                });
+
+                console.log('Portfolio slider initialized successfully!');
+            }
         });
     </script>
 </body>

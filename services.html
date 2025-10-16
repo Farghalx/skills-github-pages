@@ -193,140 +193,244 @@
             border-radius: 24px;
             padding: 3rem;
             margin: 4rem 0;
-            text-align: center;
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
-        
+
         .explorer-title {
             font-size: 2rem;
             color: #FFA500;
             margin-bottom: 1rem;
+            text-align: center;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
-        
+
         .explorer-subtitle {
             color: rgba(255, 255, 255, 0.7);
             margin-bottom: 2rem;
+            text-align: center;
         }
-        
-        .industry-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        
-                .industry-btn {
-            background: rgba(255, 165, 0, 0.08);
-            border: 1px solid rgba(255, 165, 0, 0.25);
+
+        /* Chat Interface Styles */
+        .chat-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.4);
             border-radius: 20px;
-            padding: 2rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .industry-btn:hover {
-            background: rgba(255, 165, 0, 0.15);
-            border-color: #FFA500;
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(255, 165, 0, 0.15);
-        }
-        
-        .industry-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: 0.5s;
-        }
-        
-        .industry-btn:hover::before {
-            left: 100%;
-        }
-        
-        .industry-btn.active {
-            background: rgba(255, 165, 0, 0.3);
-            border-color: #FFA500;
-            box-shadow: 0 0 20px rgba(255, 165, 0, 0.4);
-        }
-        
-        .industry-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-        
-        .industry-name {
-            font-weight: 600;
-            color: #ffffff;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        
-        .solutions-container {
-            margin-top: 2rem;
-            display: none;
-        }
-        
-        .solutions-container.show {
-            display: block;
-            animation: slideUp 0.5s ease;
-        }
-        
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .solution-item {
-            background: rgba(255, 165, 0, 0.08);
-            border: 1px solid rgba(255, 165, 0, 0.2);
-            border-radius: 15px;
             padding: 1.5rem;
-            margin: 1rem 0;
-            border-left: 4px solid #FFA500;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
         }
-        
-        .solution-title {
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-height: 400px;
+            margin-bottom: 1rem;
+        }
+
+        .chat-messages::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: rgba(255, 165, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: rgba(255, 165, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 165, 0, 0.5);
+        }
+
+        .message {
+            display: flex;
+            gap: 0.75rem;
+            animation: messageSlideIn 0.3s ease;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes messageSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.user {
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .message.ai .message-avatar {
+            background: linear-gradient(135deg, #FFA500, #FF6F00);
+        }
+
+        .message.user .message-avatar {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 165, 0, 0.3);
+        }
+
+        .message-content {
+            max-width: 70%;
+            padding: 1rem 1.25rem;
+            border-radius: 20px;
+            line-height: 1.6;
+        }
+
+        .message.ai .message-content {
+            background: rgba(255, 165, 0, 0.1);
+            border: 1px solid rgba(255, 165, 0, 0.2);
+            border-bottom-left-radius: 5px;
+        }
+
+        .message.user .message-content {
+            background: rgba(255, 165, 0, 0.2);
+            border: 1px solid rgba(255, 165, 0, 0.3);
+            border-bottom-right-radius: 5px;
+            text-align: right;
+        }
+
+        .typing-indicator {
+            display: none;
+            gap: 0.3rem;
+            padding: 1rem 1.25rem;
+        }
+
+        .typing-indicator.show {
+            display: flex;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: #FFA500;
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+                opacity: 0.5;
+            }
+            30% {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
+        }
+
+        .chat-input-container {
+            display: flex;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: rgba(255, 165, 0, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 165, 0, 0.2);
+        }
+
+        .chat-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-size: 1rem;
+            padding: 0.75rem;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .chat-input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .chat-send-btn {
+            background: linear-gradient(135deg, #FFA500, #FF6F00);
+            border: none;
+            color: #000;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            cursor: pointer;
             font-weight: 600;
-            color: #FFA500;
-            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
-        
-        .solution-desc {
-            color: rgba(255, 255, 255, 0.8);
+
+        .chat-send-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 165, 0, 0.3);
+        }
+
+        .chat-send-btn:active {
+            transform: translateY(0);
+        }
+
+        .chat-send-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .quick-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
             margin-bottom: 1rem;
-            line-height: 1.5;
+            justify-content: center;
         }
-        
-        .solution-benefits {
-            list-style: none;
-        }
-        
-        .solution-benefits li {
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 0.3rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        
-        .solution-benefits li:before {
-            content: "▶";
+
+        .quick-option-btn {
+            background: rgba(255, 165, 0, 0.1);
+            border: 1px solid rgba(255, 165, 0, 0.3);
             color: #FFA500;
-            position: absolute;
-            left: 0;
-            font-size: 0.8rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        .quick-option-btn:hover {
+            background: rgba(255, 165, 0, 0.2);
+            border-color: #FFA500;
+            transform: translateY(-2px);
         }
         
         .cta-section {
@@ -696,65 +800,45 @@
 
         <div class="industry-explorer">
             <h2 class="explorer-title">
-                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-                </svg>
-                Explore AI by Industry
+                🤖 Explore AI by Industry
             </h2>
-            <p class="explorer-subtitle">Select your industry to discover specific AI implementations that are working for businesses like yours</p>
-            
-            <div class="industry-grid">
-                <div class="industry-btn sound-enabled" onclick="showSolutions('restaurant'); playSound('select')">
-                    <svg class="industry-icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8.1 13.34l2.83-2.83L3.91 3.5c-1.56 1.56-1.56 4.09 0 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z"/>
-                    </svg>
-                    <div class="industry-name">Restaurant</div>
+            <p class="explorer-subtitle">Type your industry below and discover how AI can transform your business</p>
+
+            <div class="chat-container">
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Initial AI message -->
+                    <div class="message ai">
+                        <div class="message-avatar">🤖</div>
+                        <div class="message-content">
+                            Hi! I'm your AI Industry Explorer. Tell me what industry you're in, and I'll show you specific AI solutions that are working for businesses like yours.
+                        </div>
+                    </div>
                 </div>
-                <div class="industry-btn sound-enabled" onclick="showSolutions('retail'); playSound('select')">
-                    <svg class="industry-icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
-                    </svg>
-                    <div class="industry-name">Retail</div>
+
+                <div class="quick-options" id="quickOptions">
+                    <button class="quick-option-btn" onclick="sendIndustry('Restaurant')">🍽️ Restaurant</button>
+                    <button class="quick-option-btn" onclick="sendIndustry('Retail')">🏪 Retail</button>
+                    <button class="quick-option-btn" onclick="sendIndustry('Automotive')">🚗 Automotive</button>
+                    <button class="quick-option-btn" onclick="sendIndustry('Healthcare')">🏥 Healthcare</button>
+                    <button class="quick-option-btn" onclick="sendIndustry('Real Estate')">🏠 Real Estate</button>
+                    <button class="quick-option-btn" onclick="sendIndustry('Education')">📚 Education</button>
+                    <button class="quick-option-btn" onclick="sendIndustry('Agency')">📈 Agency</button>
+                    <button class="quick-option-btn" onclick="sendIndustry('Professional Services')">💼 Professional</button>
                 </div>
-                <div class="industry-btn sound-enabled" onclick="showSolutions('automotive'); playSound('select')">
-                    <svg class="industry-icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
-                    </svg>
-                    <div class="industry-name">Automotive</div>
-                </div>
-                <div class="industry-btn sound-enabled" onclick="showSolutions('healthcare'); playSound('select')">
-                    <svg class="industry-icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-8.5 14h-3v-3h3v3zm0-4.5h-3v-3h3v3zm0-4.5h-3v-3h3v3zm4.5 9h-3v-3h3v3zm0-4.5h-3v-3h3v3zm0-4.5h-3v-3h3v3z"/>
-                    </svg>
-                    <div class="industry-name">Healthcare</div>
-                </div>
-                <div class="industry-btn sound-enabled" onclick="showSolutions('realestate'); playSound('select')">
-                    <svg class="industry-icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 3L4 9v12h5v-7h6v7h5V9l-8-6zm0 2.7l5 3.75V17h-2v-7H9v7H7v-7.55l5-3.75z"/>
-                    </svg>
-                    <div class="industry-name">Real Estate</div>
-                </div>
-                <div class="industry-btn sound-enabled" onclick="showSolutions('education'); playSound('select')">
-                    <svg class="industry-icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 3L1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
-                    </svg>
-                    <div class="industry-name">Education</div>
-                </div>
-                <div class="industry-btn sound-enabled" onclick="showSolutions('agency'); playSound('select')">
-                    <svg class="industry-icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/>
-                    </svg>
-                    <div class="industry-name">Agency</div>
-                </div>
-                <div class="industry-btn sound-enabled" onclick="showSolutions('professional'); playSound('select')">
-                    <svg class="industry-icon" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/>
-                    </svg>
-                    <div class="industry-name">Professional</div>
+
+                <div class="chat-input-container">
+                    <input
+                        type="text"
+                        class="chat-input"
+                        id="chatInput"
+                        placeholder="Type your industry (e.g., Restaurant, Retail, Healthcare...)"
+                        onkeypress="handleKeyPress(event)"
+                    >
+                    <button class="chat-send-btn" id="sendBtn" onclick="sendMessage()">
+                        Send
+                    </button>
                 </div>
             </div>
-
-            <div id="solutions-container" class="solutions-container"></div>
         </div>
 
         <div class="cta-section">
@@ -798,9 +882,13 @@
             audio.play().catch(e => console.log('Sound play failed:', e));
         }
 
+        // Chat functionality
+        let isTyping = false;
+
         const industryData = {
             restaurant: {
                 title: "🍽️ Restaurant & F&B AI Solutions",
+                intro: "Great choice! The restaurant industry is being transformed by AI. Here are the top AI solutions working for restaurants right now:",
                 solutions: [
                     {
                         title: "AI WhatsApp Ordering System",
@@ -836,6 +924,7 @@
             },
             retail: {
                 title: "🏪 Retail & E-commerce AI Solutions",
+                intro: "Excellent! Retail is one of the fastest-growing sectors for AI adoption. Here's how AI can revolutionize your retail business:",
                 solutions: [
                     {
                         title: "AI Customer Service Agent",
@@ -871,6 +960,7 @@
             },
             automotive: {
                 title: "🚗 Automotive Industry AI Solutions",
+                intro: "Perfect! The automotive industry is rapidly adopting AI to streamline sales and service. Here's what's working:",
                 solutions: [
                     {
                         title: "AI Sales Assistant",
@@ -906,6 +996,7 @@
             },
             healthcare: {
                 title: "🏥 Healthcare AI Solutions",
+                intro: "Healthcare is being revolutionized by AI! Here are the most effective AI solutions for healthcare providers:",
                 solutions: [
                     {
                         title: "AI Appointment Scheduler",
@@ -941,6 +1032,7 @@
             },
             realestate: {
                 title: "🏠 Real Estate AI Solutions",
+                intro: "Real estate agents are seeing massive efficiency gains with AI. Here are the top solutions:",
                 solutions: [
                     {
                         title: "AI Property Matcher",
@@ -976,6 +1068,7 @@
             },
             education: {
                 title: "📚 Education AI Solutions",
+                intro: "Education is being transformed by AI! Here's how schools and institutions are using AI successfully:",
                 solutions: [
                     {
                         title: "AI Student Support",
@@ -1011,6 +1104,7 @@
             },
             agency: {
                 title: "📈 Marketing Agency AI Solutions",
+                intro: "Marketing agencies are scaling faster than ever with AI. Here are the game-changing solutions:",
                 solutions: [
                     {
                         title: "AI Content Generator",
@@ -1046,6 +1140,7 @@
             },
             professional: {
                 title: "💼 Professional Services AI Solutions",
+                intro: "Professional service providers are automating their workflows with AI. Here's what's delivering ROI:",
                 solutions: [
                     {
                         title: "AI Client Intake",
@@ -1081,40 +1176,157 @@
             }
         };
 
-        function showSolutions(industry) {
-            // Remove active class from all buttons
-            document.querySelectorAll('.industry-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            // Add active class to clicked button
-            event.target.closest('.industry-btn').classList.add('active');
-            
-            // Get solutions container
-            const container = document.getElementById('solutions-container');
-            
-            // Generate HTML for solutions
-            const data = industryData[industry];
-            let html = `
-                <div class="solutions-title" style="color: #FFA500; font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center; text-transform: uppercase; letter-spacing: 0.05em;">
-                    ${data.title}
-                </div>
+        // Chat functions
+        function addUserMessage(text) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message user';
+            messageDiv.innerHTML = `
+                <div class="message-avatar">👤</div>
+                <div class="message-content">${text}</div>
             `;
-            
-            data.solutions.forEach(solution => {
-                html += `
-                    <div class="solution-item">
-                        <div class="solution-title">${solution.title}</div>
-                        <div class="solution-desc">${solution.description}</div>
-                        <ul class="solution-benefits">
-                            ${solution.benefits.map(benefit => `<li>${benefit}</li>`).join('')}
-                        </ul>
-                    </div>
-                `;
+            messagesContainer.appendChild(messageDiv);
+            scrollToBottom();
+            playSound('click');
+        }
+
+        function addAIMessage(text, callback) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message ai';
+            messageDiv.innerHTML = `
+                <div class="message-avatar">🤖</div>
+                <div class="message-content"></div>
+            `;
+            messagesContainer.appendChild(messageDiv);
+
+            const contentDiv = messageDiv.querySelector('.message-content');
+            typeText(contentDiv, text, callback);
+            scrollToBottom();
+        }
+
+        function typeText(element, text, callback) {
+            let index = 0;
+            isTyping = true;
+            const sendBtn = document.getElementById('sendBtn');
+            sendBtn.disabled = true;
+
+            function type() {
+                if (index < text.length) {
+                    element.textContent += text.charAt(index);
+                    index++;
+                    scrollToBottom();
+                    setTimeout(type, 20); // Typing speed
+                } else {
+                    isTyping = false;
+                    sendBtn.disabled = false;
+                    if (callback) callback();
+                }
+            }
+            type();
+        }
+
+        function scrollToBottom() {
+            const messagesContainer = document.getElementById('chatMessages');
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function findIndustryMatch(input) {
+            const normalized = input.toLowerCase().trim();
+
+            // Direct matches
+            const directMatches = {
+                'restaurant': 'restaurant',
+                'food': 'restaurant',
+                'cafe': 'restaurant',
+                'f&b': 'restaurant',
+                'retail': 'retail',
+                'shop': 'retail',
+                'ecommerce': 'retail',
+                'e-commerce': 'retail',
+                'store': 'retail',
+                'automotive': 'automotive',
+                'car': 'automotive',
+                'auto': 'automotive',
+                'vehicle': 'automotive',
+                'healthcare': 'healthcare',
+                'health': 'healthcare',
+                'medical': 'healthcare',
+                'clinic': 'healthcare',
+                'hospital': 'healthcare',
+                'real estate': 'realestate',
+                'realestate': 'realestate',
+                'property': 'realestate',
+                'education': 'education',
+                'school': 'education',
+                'university': 'education',
+                'learning': 'education',
+                'agency': 'agency',
+                'marketing': 'agency',
+                'advertising': 'agency',
+                'professional': 'professional',
+                'services': 'professional',
+                'consulting': 'professional'
+            };
+
+            return directMatches[normalized] || null;
+        }
+
+        function generateAIResponse(industry) {
+            const data = industryData[industry];
+            if (!data) {
+                return "I'm not sure about that industry yet. Could you try one of these: Restaurant, Retail, Automotive, Healthcare, Real Estate, Education, Agency, or Professional Services?";
+            }
+
+            let response = data.intro || `Here are AI solutions for ${data.title}:\n\n`;
+
+            data.solutions.forEach((solution, index) => {
+                response += `\n\n${index + 1}. **${solution.title}**\n${solution.description}\n\nKey Benefits:\n`;
+                solution.benefits.forEach(benefit => {
+                    response += `• ${benefit}\n`;
+                });
             });
-            
-            container.innerHTML = html;
-            container.classList.add('show');
+
+            response += `\n\nWant to learn more about implementing these solutions? Let's schedule a consultation!`;
+
+            return response;
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+
+            if (!message || isTyping) return;
+
+            addUserMessage(message);
+            input.value = '';
+
+            const industry = findIndustryMatch(message);
+
+            setTimeout(() => {
+                const response = generateAIResponse(industry);
+                addAIMessage(response);
+                playSound('select');
+            }, 500);
+        }
+
+        function sendIndustry(industryName) {
+            if (isTyping) return;
+
+            addUserMessage(industryName);
+            const industry = findIndustryMatch(industryName);
+
+            setTimeout(() => {
+                const response = generateAIResponse(industry);
+                addAIMessage(response);
+                playSound('select');
+            }, 500);
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
         }
 
         // Mobile menu toggle
