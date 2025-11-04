@@ -227,6 +227,313 @@
             margin-bottom: 20px;
         }
 
+        /* Hanging Badge Hero */
+        .badge-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: flex-start;
+            padding-top: 0px;
+            margin-top: -30px;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .badge-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        /* Contact Card */
+        .contact-card {
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 111, 0, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 111, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            margin-top: 60px;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 194, 0, 0.1), transparent);
+            animation: scanline 4s linear infinite;
+        }
+
+        .contact-card-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 28px;
+            color: var(--neon-yellow);
+            margin-bottom: 10px;
+            text-align: center;
+            text-shadow: 0 0 20px rgba(255, 194, 0, 0.5);
+        }
+
+        .contact-card-subtitle {
+            color: var(--warm-taupe);
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-method {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 111, 0, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--off-white);
+        }
+
+        .contact-method:hover {
+            background: rgba(255, 111, 0, 0.1);
+            border-color: var(--orange);
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(255, 111, 0, 0.3);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            color: var(--orange);
+            filter: drop-shadow(0 0 10px rgba(255, 111, 0, 0.5));
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-label {
+            font-family: 'Orbitron', monospace;
+            font-size: 16px;
+            color: var(--neon-yellow);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .contact-value {
+            font-size: 14px;
+            color: var(--warm-taupe);
+            word-break: break-all;
+        }
+
+        .contact-cta {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, var(--orange), var(--neon-yellow));
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 111, 0, 0.4);
+        }
+
+        .lanyard {
+            width: 14px;
+            height: 200px;
+            background: linear-gradient(180deg, var(--orange), #cc5500);
+            border-radius: 7px;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(255, 111, 0, 0.4);
+            margin-bottom: 0px;
+            margin-top: 0px;
+        }
+
+        .lanyard-clip {
+            display: none;
+        }
+
+        .badge-card {
+            width: 320px;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%);
+            border: 2px solid rgba(255, 111, 0, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 111, 0, 0.2);
+            position: relative;
+            transform-origin: top center;
+            animation: badgeSwing 4s ease-in-out infinite;
+            cursor: grab;
+            transition: cursor 0.2s ease;
+            margin-top: 0px;
+        }
+
+        .badge-card:active {
+            cursor: grabbing;
+        }
+
+        @keyframes badgeSwing {
+            0%, 100% { transform: rotate(-1deg); }
+            50% { transform: rotate(1deg); }
+        }
+
+        .badge-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255, 111, 0, 0.2);
+        }
+
+        .badge-logo {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--off-white);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .badge-logo::before {
+            content: '●';
+            color: var(--orange);
+            font-size: 10px;
+        }
+
+        .badge-id {
+            font-size: 11px;
+            color: var(--warm-taupe);
+            font-weight: 600;
+        }
+
+        .badge-photo {
+            width: 100%;
+            height: 280px;
+            background: #0a0a0a;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border: 1px solid rgba(255, 111, 0, 0.2);
+        }
+
+        .badge-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            display: block;
+        }
+
+        .badge-photo::after {
+            content: 'FX';
+            position: absolute;
+            color: var(--warm-taupe);
+            font-family: 'Orbitron', monospace;
+            font-size: 48px;
+            font-weight: 900;
+            opacity: 0.3;
+            display: none;
+        }
+
+        .badge-photo.no-photo::after {
+            display: block;
+        }
+
+        .badge-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--neon-yellow);
+            margin-bottom: 5px;
+            text-align: center;
+            font-family: 'Orbitron', monospace;
+            text-shadow: 0 0 20px rgba(255, 194, 0, 0.5);
+        }
+
+        .badge-title {
+            font-size: 14px;
+            color: var(--warm-taupe);
+            text-align: center;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .badge-shadow {
+            width: 280px;
+            height: 20px;
+            background: radial-gradient(ellipse, rgba(0, 0, 0, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            margin-top: 20px;
+            filter: blur(4px);
+        }
+
+        @media (max-width: 768px) {
+            .badge-hero {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .badge-card {
+                width: 280px;
+                padding: 16px;
+            }
+
+            .badge-photo {
+                height: 240px;
+            }
+
+            .badge-photo img {
+                object-position: center center;
+            }
+
+            .lanyard {
+                height: 220px;
+            }
+
+            .contact-card {
+                margin-top: 0;
+                padding: 30px 20px;
+            }
+
+            .contact-card-title {
+                font-size: 24px;
+            }
+        }
+
         .frequency-display {
             font-family: 'Orbitron', monospace;
             font-size: 14px;
@@ -629,14 +936,69 @@
 
     <!-- Main Container -->
     <div class="main-container">
-        <!-- Hero Section -->
-        <div class="hero-console">
-            <div class="profile-section">
-                <div class="profile-image">FX</div>
-                <div class="profile-info">
-                    <h1>FARGHAL X</h1>
-                    <div class="subtitle">AI Automation Specialist</div>
-                    <div class="frequency-display">Broadcasting: Business Intelligence • Signal: Strong</div>
+        <!-- Hero Section: Hanging Badge -->
+        <div class="badge-hero">
+            <div class="badge-container">
+                <div class="lanyard"></div>
+                <div class="lanyard-clip"></div>
+                <div class="badge-card">
+                    <div class="badge-header">
+                        <div class="badge-logo">AG. Event</div>
+                        <div class="badge-id">ID • FX</div>
+                    </div>
+                    <div class="badge-photo" id="badgePhoto">
+                        <img id="badgeImg" alt="Farghal X" onerror="this.style.display='none'; document.getElementById('badgePhoto').classList.add('no-photo');">
+                    </div>
+                    <div class="badge-name">Ahmed Farghal</div>
+                    <div class="badge-title">AI Automation Specialist</div>
+                </div>
+                <div class="badge-shadow"></div>
+            </div>
+
+            <!-- Contact Card -->
+            <div class="contact-card">
+                <h2 class="contact-card-title">Let's Connect</h2>
+                <p class="contact-card-subtitle">Choose your preferred way to reach out</p>
+
+                <div class="contact-methods">
+                    <a href="https://wa.me/601128801781" class="contact-method" target="_blank">
+                        <svg class="contact-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335 .157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
+                        </svg>
+                        <div class="contact-info">
+                            <div class="contact-label">WhatsApp</div>
+                            <div class="contact-value">+60 11-2880 1781</div>
+                        </div>
+                    </a>
+
+                    <a href="mailto:Farghalx@farghalx.org" class="contact-method">
+                        <svg class="contact-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        <div class="contact-info">
+                            <div class="contact-label">Email</div>
+                            <div class="contact-value">Farghalx@farghalx.org</div>
+                        </div>
+                    </a>
+
+                    <a href="https://tally.so/r/mORN7A" class="contact-method" target="_blank">
+                        <svg class="contact-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"/>
+                        </svg>
+                        <div class="contact-info">
+                            <div class="contact-label">Book Consultation</div>
+                            <div class="contact-value">Schedule a free call</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="contact-cta">
+                    <a href="https://tally.so/r/mORN7A" class="contact-button" target="_blank">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4-8l-4 4-4-4h3V8h2v4h3z"/>
+                        </svg>
+                        Get In Touch
+                    </a>
                 </div>
             </div>
         </div>
@@ -872,15 +1234,15 @@
         });
 
         // Add hover effects to interactive elements
-        const interactiveElements = document.querySelectorAll('.skill-item, .stat-item, .cta-button, .content-section');
-       
+        const interactiveElements = document.querySelectorAll('.skill-item, .stat-item, .cta-button, .content-section, .contact-method');
+
         interactiveElements.forEach(element => {
             element.addEventListener('mouseenter', () => {
-                if (element.classList.contains('skill-item') || element.classList.contains('stat-item')) {
+                if (element.classList.contains('skill-item') || element.classList.contains('stat-item') || element.classList.contains('contact-method')) {
                     playHoverSound();
                 }
             });
-           
+
             element.addEventListener('click', () => {
                 playClickSound();
             });
@@ -951,6 +1313,165 @@
             
             requestAnimationFrame(updateCounter);
         }
+
+        // Photo loader - supports URL or local file
+        (function() {
+            const img = document.getElementById('badgeImg');
+            const photoBox = document.getElementById('badgePhoto');
+            if (!img || !photoBox) return;
+
+            // You can provide either:
+            // 1. A URL (e.g., 'https://example.com/photo.jpg')
+            // 2. A local file path (e.g., 'assets/profile.jpg')
+            // Update this variable with your photo:
+            const photoSource = 'https://vertical-lavender-ndc1d1no7b.edgeone.app/Screenshot%202025-10-24%20at%2010.32.33%E2%80%AFPM.png';
+            
+            // If no source provided, try common local paths
+            const localPaths = [
+                'assets/profile.jpg',
+                'assets/profile.jpeg',
+                'assets/profile.png',
+                'assets/me.jpg',
+                'assets/me.jpeg',
+                'assets/me.png'
+            ];
+
+            function loadPhoto(src) {
+                img.onload = function() {
+                    photoBox.classList.remove('no-photo');
+                    img.style.display = 'block';
+                };
+                img.onerror = function() {
+                    img.style.display = 'none';
+                    photoBox.classList.add('no-photo');
+                };
+                img.src = src;
+            }
+
+            if (photoSource) {
+                // Use provided source (URL or local path)
+                loadPhoto(photoSource);
+            } else {
+                // Try local paths one by one
+                let index = 0;
+                function tryNext() {
+                    if (index >= localPaths.length) {
+                        photoBox.classList.add('no-photo');
+                        return;
+                    }
+                    img.onerror = function() {
+                        index++;
+                        tryNext();
+                    };
+                    img.onload = function() {
+                        photoBox.classList.remove('no-photo');
+                        img.style.display = 'block';
+                    };
+                    img.src = localPaths[index];
+                }
+                tryNext();
+            }
+        })();
+
+        // Interactive drag functionality
+        (function() {
+            const card = document.querySelector('.badge-card');
+            if (!card) return;
+
+            let isDragging = false;
+            let startX, startY, currentX, currentY;
+            let initialTransform = { rotateX: 0, rotateY: 0, translateX: 0, translateY: 0 };
+
+            // Mouse events
+            card.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                card.style.animation = 'none';
+                startX = e.clientX;
+                startY = e.clientY;
+                card.style.cursor = 'grabbing';
+                
+                // Get current transform values
+                const style = window.getComputedStyle(card);
+                const matrix = style.transform;
+                if (matrix && matrix !== 'none') {
+                    const values = matrix.split('(')[1].split(')')[0].split(',');
+                    if (values.length === 16) {
+                        initialTransform.translateX = parseFloat(values[12]) || 0;
+                        initialTransform.translateY = parseFloat(values[13]) || 0;
+                    }
+                }
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                
+                currentX = e.clientX - startX;
+                currentY = e.clientY - startY;
+                
+                // Calculate rotation based on drag distance
+                const rotateX = (currentY / 10) * -1; // Invert Y for natural feel
+                const rotateY = currentX / 10;
+                const translateX = currentX;
+                const translateY = currentY;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateX(${translateX}px) translateY(${translateY}px)`;
+            });
+
+            document.addEventListener('mouseup', () => {
+                if (isDragging) {
+                    isDragging = false;
+                    card.style.cursor = 'grab';
+                    
+                    // Smooth return to original position
+                    card.style.transition = 'transform 0.5s ease-out';
+                    card.style.transform = '';
+                    
+                    setTimeout(() => {
+                        card.style.transition = '';
+                        card.style.animation = 'badgeSwing 4s ease-in-out infinite';
+                    }, 500);
+                }
+            });
+
+            // Touch events for mobile
+            card.addEventListener('touchstart', (e) => {
+                isDragging = true;
+                card.style.animation = 'none';
+                const touch = e.touches[0];
+                startX = touch.clientX;
+                startY = touch.clientY;
+            });
+
+            document.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+                
+                const touch = e.touches[0];
+                currentX = touch.clientX - startX;
+                currentY = touch.clientY - startY;
+                
+                const rotateX = (currentY / 10) * -1;
+                const rotateY = currentX / 10;
+                const translateX = currentX;
+                const translateY = currentY;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateX(${translateX}px) translateY(${translateY}px)`;
+            });
+
+            document.addEventListener('touchend', () => {
+                if (isDragging) {
+                    isDragging = false;
+                    
+                    card.style.transition = 'transform 0.5s ease-out';
+                    card.style.transform = '';
+                    
+                    setTimeout(() => {
+                        card.style.transition = '';
+                        card.style.animation = 'badgeSwing 4s ease-in-out infinite';
+                    }, 500);
+                }
+            });
+        })();
     </script>
 </body>
 </html>
