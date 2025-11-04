@@ -298,60 +298,144 @@
             color: var(--black);
         }
 
-        /* Upcoming Systems Section */
-        .upcoming-section {
-            background: linear-gradient(135deg, rgba(255, 194, 0, 0.05) 0%, rgba(255, 111, 0, 0.02) 100%);
-            border: 2px solid rgba(255, 194, 0, 0.3);
-            border-radius: 25px;
-            padding: 40px;
-            margin-top: 60px;
+        /* Filter Buttons */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
         }
 
-        .upcoming-title {
+        .filter-btn {
             font-family: 'Orbitron', monospace;
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--neon-yellow);
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .upcoming-subtitle {
-            text-align: center;
+            padding: 12px 28px;
+            border: 2px solid rgba(255, 111, 0, 0.3);
+            background: rgba(10, 10, 10, 0.95);
             color: var(--warm-taupe);
-            margin-bottom: 40px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1px;
         }
 
-        .upcoming-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+        .filter-btn:hover {
+            border-color: var(--orange);
+            color: var(--orange);
+            box-shadow: 0 5px 15px rgba(255, 111, 0, 0.2);
+            transform: translateY(-2px);
         }
 
-        .upcoming-item {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 194, 0, 0.2);
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--orange), var(--neon-yellow));
+            color: var(--black);
+            border-color: var(--orange);
+            box-shadow: 0 5px 20px rgba(255, 111, 0, 0.4);
+        }
+
+        /* Project Badges */
+        .project-badges {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .project-badge {
+            padding: 6px 12px;
             border-radius: 15px;
-            padding: 25px;
-            text-align: center;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .badge-featured {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: var(--black);
+        }
+
+        .badge-roi {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .badge-fast {
+            background: rgba(139, 92, 246, 0.2);
+            color: #8b5cf6;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .badge-revenue {
+            background: rgba(255, 111, 0, 0.2);
+            color: var(--orange);
+            border: 1px solid rgba(255, 111, 0, 0.3);
+        }
+
+        /* Expandable Section */
+        .expandable-section {
+            margin-top: 20px;
+            border-top: 1px solid rgba(255, 111, 0, 0.2);
+            padding-top: 20px;
+        }
+
+        .expand-trigger {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: 15px 0;
+            color: var(--orange);
+            font-weight: 700;
+            font-size: 16px;
             transition: all 0.3s ease;
         }
 
-        .upcoming-item:hover {
-            border-color: var(--neon-yellow);
-            box-shadow: 0 10px 30px rgba(255, 194, 0, 0.1);
-            transform: translateY(-3px);
-        }
-
-        .upcoming-item h3 {
+        .expand-trigger:hover {
             color: var(--neon-yellow);
-            font-weight: 700;
-            margin-bottom: 10px;
         }
 
-        .upcoming-item p {
-            color: var(--warm-taupe);
-            font-size: 14px;
+        .expand-icon {
+            transition: transform 0.3s ease;
+            font-size: 20px;
+        }
+
+        .expand-trigger.active .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .expand-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .expand-content.active {
+            max-height: 1000px;
+        }
+
+        .expand-content-inner {
+            padding: 15px 0;
+        }
+
+        /* Stat Counter Animation */
+        .stat-number {
+            display: inline-block;
+        }
+
+        /* Project Card Hidden State */
+        .project-card {
+            transition: all 0.5s ease;
+        }
+
+        .project-card.hidden {
+            display: none;
         }
 
         /* Responsive Design */
@@ -563,6 +647,15 @@
         <h1 class="page-title">SYSTEMS I'VE BUILT</h1>
         <p class="page-subtitle">Detailed showcase of AI automation systems that transformed businesses and saved thousands in operational costs</p>
 
+        <!-- Filter Buttons -->
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">🎯 All Projects</button>
+            <button class="filter-btn" data-filter="ai-agent">🤖 AI Agents</button>
+            <button class="filter-btn" data-filter="automation">⚡ Automation</button>
+            <button class="filter-btn" data-filter="marketing">📈 Marketing</button>
+            <button class="filter-btn" data-filter="business-intelligence">💼 Business Intelligence</button>
+        </div>
+
         <!-- Featured Projects Slider -->
         <div class="slider-container" id="projectSlider">
             <div class="slider-wrapper">
@@ -759,16 +852,20 @@
         <!-- Projects Grid -->
         <div class="projects-grid">
             <!-- Project 1: Car Dealership -->
-            <div class="project-card">
+            <div class="project-card" data-category="ai-agent">
+                <div class="project-badges">
+                    <span class="project-badge badge-roi">💰 High ROI</span>
+                    <span class="project-badge badge-fast">⚡ 3x Productivity</span>
+                </div>
                 <div class="project-header">
                     <div>
                         <h2 class="project-title">AI Sales Research Agent</h2>
                         <div class="project-type">B2B Sales Automation</div>
                     </div>
                     <div class="project-stats">
-                        <div class="stat-item">70% Faster</div>
-                        <div class="stat-item">3x More Calls</div>
-                        <div class="stat-item">35% More Meetings</div>
+                        <div class="stat-item"><span class="stat-number" data-target="70">0</span>% Faster</div>
+                        <div class="stat-item"><span class="stat-number" data-target="3">0</span>x More Calls</div>
+                        <div class="stat-item"><span class="stat-number" data-target="35">0</span>% More Meetings</div>
                     </div>
                 </div>
 
@@ -815,22 +912,22 @@
                     </div>
                 </div>
 
-                <div class="project-actions">
-                    <a href="#" class="action-btn">See Full Workflow</a>
-                    <a href="#" class="action-btn secondary">Try Demo</a>
-                </div>
             </div>
 
             <!-- Project 2: WhatsApp CRM -->
-            <div class="project-card">
+            <div class="project-card" data-category="automation ai-agent">
+                <div class="project-badges">
+                    <span class="project-badge badge-featured">🏆 Featured</span>
+                    <span class="project-badge badge-roi">💰 RM2.4K/mo Saved</span>
+                </div>
                 <div class="project-header">
                     <div>
                         <h2 class="project-title">WhatsApp CRM System</h2>
                         <div class="project-type">Lead Automation</div>
                     </div>
                     <div class="project-stats">
-                        <div class="stat-item">RM2,400/Month Saved</div>
-                        <div class="stat-item">65% Faster Response</div>
+                        <div class="stat-item">RM<span class="stat-number" data-target="2400">0</span>/Month Saved</div>
+                        <div class="stat-item"><span class="stat-number" data-target="65">0</span>% Faster Response</div>
                         <div class="stat-item">24/7 Coverage</div>
                     </div>
                 </div>
@@ -881,23 +978,23 @@
                     </div>
                 </div>
 
-                <div class="project-actions">
-                    <a href="#" class="action-btn">See Full Workflow</a>
-                    <a href="#" class="action-btn secondary">Request Quote</a>
-                </div>
             </div>
 
             <!-- Project 3: Inventory System -->
-            <div class="project-card">
+            <div class="project-card" data-category="business-intelligence automation">
+                <div class="project-badges">
+                    <span class="project-badge badge-roi">💰 RM3.2K/mo Saved</span>
+                    <span class="project-badge badge-fast">⚡ 80% Time Saved</span>
+                </div>
                 <div class="project-header">
                     <div>
                         <h2 class="project-title">Balqiso Trade Inventory Tracker</h2>
                         <div class="project-type">Business Intelligence</div>
                     </div>
                     <div class="project-stats">
-                        <div class="stat-item">RM3,200/Month Saved</div>
-                        <div class="stat-item">80% Less Admin</div>
-                        <div class="stat-item">30% Better Turnover</div>
+                        <div class="stat-item">RM<span class="stat-number" data-target="3200">0</span>/Month Saved</div>
+                        <div class="stat-item"><span class="stat-number" data-target="80">0</span>% Less Admin</div>
+                        <div class="stat-item"><span class="stat-number" data-target="30">0</span>% Better Turnover</div>
                     </div>
                 </div>
 
@@ -946,23 +1043,23 @@
                     </div>
                 </div>
 
-                <div class="project-actions">
-                    <a href="#" class="action-btn">See Full Workflow</a>
-                    <a href="#" class="action-btn secondary">Get Template</a>
-                </div>
             </div>
 
             <!-- Project 4: AI Prompt Library -->
-            <div class="project-card">
+            <div class="project-card" data-category="marketing">
+                <div class="project-badges">
+                    <span class="project-badge badge-revenue">💰 RM7K Revenue</span>
+                    <span class="project-badge badge-fast">⚡ Quick Deploy</span>
+                </div>
                 <div class="project-header">
                     <div>
                         <h2 class="project-title">AI Prompt Library</h2>
                         <div class="project-type">Digital Product</div>
                     </div>
                     <div class="project-stats">
-                        <div class="stat-item">140+ Prompts</div>
-                        <div class="stat-item">1000+ Users</div>
-                        <div class="stat-item">RM7K Revenue</div>
+                        <div class="stat-item"><span class="stat-number" data-target="140">0</span>+ Prompts</div>
+                        <div class="stat-item"><span class="stat-number" data-target="1000">0</span>+ Users</div>
+                        <div class="stat-item">RM<span class="stat-number" data-target="7">0</span>K Revenue</div>
                     </div>
                 </div>
 
@@ -1012,54 +1109,335 @@
                     </div>
                 </div>
 
-                <div class="project-actions">
-                    <a href="prompts.html" class="action-btn">View Library</a>
-                    <a href="#" class="action-btn secondary">Download Free Pack</a>
+            </div>
+
+            <!-- Project 5: Lexus Hijab Campaign -->
+            <div class="project-card" data-category="marketing">
+                <div class="project-badges">
+                    <span class="project-badge badge-featured">🏆 Featured Project</span>
+                    <span class="project-badge badge-revenue">💰 RM50K+ Revenue</span>
+                </div>
+                <div class="project-header">
+                    <div>
+                        <h2 class="project-title">Lexus Hijab - AI Brand Strategy</h2>
+                        <div class="project-type">Generative AI Marketing Campaign</div>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat-item">RM<span class="stat-number" data-target="50">0</span>K+ Sales</div>
+                        <div class="stat-item">First Month</div>
+                        <div class="stat-item">100% AI-Generated</div>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <div class="section-title">Problem</div>
+                    <div class="section-content">
+                        Client needed a complete brand identity and visual marketing campaign from scratch for a new premium hijab product line. Traditional design agencies quoted RM15K-25K with 6-8 week timelines. No existing brand assets, positioning, or visual direction.
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <div class="section-title">Solution</div>
+                    <div class="section-content">
+                        Developed full AI-driven brand strategy and visual campaign:
+                        <ul>
+                            <li>Created brand positioning framework targeting luxury hijab market</li>
+                            <li>Generated 50+ AI-powered visual assets using Dreamina and Midjourney</li>
+                            <li>Designed complete brand identity (logo, colors, typography, visual style)</li>
+                            <li>Built cohesive visual campaign narrative for social media launch</li>
+                            <li>Produced market-ready creative assets in under 2 weeks</li>
+                            <li>Cost: 90% less than traditional agency pricing</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <div class="section-title">Results</div>
+                    <div class="section-content">
+                        <ul>
+                            <li>RM50,000+ revenue in first month post-launch</li>
+                            <li>Validated AI-based creative strategy for future campaigns</li>
+                            <li>Brand identity delivered in 2 weeks vs 6-8 weeks traditional timeline</li>
+                            <li>90% cost savings vs agency pricing (RM15K-25K → under RM3K)</li>
+                            <li>Client able to test market 5x faster than traditional approach</li>
+                            <li>Established repeatable framework for future AI brand campaigns</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="expandable-section">
+                    <div class="expand-trigger">
+                        <span>🔧 How It Works (Technical Details)</span>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <div class="expand-content">
+                        <div class="expand-content-inner">
+                            <p><strong>Strategic Framework:</strong></p>
+                            <ul>
+                                <li>Market research using AI to analyze competitor positioning</li>
+                                <li>Target audience persona development with AI assistance</li>
+                                <li>Brand voice and messaging guidelines created through iterative prompting</li>
+                            </ul>
+                            <p><strong>Visual Generation Process:</strong></p>
+                            <ul>
+                                <li>Dreamina for photorealistic product mockups and lifestyle imagery</li>
+                                <li>Midjourney for artistic brand elements and abstract visuals</li>
+                                <li>Iterative refinement process: 10-15 variations per final asset</li>
+                                <li>Post-processing for consistency and brand cohesion</li>
+                            </ul>
+                            <p><strong>Campaign Execution:</strong></p>
+                            <ul>
+                                <li>Social media content calendar with AI-generated captions</li>
+                                <li>Launch strategy optimized through data-driven insights</li>
+                                <li>A/B testing framework for continuous optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <div class="section-title">Tools Used</div>
+                    <div class="tools-list">
+                        <span class="tool-tag">Dreamina</span>
+                        <span class="tool-tag">Midjourney</span>
+                        <span class="tool-tag">ChatGPT</span>
+                        <span class="tool-tag">Brand Strategy</span>
+                        <span class="tool-tag">Generative AI</span>
+                        <span class="tool-tag">Visual Marketing</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Project 6: Claude AI Agent Development -->
+            <div class="project-card" data-category="ai-agent">
+                <div class="project-badges">
+                    <span class="project-badge badge-featured">🏆 Technical Showcase</span>
+                    <span class="project-badge badge-fast">⚡ Advanced AI</span>
+                </div>
+                <div class="project-header">
+                    <div>
+                        <h2 class="project-title">Claude AI Agent Development</h2>
+                        <div class="project-type">Advanced AI Agent Engineering</div>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat-item">Claude API</div>
+                        <div class="stat-item">Skills/Tools</div>
+                        <div class="stat-item">Production Ready</div>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <div class="section-title">Capability</div>
+                    <div class="section-content">
+                        Specialized in building sophisticated AI agents using Claude API with advanced Skills and Tools integration. Leveraging Anthropic's latest capabilities to create autonomous systems that handle complex, multi-step business processes with human-level reasoning.
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <div class="section-title">What I Build</div>
+                    <div class="section-content">
+                        Custom AI agents powered by Claude for business automation:
+                        <ul>
+                            <li>Multi-step reasoning agents that break down complex tasks autonomously</li>
+                            <li>Data retrieval systems with real-time decision-making capabilities</li>
+                            <li>Embedded lead qualification bots with context-aware responses</li>
+                            <li>Q&A automation systems for customer support and sales</li>
+                            <li>Business process automation with Claude Skills integration</li>
+                            <li>Self-maintaining workflows that adapt to changing business needs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <div class="section-title">Claude Skills for Business</div>
+                    <div class="section-content">
+                        <ul>
+                            <li><strong>Custom Skills Development:</strong> Build tailored Claude Skills for your specific business workflows</li>
+                            <li><strong>Tool Integration:</strong> Connect Claude to your existing systems (CRM, databases, APIs)</li>
+                            <li><strong>Autonomous Agents:</strong> Deploy AI that handles tasks end-to-end without human intervention</li>
+                            <li><strong>Enterprise Automation:</strong> Scale intelligent automation across departments</li>
+                            <li><strong>Context-Aware Systems:</strong> Agents that understand your business context and history</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="expandable-section">
+                    <div class="expand-trigger">
+                        <span>🔧 Technical Implementation Details</span>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <div class="expand-content">
+                        <div class="expand-content-inner">
+                            <p><strong>Claude API Integration:</strong></p>
+                            <ul>
+                                <li>Advanced prompt engineering for complex business logic</li>
+                                <li>Multi-turn conversations with context preservation</li>
+                                <li>Error handling and fallback strategies for production reliability</li>
+                                <li>Cost optimization through intelligent token management</li>
+                            </ul>
+                            <p><strong>Skills & Tools Architecture:</strong></p>
+                            <ul>
+                                <li>Custom tool development for business-specific operations</li>
+                                <li>API orchestration connecting multiple backend systems</li>
+                                <li>Real-time data retrieval and processing pipelines</li>
+                                <li>Webhook integration for event-driven automation</li>
+                            </ul>
+                            <p><strong>Deployment & Scaling:</strong></p>
+                            <ul>
+                                <li>Production-grade agent deployment using n8n workflows</li>
+                                <li>Monitoring and logging for agent performance optimization</li>
+                                <li>A/B testing frameworks for response quality improvement</li>
+                                <li>Scalable architecture handling high-volume operations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <div class="section-title">Tools & Technologies</div>
+                    <div class="tools-list">
+                        <span class="tool-tag">Claude API</span>
+                        <span class="tool-tag">Claude Skills</span>
+                        <span class="tool-tag">n8n</span>
+                        <span class="tool-tag">Python</span>
+                        <span class="tool-tag">REST APIs</span>
+                        <span class="tool-tag">Webhooks</span>
+                        <span class="tool-tag">Airtable</span>
+                        <span class="tool-tag">Advanced Prompting</span>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Upcoming Systems Section -->
-        <div class="upcoming-section">
-            <h2 class="upcoming-title">🔥 UPCOMING SYSTEMS</h2>
-            <p class="upcoming-subtitle">Next experiments and innovations in AI business automation</p>
-
-            <div class="upcoming-grid">
-                <div class="upcoming-item">
-                    <h3>AI Proposal Writer</h3>
-                    <p>Automated proposal generation for service businesses using client data and past successful proposals</p>
-                </div>
-
-                <div class="upcoming-item">
-                    <h3>Client Qualification Bot</h3>
-                    <p>WhatsApp bot that pre-qualifies leads before they reach sales team, scoring based on budget and needs</p>
-                </div>
-
-                <div class="upcoming-item">
-                    <h3>Social Media Autopilot</h3>
-                    <p>AI-powered content creation and scheduling system that maintains brand voice across platforms</p>
-                </div>
-
-                <div class="upcoming-item">
-                    <h3>Invoice & Payment Tracker</h3>
-                    <p>Automated invoicing system with payment reminders and cash flow forecasting for freelancers</p>
-                </div>
-            </div>
-        </div>
     </div>
 
     <script>
-        // Simple hover effects and interactions
         document.addEventListener('DOMContentLoaded', function() {
+            // Filter Functionality
+            const filterBtns = document.querySelectorAll('.filter-btn');
             const projectCards = document.querySelectorAll('.project-card');
 
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filter = btn.getAttribute('data-filter');
+
+                    projectCards.forEach(card => {
+                        const categories = card.getAttribute('data-category');
+
+                        if (filter === 'all') {
+                            card.classList.remove('hidden');
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 10);
+                        } else {
+                            if (categories && categories.includes(filter)) {
+                                card.classList.remove('hidden');
+                                setTimeout(() => {
+                                    card.style.opacity = '1';
+                                    card.style.transform = 'translateY(0)';
+                                }, 10);
+                            } else {
+                                card.style.opacity = '0';
+                                card.style.transform = 'translateY(20px)';
+                                setTimeout(() => {
+                                    card.classList.add('hidden');
+                                }, 300);
+                            }
+                        }
+                    });
+
+                    // Re-trigger counter animations for visible cards
+                    setTimeout(() => {
+                        animateVisibleCounters();
+                    }, 400);
+                });
+            });
+
+            // Animated Counter Function
+            function animateCounter(element) {
+                const target = parseInt(element.getAttribute('data-target'));
+                const duration = 2000;
+                const steps = 60;
+                const stepDuration = duration / steps;
+                const increment = target / steps;
+                let current = 0;
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        element.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        element.textContent = Math.floor(current);
+                    }
+                }, stepDuration);
+            }
+
+            function animateVisibleCounters() {
+                const statNumbers = document.querySelectorAll('.stat-number');
+                statNumbers.forEach(stat => {
+                    const card = stat.closest('.project-card');
+                    if (card && !card.classList.contains('hidden')) {
+                        const target = stat.getAttribute('data-target');
+                        if (target && stat.textContent === '0') {
+                            animateCounter(stat);
+                        }
+                    }
+                });
+            }
+
+            // Intersection Observer for Scroll Animations
+            const observerOptions = {
+                threshold: 0.3,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const statNumbers = entry.target.querySelectorAll('.stat-number');
+                        statNumbers.forEach(stat => {
+                            if (stat.textContent === '0' || parseInt(stat.textContent) === 0) {
+                                animateCounter(stat);
+                            }
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            projectCards.forEach(card => {
+                observer.observe(card);
+            });
+
+            // Expandable Sections
+            const expandTriggers = document.querySelectorAll('.expand-trigger');
+            expandTriggers.forEach(trigger => {
+                trigger.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+                    content.classList.toggle('active');
+                });
+            });
+
+            // Hover effects
             projectCards.forEach(card => {
                 card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                    if (!this.classList.contains('hidden')) {
+                        this.style.transform = 'translateY(-5px) scale(1.01)';
+                    }
                 });
 
                 card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0) scale(1)';
+                    if (!this.classList.contains('hidden')) {
+                        this.style.transform = 'translateY(0) scale(1)';
+                    }
                 });
             });
 
@@ -1075,6 +1453,8 @@
 
                 console.log('Portfolio slider initialized successfully!');
             }
+
+            console.log('Interactive portfolio loaded successfully!');
         });
     </script>
 </body>
