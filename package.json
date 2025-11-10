@@ -1,0 +1,15 @@
+{
+  "name": "farghal-x-website-tests",
+  "version": "1.0.0",
+  "description": "Test suite for Farghal X static website",
+  "scripts": {
+    "test": "node tests/html-validation.test.js && node tests/navigation.test.js && node tests/link-integrity.test.js",
+    "test:validation": "node tests/html-validation.test.js",
+    "test:navigation": "node tests/navigation.test.js",
+    "test:links": "node tests/link-integrity.test.js"
+  },
+  "devDependencies": {
+    "html-validate": "^8.7.4",
+    "cheerio": "^1.0.0-rc.12"
+  }
+}
