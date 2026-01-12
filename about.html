@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         * {
@@ -45,13 +48,11 @@
             background:
                 radial-gradient(circle at 20% 80%, rgba(255, 111, 0, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(255, 194, 0, 0.08) 0%, transparent 50%),
-                repeating-linear-gradient(
-                    0deg,
+                repeating-linear-gradient(0deg,
                     transparent,
                     transparent 2px,
                     rgba(255, 255, 255, 0.01) 2px,
-                    rgba(255, 255, 255, 0.01) 4px
-                );
+                    rgba(255, 255, 255, 0.01) 4px);
             pointer-events: none;
             z-index: -1;
         }
@@ -110,7 +111,8 @@
             position: relative;
         }
 
-        .nav-link:hover, .nav-link.active {
+        .nav-link:hover,
+        .nav-link.active {
             color: var(--orange);
             text-shadow: 0 0 10px rgba(255, 111, 0, 0.5);
         }
@@ -126,7 +128,8 @@
             transition: width 0.3s ease;
         }
 
-        .nav-link:hover::after, .nav-link.active::after {
+        .nav-link:hover::after,
+        .nav-link.active::after {
             width: 100%;
         }
 
@@ -169,8 +172,13 @@
         }
 
         @keyframes scanline {
-            0% { left: -100%; }
-            100% { left: 100%; }
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
         }
 
         .profile-section {
@@ -212,6 +220,7 @@
                 text-shadow: 0 0 30px rgba(255, 194, 0, 0.5);
                 filter: brightness(1);
             }
+
             to {
                 text-shadow: 0 0 40px rgba(255, 194, 0, 0.8), 0 0 60px rgba(255, 111, 0, 0.3);
                 filter: brightness(1.1);
@@ -402,8 +411,15 @@
         }
 
         @keyframes badgeSwing {
-            0%, 100% { transform: rotate(-1deg); }
-            50% { transform: rotate(1deg); }
+
+            0%,
+            100% {
+                transform: rotate(-1deg);
+            }
+
+            50% {
+                transform: rotate(1deg);
+            }
         }
 
         .badge-header {
@@ -543,8 +559,15 @@
         }
 
         @keyframes flicker {
-            0%, 100% { opacity: 0.8; }
-            50% { opacity: 1; }
+
+            0%,
+            100% {
+                opacity: 0.8;
+            }
+
+            50% {
+                opacity: 1;
+            }
         }
 
         /* Content Sections */
@@ -907,6 +930,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <div class="header">
@@ -947,7 +971,8 @@
                         <div class="badge-id">ID • FX</div>
                     </div>
                     <div class="badge-photo" id="badgePhoto">
-                        <img id="badgeImg" alt="Farghal X" onerror="this.style.display='none'; document.getElementById('badgePhoto').classList.add('no-photo');">
+                        <img id="badgeImg" alt="Farghal X"
+                            onerror="this.style.display='none'; document.getElementById('badgePhoto').classList.add('no-photo');">
                     </div>
                     <div class="badge-name">Ahmed Farghal</div>
                     <div class="badge-title">AI Agent Developer | Headless Automation</div>
@@ -961,19 +986,12 @@
                 <p class="contact-card-subtitle">📍 Kuala Lumpur, Malaysia | 🌍 Open to Remote Roles</p>
 
                 <div class="contact-methods">
-                    <a href="https://wa.me/601128801781" class="contact-method" target="_blank">
-                        <svg class="contact-icon" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335 .157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
-                        </svg>
-                        <div class="contact-info">
-                            <div class="contact-label">WhatsApp</div>
-                            <div class="contact-value">+60 11-2880 1781</div>
-                        </div>
-                    </a>
+
 
                     <a href="mailto:ahmed@farghalx.org" class="contact-method">
                         <svg class="contact-icon" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            <path
+                                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                         </svg>
                         <div class="contact-info">
                             <div class="contact-label">Email</div>
@@ -981,9 +999,11 @@
                         </div>
                     </a>
 
-                    <a href="https://www.linkedin.com/in/ahmed-farghal-936977217/" class="contact-method" target="_blank">
+                    <a href="https://www.linkedin.com/in/ahmed-farghal-936977217/" class="contact-method"
+                        target="_blank">
                         <svg class="contact-icon" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                         </svg>
                         <div class="contact-info">
                             <div class="contact-label">LinkedIn</div>
@@ -993,10 +1013,11 @@
 
                     <a href="https://tally.so/r/mORN7A" class="contact-method" target="_blank">
                         <svg class="contact-icon" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"/>
+                            <path
+                                d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z" />
                         </svg>
                         <div class="contact-info">
-                            <div class="contact-label">Book Consultation</div>
+                            <div class="contact-label">Book an AI Systems Diagnostic</div>
                             <div class="contact-value">Schedule a free call</div>
                         </div>
                     </a>
@@ -1005,7 +1026,8 @@
                 <div class="contact-cta">
                     <a href="https://tally.so/r/mORN7A" class="contact-button" target="_blank">
                         <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4-8l-4 4-4-4h3V8h2v4h3z"/>
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4-8l-4 4-4-4h3V8h2v4h3z" />
                         </svg>
                         Get In Touch
                     </a>
@@ -1017,16 +1039,26 @@
         <div class="content-section">
             <h2 class="section-title">
                 <svg class="section-icon" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11H16V17H8V11H9.2V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.4,8.7 10.4,10V11H13.6V10C13.6,8.7 12.8,8.2 12,8.2Z"/>
+                    <path
+                        d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11H16V17H8V11H9.2V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.4,8.7 10.4,10V11H13.6V10C13.6,8.7 12.8,8.2 12,8.2Z" />
                 </svg>
                 Professional Summary
             </h2>
             <div class="section-content">
-                <p>MBA-qualified automation expert specializing in <strong>AI agent development</strong> and <strong>headless business automation</strong> for SMEs. I transform strategic business needs—such as brand building, lead automation, and process optimization—into autonomous, API-driven systems that scale efficiently and increase revenue.</p>
+                <p>MBA-qualified automation expert specializing in <strong>AI agent development</strong> and
+                    <strong>headless business automation</strong> for SMEs. I transform strategic business needs—such as
+                    brand building, lead automation, and process optimization—into autonomous, API-driven systems that
+                    scale efficiently and increase revenue.
+                </p>
 
-                <p>Core strength in leveraging <strong>Claude API</strong> (advanced Skills/Tools integration) and <strong>n8n</strong> to design self-maintaining workflows that connect marketing, sales, and operations into a unified automation ecosystem.</p>
+                <p>Core strength in leveraging <strong>Claude API</strong> (advanced Skills/Tools integration) and
+                    <strong>n8n</strong> to design self-maintaining workflows that connect marketing, sales, and
+                    operations into a unified automation ecosystem.
+                </p>
 
-                <p>I build custom AI agents using multi-step reasoning, data retrieval, and real-time decision systems—delivering full-stack agent deployment for embedded lead qualification and Q&A automation that actually works in production environments.</p>
+                <p>I build custom AI agents using multi-step reasoning, data retrieval, and real-time decision
+                    systems—delivering full-stack agent deployment for embedded lead qualification and Q&A automation
+                    that actually works in production environments.</p>
             </div>
         </div>
 
@@ -1034,18 +1066,23 @@
         <div class="content-section">
             <h2 class="section-title">
                 <svg class="section-icon" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M9,12L11,14L15,10L20,15H4L9,12Z"/>
+                    <path d="M9,12L11,14L15,10L20,15H4L9,12Z" />
                 </svg>
                 What Makes Me Different
             </h2>
             <div class="section-content">
-                <p><strong>Bilingual Advantage:</strong> I serve both Malaysian businesses and Middle Eastern markets fluently in English and Arabic, understanding the unique challenges each market faces.</p>
-                
-                <p><strong>Implementation-First Approach:</strong> While others teach theory, I build actual working systems. Every solution I recommend has been battle-tested in real business environments.</p>
-                
-                <p><strong>Transparent Process:</strong> I document my work publicly, sharing both successes and failures. You're not just getting a service - you're getting a partner who learns and grows with you.</p>
-                
-                <p><strong>ROI-Focused Solutions:</strong> Every AI automation I implement is designed with one goal: measurable business impact. If it doesn't improve your metrics, it doesn't ship.</p>
+                <p><strong>Bilingual Advantage:</strong> I serve both Malaysian businesses and Middle Eastern markets
+                    fluently in English and Arabic, understanding the unique challenges each market faces.</p>
+
+                <p><strong>Implementation-First Approach:</strong> While others teach theory, I build actual working
+                    systems. Every solution I recommend has been battle-tested in real business environments.</p>
+
+                <p><strong>Transparent Process:</strong> I document my work publicly, sharing both successes and
+                    failures. You're not just getting a service - you're getting a partner who learns and grows with
+                    you.</p>
+
+                <p><strong>ROI-Focused Solutions:</strong> Every AI automation I implement is designed with one goal:
+                    measurable business impact. If it doesn't improve your metrics, it doesn't ship.</p>
             </div>
         </div>
 
@@ -1053,38 +1090,49 @@
         <div class="content-section">
             <h2 class="section-title">
                 <svg class="section-icon" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z"/>
+                    <path
+                        d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
                 </svg>
                 Core Competencies
             </h2>
             <div class="skills-grid">
                 <div class="skill-item">
                     <svg class="skill-icon" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M17.5,12A1.5,1.5 0 0,1 16,10.5A1.5,1.5 0 0,1 17.5,9A1.5,1.5 0 0,1 19,10.5A1.5,1.5 0 0,1 17.5,12M14.5,8A1.5,1.5 0 0,1 13,6.5A1.5,1.5 0 0,1 14.5,5A1.5,1.5 0 0,1 16,6.5A1.5,1.5 0 0,1 14.5,8M9.5,8A1.5,1.5 0 0,1 8,6.5A1.5,1.5 0 0,1 9.5,5A1.5,1.5 0 0,1 11,6.5A1.5,1.5 0 0,1 9.5,8M6.5,12A1.5,1.5 0 0,1 5,10.5A1.5,1.5 0 0,1 6.5,9A1.5,1.5 0 0,1 8,10.5A1.5,1.5 0 0,1 6.5,12M12,3A9,9 0 0,0 3,12A9,9 0 0,0 12,21A1.5,1.5 0 0,0 13.5,19.5C13.5,19.11 13.35,18.76 13.11,18.5C12.88,18.23 12.73,17.88 12.73,17.5A1.5,1.5 0 0,1 14.23,16H16A5,5 0 0,0 21,11C21,6.58 16.97,3 12,3Z"/>
+                        <path
+                            d="M17.5,12A1.5,1.5 0 0,1 16,10.5A1.5,1.5 0 0,1 17.5,9A1.5,1.5 0 0,1 19,10.5A1.5,1.5 0 0,1 17.5,12M14.5,8A1.5,1.5 0 0,1 13,6.5A1.5,1.5 0 0,1 14.5,5A1.5,1.5 0 0,1 16,6.5A1.5,1.5 0 0,1 14.5,8M9.5,8A1.5,1.5 0 0,1 8,6.5A1.5,1.5 0 0,1 9.5,5A1.5,1.5 0 0,1 11,6.5A1.5,1.5 0 0,1 9.5,8M6.5,12A1.5,1.5 0 0,1 5,10.5A1.5,1.5 0 0,1 6.5,9A1.5,1.5 0 0,1 8,10.5A1.5,1.5 0 0,1 6.5,12M12,3A9,9 0 0,0 3,12A9,9 0 0,0 12,21A1.5,1.5 0 0,0 13.5,19.5C13.5,19.11 13.35,18.76 13.11,18.5C12.88,18.23 12.73,17.88 12.73,17.5A1.5,1.5 0 0,1 14.23,16H16A5,5 0 0,0 21,11C21,6.58 16.97,3 12,3Z" />
                     </svg>
                     <div class="skill-title">I. AI Agent Development & LLM Engineering</div>
-                    <div class="skill-description">Custom AI agent design using Claude API, multi-step reasoning, data retrieval, and real-time decision systems. Full-stack agent deployment for embedded lead qualification and Q&A automation. Proficient with ChatGPT, Gemini, and Generative AI tools like Midjourney and Dreamina.</div>
+                    <div class="skill-description">Custom AI agent design using Claude API, multi-step reasoning, data
+                        retrieval, and real-time decision systems. Full-stack agent deployment for embedded lead
+                        qualification and Q&A automation. Proficient with ChatGPT, Gemini, and Generative AI tools like
+                        Midjourney and Dreamina.</div>
                 </div>
                 <div class="skill-item">
                     <svg class="skill-icon" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z"/>
+                        <path
+                            d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
                     </svg>
                     <div class="skill-title">II. Headless Automation & Integration</div>
-                    <div class="skill-description">Expert in n8n, API orchestration, and workflow automation. Advanced integration across CRMs, WhatsApp Business API, and internal systems. Experience with Make.com, webhook configuration, and data synchronization.</div>
+                    <div class="skill-description">Expert in n8n, API orchestration, and workflow automation. Advanced
+                        integration across CRMs and internal systems. Experience with Make.com,
+                        webhook configuration, and data synchronization.</div>
                 </div>
                 <div class="skill-item">
                     <svg class="skill-icon" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/>
+                        <path
+                            d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" />
                     </svg>
                     <div class="skill-title">III. Strategic Business Foundations</div>
-                    <div class="skill-description">Marketing strategy, brand development, process optimization, sales funnel design, and technical sales enablement.</div>
+                    <div class="skill-description">Marketing strategy, brand development, process optimization, sales
+                        funnel design, and technical sales enablement.</div>
                 </div>
                 <div class="skill-item">
                     <svg class="skill-icon" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M3,5H21V7H3V5M3,10H21V12H3V10M3,15H21V17H3V15M3,20H21V22H3V20Z"/>
+                        <path d="M3,5H21V7H3V5M3,10H21V12H3V10M3,15H21V17H3V15M3,20H21V22H3V20Z" />
                     </svg>
                     <div class="skill-title">IV. Data & Systems</div>
-                    <div class="skill-description">Airtable (relational database design), WhatsApp Business API, Telegram bot automation, Google Workspace, and workflow optimization.</div>
+                    <div class="skill-description">Airtable (relational database design),
+                        Telegram bot automation, Google Workspace, and workflow optimization.</div>
                 </div>
             </div>
         </div>
@@ -1093,16 +1141,20 @@
         <div class="content-section">
             <h2 class="section-title">
                 <svg class="section-icon" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12,2L13.09,8.26L22,9L13.09,9.74L12,16L10.91,9.74L2,9L10.91,8.26L12,2Z"/>
+                    <path d="M12,2L13.09,8.26L22,9L13.09,9.74L12,16L10.91,9.74L2,9L10.91,8.26L12,2Z" />
                 </svg>
                 Mission & Vision
             </h2>
             <div class="section-content">
-                <p><strong>Mission:</strong> To bridge the AI implementation gap for Malaysian and Middle Eastern businesses by providing practical, ROI-focused automation solutions that actually work.</p>
-                
-                <p><strong>Vision:</strong> A business landscape where AI isn't just a buzzword, but a fundamental tool that levels the playing field - allowing small businesses to compete with enterprise-level efficiency and intelligence.</p>
-                
-                <p><strong>Values:</strong> Transparency, practical implementation, continuous learning, and genuine business impact over flashy demos.</p>
+                <p><strong>Mission:</strong> To bridge the AI implementation gap for Malaysian and Middle Eastern
+                    businesses by providing practical, ROI-focused automation solutions that actually work.</p>
+
+                <p><strong>Vision:</strong> A business landscape where AI isn't just a buzzword, but a fundamental tool
+                    that levels the playing field - allowing small businesses to compete with enterprise-level
+                    efficiency and intelligence.</p>
+
+                <p><strong>Values:</strong> Transparency, practical implementation, continuous learning, and genuine
+                    business impact over flashy demos.</p>
             </div>
         </div>
 
@@ -1110,16 +1162,16 @@
         <div class="content-section">
             <h2 class="section-title">
                 <svg class="section-icon" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"/>
+                    <path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z" />
                 </svg>
                 Education
             </h2>
             <div class="section-content">
                 <p><strong>Master of Business Administration (MBA)</strong><br>
-                Universiti Geomatika | 2025</p>
+                    Universiti Geomatika | 2025</p>
 
                 <p><strong>Bachelor's Degree in Business Administration</strong><br>
-                City University | 2023</p>
+                    City University | 2023</p>
             </div>
         </div>
 
@@ -1127,7 +1179,8 @@
         <div class="content-section">
             <h2 class="section-title">
                 <svg class="section-icon" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M16,11V3H8V9H2V21H22V11H16M10,5H14V11H16V13H8V11H10V5M4,11H6V19H4V11M8,15H16V19H8V15M18,13H20V19H18V13Z"/>
+                    <path
+                        d="M16,11V3H8V9H2V21H22V11H16M10,5H14V11H16V13H8V11H10V5M4,11H6V19H4V11M8,15H16V19H8V15M18,13H20V19H18V13Z" />
                 </svg>
                 Impact & Results
             </h2>
@@ -1155,40 +1208,43 @@
         <div class="content-section">
             <h2 class="section-title">
                 <svg class="section-icon" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.5,17.3L22.25,12.55L20.85,11.15L17.5,14.5L15.65,12.65L14.25,14.05L17.5,17.3M1.5,4V6.5L3,6.5V20.5C3,21.3 3.7,22 4.5,22H13C13.4,21.2 13.7,20.4 13.9,19.5H4.5V6.5L6,6.5V4H1.5M18,2V4H15V2H18M20.5,2V4H19V2H20.5M15,7V9H9V7H15M13,10V12H9V10H13M13,13V15H9V13H13Z"/>
+                    <path
+                        d="M17.5,17.3L22.25,12.55L20.85,11.15L17.5,14.5L15.65,12.65L14.25,14.05L17.5,17.3M1.5,4V6.5L3,6.5V20.5C3,21.3 3.7,22 4.5,22H13C13.4,21.2 13.7,20.4 13.9,19.5H4.5V6.5L6,6.5V4H1.5M18,2V4H15V2H18M20.5,2V4H19V2H20.5M15,7V9H9V7H15M13,10V12H9V10H13M13,13V15H9V13H13Z" />
                 </svg>
                 Why Choose Me
             </h2>
             <div class="section-content">
-                <p><strong>Real Experience:</strong> Not just theory - I've built and deployed actual AI systems that are running in businesses today, saving hours of manual work and increasing revenue.</p>
-                
-                <p><strong>Local Market Understanding:</strong> I understand the unique challenges of Malaysian businesses - from regulatory requirements to local customer behavior patterns.</p>
-                
-                <p><strong>Arabic Market Access:</strong> Fluent Arabic capabilities open doors to Middle Eastern opportunities, giving you access to a massive, underserved market.</p>
-                
-                <p><strong>Ongoing Support:</strong> This isn't a one-and-done service. I provide continuous optimization, updates, and strategic guidance as your business grows.</p>
-                
-                <p><strong>Proven ROI:</strong> My clients typically see 200%+ efficiency improvements within the first 3 months of implementation.</p>
+                <p><strong>Real Experience:</strong> Not just theory - I've built and deployed actual AI systems that
+                    are running in businesses today, saving hours of manual work and increasing revenue.</p>
+
+                <p><strong>Local Market Understanding:</strong> I understand the unique challenges of Malaysian
+                    businesses - from regulatory requirements to local customer behavior patterns.</p>
+
+                <p><strong>Arabic Market Access:</strong> Fluent Arabic capabilities open doors to Middle Eastern
+                    opportunities, giving you access to a massive, underserved market.</p>
+
+                <p><strong>Ongoing Support:</strong> This isn't a one-and-done service. I provide continuous
+                    optimization, updates, and strategic guidance as your business grows.</p>
+
+                <p><strong>Proven ROI:</strong> My clients typically see 200%+ efficiency improvements within the first
+                    3 months of implementation.</p>
             </div>
         </div>
 
         <!-- Call to Action -->
         <div class="content-section cta-section">
             <h2 class="cta-title">Ready to Automate Your Business?</h2>
-            <p class="cta-subtitle">Let's discuss how AI can transform your operations and scale your business to the next level. No fluff, just practical solutions that deliver results.</p>
+            <p class="cta-subtitle">Let's discuss how AI can transform your operations and scale your business to the
+                next level. No fluff, just practical solutions that deliver results.</p>
             <div class="cta-buttons">
                 <a href="https://tally.so/r/mORN7A" class="cta-button" target="_blank">
                     <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z"/>
+                        <path
+                            d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z" />
                     </svg>
-                    Book Consultation
+                    Book an AI Systems Diagnostic
                 </a>
-                <a href="https://wa.me/601128801781" class="cta-button cta-button-secondary" target="_blank">
-                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335 .157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
-                    </svg>
-                    WhatsApp Me
-                </a>
+
             </div>
         </div>
     </div>
@@ -1210,16 +1266,16 @@
             initAudio();
             const oscillator = audioContext.createOscillator();
             const gainNode = audioContext.createGain();
-           
+
             oscillator.connect(gainNode);
             gainNode.connect(audioContext.destination);
-           
+
             oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
             oscillator.frequency.exponentialRampToValueAtTime(400, audioContext.currentTime + 0.1);
-           
+
             gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
             gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
-           
+
             oscillator.start(audioContext.currentTime);
             oscillator.stop(audioContext.currentTime + 0.1);
         }
@@ -1228,16 +1284,16 @@
             initAudio();
             const oscillator = audioContext.createOscillator();
             const gainNode = audioContext.createGain();
-           
+
             oscillator.connect(gainNode);
             gainNode.connect(audioContext.destination);
-           
+
             oscillator.frequency.setValueAtTime(600, audioContext.currentTime);
             oscillator.type = 'sine';
-           
+
             gainNode.gain.setValueAtTime(0.05, audioContext.currentTime);
             gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.05);
-           
+
             oscillator.start(audioContext.currentTime);
             oscillator.stop(audioContext.currentTime + 0.05);
         }
@@ -1286,10 +1342,10 @@
             'Channel: Innovation Hub • Quality: Premium',
             'Signal: Transformation Wave • Power: Maximum'
         ];
-       
+
         const frequencyDisplay = document.querySelector('.frequency-display');
         let currentFreq = 0;
-       
+
         setInterval(() => {
             currentFreq = (currentFreq + 1) % frequencies.length;
             frequencyDisplay.textContent = frequencies[currentFreq];
@@ -1325,24 +1381,24 @@
         function animateCounter(element, start, end, suffix) {
             const duration = 2000;
             const startTime = performance.now();
-            
+
             function updateCounter(currentTime) {
                 const elapsed = currentTime - startTime;
                 const progress = Math.min(elapsed / duration, 1);
-                
+
                 const current = Math.floor(start + (end - start) * progress);
                 element.textContent = current + suffix.replace(/\d/g, '');
-                
+
                 if (progress < 1) {
                     requestAnimationFrame(updateCounter);
                 }
             }
-            
+
             requestAnimationFrame(updateCounter);
         }
 
         // Photo loader - supports URL or local file
-        (function() {
+        (function () {
             const img = document.getElementById('badgeImg');
             const photoBox = document.getElementById('badgePhoto');
             if (!img || !photoBox) return;
@@ -1352,7 +1408,7 @@
             // 2. A local file path (e.g., 'assets/profile.jpg')
             // Update this variable with your photo:
             const photoSource = 'assets/profile.png';
-            
+
             // If no source provided, try common local paths
             const localPaths = [
                 'assets/profile.jpg',
@@ -1364,11 +1420,11 @@
             ];
 
             function loadPhoto(src) {
-                img.onload = function() {
+                img.onload = function () {
                     photoBox.classList.remove('no-photo');
                     img.style.display = 'block';
                 };
-                img.onerror = function() {
+                img.onerror = function () {
                     img.style.display = 'none';
                     photoBox.classList.add('no-photo');
                 };
@@ -1386,11 +1442,11 @@
                         photoBox.classList.add('no-photo');
                         return;
                     }
-                    img.onerror = function() {
+                    img.onerror = function () {
                         index++;
                         tryNext();
                     };
-                    img.onload = function() {
+                    img.onload = function () {
                         photoBox.classList.remove('no-photo');
                         img.style.display = 'block';
                     };
@@ -1401,7 +1457,7 @@
         })();
 
         // Interactive drag functionality
-        (function() {
+        (function () {
             const card = document.querySelector('.badge-card');
             if (!card) return;
 
@@ -1416,7 +1472,7 @@
                 startX = e.clientX;
                 startY = e.clientY;
                 card.style.cursor = 'grabbing';
-                
+
                 // Get current transform values
                 const style = window.getComputedStyle(card);
                 const matrix = style.transform;
@@ -1431,16 +1487,16 @@
 
             document.addEventListener('mousemove', (e) => {
                 if (!isDragging) return;
-                
+
                 currentX = e.clientX - startX;
                 currentY = e.clientY - startY;
-                
+
                 // Calculate rotation based on drag distance
                 const rotateX = (currentY / 10) * -1; // Invert Y for natural feel
                 const rotateY = currentX / 10;
                 const translateX = currentX;
                 const translateY = currentY;
-                
+
                 card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateX(${translateX}px) translateY(${translateY}px)`;
             });
 
@@ -1448,11 +1504,11 @@
                 if (isDragging) {
                     isDragging = false;
                     card.style.cursor = 'grab';
-                    
+
                     // Smooth return to original position
                     card.style.transition = 'transform 0.5s ease-out';
                     card.style.transform = '';
-                    
+
                     setTimeout(() => {
                         card.style.transition = '';
                         card.style.animation = 'badgeSwing 4s ease-in-out infinite';
@@ -1472,26 +1528,26 @@
             document.addEventListener('touchmove', (e) => {
                 if (!isDragging) return;
                 e.preventDefault();
-                
+
                 const touch = e.touches[0];
                 currentX = touch.clientX - startX;
                 currentY = touch.clientY - startY;
-                
+
                 const rotateX = (currentY / 10) * -1;
                 const rotateY = currentX / 10;
                 const translateX = currentX;
                 const translateY = currentY;
-                
+
                 card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateX(${translateX}px) translateY(${translateY}px)`;
             });
 
             document.addEventListener('touchend', () => {
                 if (isDragging) {
                     isDragging = false;
-                    
+
                     card.style.transition = 'transform 0.5s ease-out';
                     card.style.transform = '';
-                    
+
                     setTimeout(() => {
                         card.style.transition = '';
                         card.style.animation = 'badgeSwing 4s ease-in-out infinite';
@@ -1501,4 +1557,5 @@
         })();
     </script>
 </body>
+
 </html>

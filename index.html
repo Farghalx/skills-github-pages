@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,15 @@
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script async src="https://tally.so/widgets/embed.js"></script>
     <script>
-      window.addEventListener('load', function() {
-        Tally.loadEmbeds();
-      });
+        window.addEventListener('load', function () {
+            Tally.loadEmbeds();
+        });
     </script>
     <script async src="https://tally.so/widgets/embed.js"></script>
     <style>
@@ -74,44 +77,43 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background:
-                radial-gradient(circle at 20% 80%, rgba(255, 111, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 194, 0, 0.08) 0%, transparent 50%),
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 2px,
+            background: radial-gradient(circle at 20% 80%, rgba(255, 111, 0, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(255, 194, 0, 0.08) 0%, transparent 50%),
+            repeating-linear-gradient(0deg,
+                transparent,
+                transparent 2px,
 
-        /* Tally Button Styles */
-        .tally-button {
-            background: linear-gradient(135deg, var(--orange) 0%, var(--neon-yellow) 100%);
-            color: var(--black);
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            padding: 12px 24px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(255, 111, 0, 0.3);
-        }
+                /* Tally Button Styles */
+                .tally-button {
+                    background: linear-gradient(135deg, var(--orange) 0%, var(--neon-yellow) 100%);
+                    color: var(--black);
+                    font-family: 'Orbitron', sans-serif;
+                    font-weight: 700;
+                    padding: 12px 24px;
+                    border-radius: 8px;
+                    border: none;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    position: relative;
+                    overflow: hidden;
+                    box-shadow: 0 4px 15px rgba(255, 111, 0, 0.3);
+                }
 
-        .tally-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 111, 0, 0.4);
-        }
+                .tally-button:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 6px 20px rgba(255, 111, 0, 0.4);
+                }
 
-        .tally-button:active {
-            transform: translateY(0);
-            box-shadow: 0 2px 10px rgba(255, 111, 0, 0.3);
-        },
-                    rgba(255, 255, 255, 0.01) 2px,
-                    rgba(255, 255, 255, 0.01) 4px
-                );
+                .tally-button:active {
+                    transform: translateY(0);
+                    box-shadow: 0 2px 10px rgba(255, 111, 0, 0.3);
+                }
+
+                ,
+                rgba(255, 255, 255, 0.01) 2px,
+                rgba(255, 255, 255, 0.01) 4px);
             pointer-events: none;
             z-index: -1;
         }
@@ -259,8 +261,13 @@
         }
 
         @keyframes scanline {
-            0% { left: -100%; }
-            100% { left: 100%; }
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
         }
 
         .sell-smarter {
@@ -282,6 +289,7 @@
                 text-shadow: 0 0 30px rgba(255, 194, 0, 0.5);
                 filter: brightness(1);
             }
+
             to {
                 text-shadow: 0 0 40px rgba(255, 194, 0, 0.8), 0 0 60px rgba(255, 111, 0, 0.3);
                 filter: brightness(1.1);
@@ -298,8 +306,15 @@
         }
 
         @keyframes flicker {
-            0%, 100% { opacity: 0.8; }
-            50% { opacity: 1; }
+
+            0%,
+            100% {
+                opacity: 0.8;
+            }
+
+            50% {
+                opacity: 1;
+            }
         }
 
         /* Radio Buttons */
@@ -554,9 +569,19 @@
 
         /* Easter egg shake animation */
         @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-8px) rotate(-2deg); }
-            75% { transform: translateX(8px) rotate(2deg); }
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-8px) rotate(-2deg);
+            }
+
+            75% {
+                transform: translateX(8px) rotate(2deg);
+            }
         }
 
         .shake {
@@ -673,13 +698,14 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <div class="header">
         <div class="header-content">
             <div class="logo">FARGHAL X</div>
             <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-                        <nav class="nav-links">
+            <nav class="nav-links">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="about.html" class="nav-link">About</a>
                 <a href="services.html" class="nav-link">Services</a>
@@ -714,49 +740,47 @@
                 <a href="https://ko-fi.com/farghalx/shop" class="radio-button" target="_blank">
                     <div class="button-left">
                         <svg class="button-icon" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                            <path
+                                d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
                         </svg>
                         <span class="button-text">Product Kits</span>
                     </div>
                     <span class="button-action">Shop Now</span>
                 </a>
 
-                <a href="https://drive.google.com/drive/folders/1Lg5L3WbJSESl58WH2nfqOY93rChf4Q9r?usp=drive_link" class="radio-button" target="_blank">
+                <a href="https://drive.google.com/drive/folders/1Lg5L3WbJSESl58WH2nfqOY93rChf4Q9r?usp=drive_link"
+                    class="radio-button" target="_blank">
                     <div class="button-left">
                         <svg class="button-icon" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11H16V17H8V11H9.2V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.4,8.7 10.4,10V11H13.6V10C13.6,8.7 12.8,8.2 12,8.2Z"/>
+                            <path
+                                d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11H16V17H8V11H9.2V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.4,8.7 10.4,10V11H13.6V10C13.6,8.7 12.8,8.2 12,8.2Z" />
                         </svg>
                         <span class="button-text">Free Prompts</span>
                     </div>
                     <span class="button-action">Download</span>
                 </a>
 
-                <a href="https://t.me/+hjjZRpBnIrg2ZmM1" class="radio-button telegram-button" target="_blank" rel="noopener noreferrer">
-                    <div class="button-left">
-                        <svg class="button-icon" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M9.78,18.65L10.06,14.42L17.74,7.5C18.08,7.19 17.67,7.04 17.22,7.31L7.74,13.3L3.64,12C2.76,11.75 2.75,11.14 3.84,10.7L19.81,4.54C20.54,4.21 21.24,4.72 20.96,5.84L18.24,18.65C18.05,19.56 17.5,19.78 16.74,19.36L12.6,16.3L10.61,18.23C10.38,18.46 10.19,18.65 9.78,18.65Z"/>
-                        </svg>
-                        <span class="button-text">Join Telegram</span>
-                    </div>
-                    <span class="button-action">Join</span>
-                </a>
+
 
                 <a href="portfolio.html" class="radio-button">
                     <div class="button-left">
                         <svg class="button-icon" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z"/>
+                            <path
+                                d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z" />
                         </svg>
                         <span class="button-text">View My Work</span>
                     </div>
                     <span class="button-action">View Portfolio</span>
                 </a>
 
-                <button class="radio-button tally-popup-btn" data-tally-open="mORN7A" data-tally-width="600" data-tally-emoji-text="📞" data-tally-emoji-animation="wave">
+                <button class="radio-button tally-popup-btn" data-tally-open="mORN7A" data-tally-width="600"
+                    data-tally-emoji-text="📞" data-tally-emoji-animation="wave">
                     <div class="button-left">
                         <svg class="button-icon" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5 C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
+                            <path
+                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5 C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
                         </svg>
-                        <span class="button-text">Book a Consultation</span>
+                        <span class="button-text">Book an AI Systems Diagnostic</span>
                     </div>
                     <span class="button-action">Book Now</span>
                 </button>
@@ -775,7 +799,8 @@
     <div class="modal" id="modal">
         <div class="modal-content">
             <h2 id="modal-title">Radio Easter Egg</h2>
-            <p id="modal-text">You found the secret! This vintage radio console is tuned to frequency 108.7 FM - "The Entrepreneur's Signal". Welcome to the frequency where ambition meets innovation.</p>
+            <p id="modal-text">You found the secret! This vintage radio console is tuned to frequency 108.7 FM - "The
+                Entrepreneur's Signal". Welcome to the frequency where ambition meets innovation.</p>
             <button class="close-modal" onclick="closeModal()">Close Transmission</button>
         </div>
     </div>
@@ -802,16 +827,16 @@
             initAudio();
             const oscillator = audioContext.createOscillator();
             const gainNode = audioContext.createGain();
-           
+
             oscillator.connect(gainNode);
             gainNode.connect(audioContext.destination);
-           
+
             oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
             oscillator.frequency.exponentialRampToValueAtTime(400, audioContext.currentTime + 0.1);
-           
+
             gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
             gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
-           
+
             oscillator.start(audioContext.currentTime);
             oscillator.stop(audioContext.currentTime + 0.1);
         }
@@ -820,16 +845,16 @@
             initAudio();
             const oscillator = audioContext.createOscillator();
             const gainNode = audioContext.createGain();
-           
+
             oscillator.connect(gainNode);
             gainNode.connect(audioContext.destination);
-           
+
             oscillator.frequency.setValueAtTime(600, audioContext.currentTime);
             oscillator.type = 'sine';
-           
+
             gainNode.gain.setValueAtTime(0.05, audioContext.currentTime);
             gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.05);
-           
+
             oscillator.start(audioContext.currentTime);
             oscillator.stop(audioContext.currentTime + 0.05);
         }
@@ -838,16 +863,16 @@
             initAudio();
             const oscillator = audioContext.createOscillator();
             const gainNode = audioContext.createGain();
-           
+
             oscillator.connect(gainNode);
             gainNode.connect(audioContext.destination);
-           
+
             oscillator.frequency.setValueAtTime(1200, audioContext.currentTime);
             oscillator.type = 'square';
-           
+
             gainNode.gain.setValueAtTime(0.08, audioContext.currentTime);
             gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.15);
-           
+
             oscillator.start(audioContext.currentTime);
             oscillator.stop(audioContext.currentTime + 0.15);
         }
@@ -872,12 +897,12 @@
 
         // Radio button interactions
         const radioButtons = document.querySelectorAll('.radio-button');
-       
+
         radioButtons.forEach(button => {
             button.addEventListener('mouseenter', () => {
                 playHoverSound();
             });
-           
+
             button.addEventListener('click', () => {
                 playClickSound();
             });
@@ -891,12 +916,12 @@
                 e.preventDefault();
                 playKnobSound();
                 knob.parentElement.parentElement.classList.add('shake');
-               
+
                 // Easter egg for different knobs
                 const func = knob.getAttribute('data-function');
                 let message = '';
-               
-                switch(func) {
+
+                switch (func) {
                     case 'volume':
                         message = 'Volume adjusted to maximum entrepreneurial frequency!';
                         break;
@@ -909,9 +934,9 @@
                     default:
                         message = 'Radio calibrated for peak performance!';
                 }
-               
+
                 showModal('Radio Control Activated', message);
-               
+
                 setTimeout(() => {
                     knob.parentElement.parentElement.classList.remove('shake');
                 }, 600);
@@ -955,10 +980,10 @@
             '108.7 FM • SALES WAVELENGTH • CLEAR',
             '108.7 FM • GROWTH CHANNEL • LIVE'
         ];
-       
+
         const frequencyDisplay = document.querySelector('.frequency-display');
         let currentFreq = 0;
-       
+
         setInterval(() => {
             currentFreq = (currentFreq + 1) % frequencies.length;
             frequencyDisplay.textContent = frequencies[currentFreq];
@@ -969,11 +994,12 @@
             button.addEventListener('touchstart', () => {
                 button.classList.add('active');
             });
-           
+
             button.addEventListener('touchend', () => {
                 button.classList.remove('active');
             });
         });
     </script>
 </body>
+
 </html>
