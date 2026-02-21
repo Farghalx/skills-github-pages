@@ -1,0 +1,113 @@
+import React, { useState, useEffect, useRef } from 'react';
+import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import MagneticButton from './MagneticButton';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+export default function Navbar() {
+    const [isNavOpen, setIsNavOpen] = useState(false);
+    const navRef = useRef(null);
+    const location = useLocation();
+
+    useEffect(() => {
+        let ctx = gsap.context(() => {
+            ScrollTrigger.create({
+                start: 'top -50',
+                end: 99999,
+                toggleClass: { className: 'glass-panel', targets: navRef.current },
+            });
+        }, navRef);
+
+        return () => ctx.revert();
+    }, [location.pathname]);
+
+    const navLinks = [
+        { name: 'Home', path: '/' },
+        { name: 'Services', path: '/services' },
+        { name: 'Portfolio', path: '/portfolio' },
+        { name: 'Blog', path: '/blog' },
+        { name: 'Products & Prompts', path: 'https://ko-fi.com/farghalx/shop', external: true }
+    ];
+
+    return (
+        <nav ref={navRef} className="fixed top-4 left-1/2 -translate-x-1/2 w-[90%] md:w-max rounded-full border border-white/5 bg-white/5 backdrop-blur-md px-6 py-4 flex items-center justify-between z-50 transition-all duration-300">
+            <Link to="/" className="font-drama text-2xl italic tracking-wider text-textMain">FX</Link>
+
+            <div className="hidden md:flex items-center gap-8 px-8 font-mono text-sm text-gray-400">
+                {navLinks.map((item) => (
+                    item.external ? (
+                        <a
+                            key={item.name}
+                            href={item.path}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-accent transition-colors"
+                        >
+                            {item.name}
+                        </a>
+                    ) : (
+                        <Link
+                            key={item.name}
+                            to={item.path}
+                            className={`hover:text-accent transition-colors ${location.pathname === item.path ? 'text-accent font-bold' : ''}`}
+                        >
+                            {item.name}
+                        </Link>
+                    )
+                ))}
+            </div>
+
+            <div className="hidden md:block">
+                <MagneticButton
+                    className="bg-white text-black font-bold px-6 py-2 rounded-full text-sm hover:bg-gray-200 transition-colors"
+                    data-tally-open="Pd1MPe" data-tally-width="368" data-tally-emoji-text="👋" data-tally-emoji-animation="wave"
+                >
+                    Book AI Diagnostic
+                </MagneticButton>
+            </div>
+
+            <button className="md:hidden text-white relative z-50" onClick={() => setIsNavOpen(!isNavOpen)}>
+                {isNavOpen ? <X /> : <Menu />}
+            </button>
+
+            {/* Mobile Menu */}
+            {isNavOpen && (
+                <div className="absolute top-full left-0 right-0 mt-4 bg-black/80 backdrop-blur-xl border border-white/10 rounded-3xl p-6 flex flex-col gap-6 shadow-2xl md:hidden">
+                    {navLinks.map((item) => (
+                        item.external ? (
+                            <a
+                                key={item.name}
+                                href={item.path}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-white font-mono text-lg hover:text-accent font-bold"
+                                onClick={() => setIsNavOpen(false)}
+                            >
+                                {item.name}
+                            </a>
+                        ) : (
+                            <Link
+                                key={item.name}
+                                to={item.path}
+                                className="text-white font-mono text-lg hover:text-accent font-bold"
+                                onClick={() => setIsNavOpen(false)}
+                            >
+                                {item.name}
+                            </Link>
+                        )
+                    ))}
+                    <button
+                        className="bg-white text-black font-bold text-center px-6 py-4 rounded-full text-sm w-full"
+                        data-tally-open="Pd1MPe" data-tally-width="368" data-tally-emoji-text="👋" data-tally-emoji-animation="wave"
+                        onClick={() => setIsNavOpen(false)}
+                    >
+                        Book AI Diagnostic
+                    </button>
+                </div>
+            )}
+        </nav>
+    );
+}

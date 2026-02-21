@@ -1,0 +1,38 @@
+import React, { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+
+// Pages
+import Home from './pages/Home';
+import About from './pages/About';
+import Services from './pages/Services';
+import Portfolio from './pages/Portfolio';
+import Blog from './pages/Blog';
+
+export default function App() {
+    const { pathname } = useLocation();
+
+    // Scroll to top on route change
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
+    return (
+        <div className="bg-background text-textMain font-sans overflow-x-hidden selection:bg-accent selection:text-white flex flex-col min-h-screen">
+            <Navbar />
+
+            <main className="flex-1">
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/services" element={<Services />} />
+                    <Route path="/portfolio" element={<Portfolio />} />
+                    <Route path="/blog" element={<Blog />} />
+                </Routes>
+            </main>
+
+            <Footer />
+        </div>
+    );
+}
