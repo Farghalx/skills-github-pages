@@ -7,6 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Portfolio() {
     const containerRef = useRef(null);
     const [filter, setFilter] = useState('all');
+    const [activeProject, setActiveProject] = useState(null);
 
     useEffect(() => {
         let ctx = gsap.context(() => {
@@ -80,35 +81,65 @@ export default function Portfolio() {
                 ))}
             </div>
 
-            {/* Projects Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Projects Accordion List */}
+            <div className="flex flex-col gap-4">
                 {filteredProjects.map((project, i) => (
-                    <div key={i} className="stagger-item glass-panel rounded-3xl p-8 flex flex-col shadow-none hover:-translate-y-2 transition-transform duration-300">
-                        <div className="mb-6">
-                            <span className="inline-block px-3 py-1 bg-accent/10 text-accent font-bold font-mono text-xs uppercase tracking-wider rounded-lg mb-4">{project.type}</span>
-                            <h2 className="font-sans font-bold text-2xl text-white leading-tight">{project.title}</h2>
+                    <div
+                        key={i}
+                        className={`stagger-item group border-b border-white/10 pb-4 transition-all duration-500 overflow-hidden cursor-pointer ${activeProject === i ? 'bg-[#18181A] rounded-3xl p-8 border border-white/20 shadow-[0_0_50px_rgba(0,0,0,0.8)] mt-4 mb-8' : 'hover:bg-white/5 hover:px-4 px-0 py-4'}`}
+                        onClick={() => setActiveProject(activeProject === i ? null : i)}
+                    >
+                        {/* Always visible header */}
+                        <div className="flex justify-between items-center w-full">
+                            <div className="flex items-center gap-6">
+                                <span className="font-mono text-xl text-gray-400 font-bold group-hover:text-accent transition-colors">0{i + 1}</span>
+                                <h2 className={`font-sans font-bold text-3xl md:text-5xl transition-colors ${activeProject === i ? 'text-accent' : 'text-white group-hover:text-gray-100'}`}>{project.title}</h2>
+                            </div>
+                            <span className="hidden md:block font-mono text-sm tracking-widest uppercase text-gray-300 group-hover:text-white transition-colors">{project.type}</span>
                         </div>
 
-                        <div className="flex gap-2 mb-6 flex-wrap">
-                            {project.stats.map((stat, j) => (
-                                <span key={j} className="text-xs font-mono font-bold text-gray-300 bg-white/5 px-2 py-1 border border-white/10 rounded-md">{stat}</span>
-                            ))}
-                        </div>
+                        {/* Expandable Content */}
+                        <div className={`grid grid-cols-1 md:grid-cols-2 gap-12 transition-all duration-700 ease-in-out ${activeProject === i ? 'mt-12 opacity-100 max-h-[1000px]' : 'opacity-0 max-h-0 overflow-hidden'}`}>
+                            {/* Left Side: Image/Visual */}
+                            <div className="w-full h-64 md:h-full min-h-[300px] bg-[#0A0A0A] rounded-xl border border-white/10 overflow-hidden relative group-hover/image">
+                                <img
+                                    src={`https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80&auto=format&fit=crop`}
+                                    alt="System Preview"
+                                    className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-screen transition-transform duration-700 hover:scale-110"
+                                />
+                                <div className="absolute inset-0 bg-accent/20 mix-blend-overlay z-10"></div>
+                                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                    <span className="font-mono text-white bg-black/50 backdrop-blur border border-white/10 px-4 py-2 rounded-full text-xs tracking-widest z-20 shadow-xl">SYSTEM ARCHITECTURE</span>
+                                </div>
+                                <div className="absolute inset-x-0 bottom-0 top-1/2 bg-gradient-to-t from-[#18181A] to-transparent z-10 pointer-events-none"></div>
+                            </div>
 
-                        <div className="mb-6 flex-1">
-                            <h4 className="font-bold text-sm text-white uppercase mb-2">Problem</h4>
-                            <p className="text-gray-400 text-sm mb-4 leading-relaxed">{project.problem}</p>
+                            {/* Right Side: Details */}
+                            <div className="flex flex-col justify-center">
+                                <div className="flex gap-2 mb-8 flex-wrap">
+                                    {project.stats.map((stat, j) => (
+                                        <span key={j} className="text-xs font-mono font-bold text-black bg-gray-100 px-3 py-1 rounded-sm">{stat}</span>
+                                    ))}
+                                </div>
 
-                            <h4 className="font-bold text-sm text-white uppercase mb-2">Solution</h4>
-                            <p className="text-gray-400 text-sm leading-relaxed">{project.solution}</p>
-                        </div>
+                                <div className="mb-8 pl-4 border-l-2 border-accent/50">
+                                    <h4 className="font-bold text-sm text-white uppercase mb-2">The Problem</h4>
+                                    <p className="text-gray-200 text-base leading-relaxed">{project.problem}</p>
+                                </div>
 
-                        <div className="border-t border-white/10 pt-6 mt-auto">
-                            <h4 className="font-bold text-xs text-gray-500 uppercase mb-3">Tech Stack</h4>
-                            <div className="flex flex-wrap gap-2">
-                                {project.tools.map((tool, k) => (
-                                    <span key={k} className="text-xs text-gray-300 bg-white/5 px-3 py-1 rounded-full border border-white/5">{tool}</span>
-                                ))}
+                                <div className="mb-8 pl-4 border-l-2 border-accent">
+                                    <h4 className="font-bold text-sm text-white uppercase mb-2">The Solution</h4>
+                                    <p className="text-white text-base leading-relaxed font-medium">{project.solution}</p>
+                                </div>
+
+                                <div>
+                                    <h4 className="font-mono font-bold text-xs text-gray-400 uppercase mb-3 tracking-widest">Architecture</h4>
+                                    <div className="flex flex-wrap gap-2">
+                                        {project.tools.map((tool, k) => (
+                                            <span key={k} className="text-xs font-mono font-bold text-gray-100 bg-[#1A1A1A] px-3 py-1 rounded-full border border-white/20">{tool}</span>
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
                         </div>
 

@@ -67,7 +67,7 @@ export default function Services() {
             {/* Industry Explorer (Dark Edition) */}
             <div className="stagger-card bg-[#050505] border border-white/10 rounded-[3rem] p-12 md:p-20 text-center mb-20 relative overflow-hidden shadow-none">
                 <div className="relative z-10">
-                    <h2 className="font-drama italic text-4xl md:text-5xl text-accent mb-6">Built for Malaysian SMEs.</h2>
+                    <h2 className="font-drama italic text-4xl md:text-5xl text-accent mb-6">Built for Ambitious Businesses.</h2>
                     <p className="font-mono text-sm text-gray-400 max-w-2xl mx-auto mb-12">We focus on practical, ROI-driven systems for service-based businesses.</p>
 
                     <div className="flex flex-wrap justify-center gap-4 font-mono font-bold text-sm">

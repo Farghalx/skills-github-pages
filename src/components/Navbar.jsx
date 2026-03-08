@@ -13,30 +13,20 @@ export default function Navbar() {
     const location = useLocation();
 
     useEffect(() => {
-        let ctx = gsap.context(() => {
-            ScrollTrigger.create({
-                start: 'top -50',
-                end: 99999,
-                toggleClass: { className: 'glass-panel', targets: navRef.current },
-            });
-        }, navRef);
-
-        return () => ctx.revert();
+        // ScrollTrigger removed to preserve solid navbar background
     }, [location.pathname]);
 
     const navLinks = [
         { name: 'Home', path: '/' },
         { name: 'Services', path: '/services' },
-        { name: 'Portfolio', path: '/portfolio' },
-        { name: 'Blog', path: '/blog' },
-        { name: 'Products & Prompts', path: 'https://ko-fi.com/farghalx/shop', external: true }
+        { name: 'Portfolio', path: '/portfolio' }
     ];
 
     return (
-        <nav ref={navRef} className="fixed top-4 left-1/2 -translate-x-1/2 w-[90%] md:w-max rounded-full border border-white/5 bg-white/5 backdrop-blur-md px-6 py-4 flex items-center justify-between z-50 transition-all duration-300">
-            <Link to="/" className="font-drama text-2xl italic tracking-wider text-textMain">FX</Link>
+        <nav ref={navRef} className="fixed top-4 left-1/2 -translate-x-1/2 w-[90%] md:w-max rounded-full border border-white/20 bg-[#0A0A0A] px-6 py-4 flex items-center justify-between z-50 transition-all duration-300 shadow-2xl">
+            <Link to="/" className="font-drama text-2xl italic tracking-wider text-white">FX</Link>
 
-            <div className="hidden md:flex items-center gap-8 px-8 font-mono text-sm text-gray-400">
+            <div className="hidden md:flex items-center gap-8 px-8 font-mono text-sm !text-gray-100 font-bold">
                 {navLinks.map((item) => (
                     item.external ? (
                         <a
@@ -52,7 +42,7 @@ export default function Navbar() {
                         <Link
                             key={item.name}
                             to={item.path}
-                            className={`hover:text-accent transition-colors ${location.pathname === item.path ? 'text-accent font-bold' : ''}`}
+                            className={`hover:!text-accent transition-colors ${location.pathname === item.path ? '!text-accent font-bold' : '!text-gray-100'}`}
                         >
                             {item.name}
                         </Link>
