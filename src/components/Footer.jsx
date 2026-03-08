@@ -10,10 +10,7 @@ export default function Footer() {
                     <Link to="/" className="font-drama italic text-5xl mb-4 text-black hover:text-accent transition-colors block w-max">FARGHAL X</Link>
                     <p className="font-mono text-gray-600 max-w-xs font-bold">The AI operating system for modern businesses.</p>
 
-                    <div className="mt-12 flex items-center gap-3 font-mono text-sm">
-                        <span className="w-3 h-3 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)] animate-pulse border border-green-200"></span>
-                        <span className="text-green-600 font-bold tracking-widest">SYSTEM OPERATIONAL</span>
-                    </div>
+
                 </div>
 
                 <div>
