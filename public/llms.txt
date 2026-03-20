@@ -1,0 +1,26 @@
+# Farghal X
+
+## About
+Farghal X is an AI automation agency that builds AI-powered systems for small and medium enterprises (SMEs). Founded by Ahmed Farghal, based in Kuala Lumpur, Malaysia.
+
+## What We Do
+We design and implement AI automation systems that replace manual, repetitive business processes — saving 10–30 hours per week for our clients.
+
+## Services
+- AI Strategy Consultation: Business process audit, AI opportunity identification, and ROI roadmap.
+- AI Implementation Services: Lead qualification bots, CRM integration, and custom dashboards.
+- Workflow Automation: Connecting existing tools via n8n and Make to eliminate manual data entry.
+
+## Industries Served
+Real Estate, Consultancies, Healthcare, E-commerce, Agencies
+
+## Target Markets
+- Malaysia (MY)
+- United Arab Emirates (AE)
+- Saudi Arabia (SA)
+- Egypt (EG)
+
+## Contact
+- Email: ahmed@farghalx.org
+- Website: https://farghalx.org
+- GitHub: https://github.com/AhmedFarghal25
