@@ -48,10 +48,9 @@ Connecting existing business tools via n8n and Make to eliminate manual data ent
 Real Estate, Consultancies, Healthcare, E-commerce, Agencies
 
 ## Target Markets
-- Malaysia (MY)
-- United Arab Emirates (AE)
-- Saudi Arabia (SA)
-- Egypt (EG)
+- Southeast Asia (Malaysia, Singapore, Indonesia, Philippines)
+- Middle East (UAE, Saudi Arabia, Egypt)
+- Australia & UK
 
 ## Pricing Model
 Project-based pricing. One system, one price, no scope creep. Systems are typically delivered in 7–14 days.
@@ -78,7 +77,7 @@ Q: How long does a typical project take?
 A: Most AI systems are delivered within 7–14 days.
 
 Q: What regions do you serve?
-A: We serve clients in Malaysia, UAE, Saudi Arabia, and Egypt. We work remotely.
+A: We serve clients globally, with a focus on Southeast Asia, the Middle East, Australia, and the UK. We work remotely.
 
 Q: How much can I save by automating?
 A: Clients typically save 10–30 hours per week in manual work, translating to thousands in operational cost savings monthly.

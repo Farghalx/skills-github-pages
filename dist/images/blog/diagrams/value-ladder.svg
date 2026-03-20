@@ -1,0 +1,16 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100%" height="100%" fill="#111" rx="16"/>
+    <text x="400" y="50" font-family="Space Grotesk, sans-serif" font-size="28" font-weight="bold" fill="#fff" text-anchor="middle">The Automation Services Ladder</text>
+    
+    <rect x="150" y="250" width="150" height="100" fill="#1A1A1A" stroke="#ea580c" stroke-width="2"/>
+    <text x="225" y="290" font-family="sans-serif" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Step 1</text>
+    <text x="225" y="320" font-family="monospace" font-size="12" fill="#ea580c" text-anchor="middle">Content</text>
+
+    <rect x="300" y="150" width="200" height="200" fill="#1A1A1A" stroke="#ea580c" stroke-width="2"/>
+    <text x="400" y="220" font-family="sans-serif" font-size="16" font-weight="bold" fill="#fff" text-anchor="middle">Step 2</text>
+    <text x="400" y="250" font-family="monospace" font-size="14" fill="#ea580c" text-anchor="middle">Outreach</text>
+
+    <rect x="500" y="50" width="200" height="300" fill="#ea580c" stroke="#fff" stroke-width="2"/>
+    <text x="600" y="150" font-family="sans-serif" font-size="24" font-weight="bold" fill="#111" text-anchor="middle">Step 3</text>
+    <text x="600" y="200" font-family="monospace" font-size="16" font-weight="bold" fill="#111" text-anchor="middle">Full AI Employee</text>
+</svg>

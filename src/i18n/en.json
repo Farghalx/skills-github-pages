@@ -3,6 +3,7 @@
     "home": "Home",
     "services": "Services",
     "portfolio": "Portfolio",
+    "blog": "Blog",
     "book_cta": "Book AI Diagnostic"
   },
   "footer": {
@@ -47,7 +48,7 @@
   "about": {
     "title": "Farghal X",
     "role": "Lead AI Architect • System Builder",
-    "bio": "I don't just talk about AI; I build it. Based in Kuala Lumpur, I specialize in architecting n8n workflows that connect your existing tools to custom AI agents. From automated WhatsApp lead responders to deep content generation pipelines, I replace busywork with logic.",
+    "bio": "I don't just talk about AI; I build it. Based in Kuala Lumpur, I specialize in architecting n8n workflows for clients globally. From automated WhatsApp responders to deep content generation pipelines, I replace busywork with logic.",
     "email_btn": "Email",
     "github_btn": "GitHub",
     "badge_org": "● FARGHALX",
@@ -56,6 +57,13 @@
     "badge_title": "System Architect",
     "skills_title": "Technical Arsenal",
     "skills": ["n8n & Make.com", "OpenAI & Claude APIs", "React / Tailwind", "Node.js & Python"],
+    "markets_title": "Markets We Serve",
+    "markets_desc": "We work remotely with clients worldwide.",
+    "markets": [
+      "Southeast Asia (Malaysia, Singapore, Indonesia, Philippines)",
+      "Middle East (UAE, Saudi Arabia, Egypt)",
+      "Australia & UK"
+    ],
     "stats": [
       { "num": "30+", "label": "Workflows Built" },
       { "num": "500h", "label": "Saved Monthly" },

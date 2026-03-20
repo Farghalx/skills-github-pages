@@ -1,0 +1,27 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100%" height="100%" fill="#0D0D0D" />
+      
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
+  </pattern>
+  <rect width="100%" height="100%" fill="url(#grid)" />
+
+      <!-- Sources -->
+      <rect x="250" y="150" width="120" height="120" rx="20" fill="#1A1A1A" stroke="#ea580c" stroke-width="8" />
+      <rect x="250" y="350" width="120" height="120" rx="20" fill="#1A1A1A" stroke="#ea580c" stroke-width="8" />
+      <!-- Bar Chart icon inside top box -->
+      <rect x="280" y="210" width="16" height="40" fill="#ea580c"/>
+      <rect x="302" y="180" width="16" height="70" fill="#ea580c"/>
+      <rect x="324" y="230" width="16" height="20" fill="#ea580c"/>
+      
+      <!-- Pie Chart icon inside bottom box -->
+      <circle cx="310" cy="410" r="30" fill="none" stroke="#ea580c" stroke-width="12" stroke-dasharray="140 50"/>
+      <!-- Arrows flowing to center document -->
+      <path d="M 370 210 Q 550 210 550 310" fill="none" stroke="#ea580c" stroke-width="6" stroke-dasharray="8 8"/>
+      <path d="M 370 410 Q 550 410 550 310" fill="none" stroke="#ea580c" stroke-width="6" stroke-dasharray="8 8"/>
+      <!-- Final PDF Document -->
+      <path d="M 700 150 L 850 150 L 900 200 L 900 450 L 700 450 Z" fill="#1A1A1A" stroke="#ea580c" stroke-width="12" stroke-linejoin="round"/>
+      <path d="M 740 250 L 860 250" stroke="#ea580c" stroke-width="8" stroke-linecap="round"/>
+      <path d="M 740 310 L 860 310" stroke="#ea580c" stroke-width="8" stroke-linecap="round"/>
+      <path d="M 740 370 L 800 370" stroke="#ea580c" stroke-width="8" stroke-linecap="round"/>
+    </svg>

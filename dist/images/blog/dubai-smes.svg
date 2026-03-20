@@ -1,0 +1,18 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100%" height="100%" fill="#0D0D0D" />
+      
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
+  </pattern>
+  <rect width="100%" height="100%" fill="url(#grid)" />
+
+      <!-- Minimalist Skyline/Building -->
+      <path d="M 450 450 L 450 200 L 550 200 L 550 100 L 650 100 L 650 250 L 750 250 L 750 450 Z" fill="none" stroke="#ea580c" stroke-width="12" stroke-linejoin="round"/>
+      <path d="M 350 450 L 850 450" stroke="#ea580c" stroke-width="12" stroke-linecap="round"/>
+      <!-- Speed / Connections -->
+      <path d="M 600 70 L 600 10" stroke="#ea580c" stroke-width="8" stroke-dasharray="10 10" />
+      <path d="M 700 220 L 700 160" stroke="#ea580c" stroke-width="8" stroke-dasharray="10 10" />
+      <circle cx="600" cy="180" r="16" fill="#ea580c" />
+      <!-- DUBAI Text overlay -->
+      <text x="600" y="550" font-family="monospace" font-size="64" font-weight="bold" fill="#ea580c" text-anchor="middle" letter-spacing="10">DUBAI AI</text>
+    </svg>

@@ -91,6 +91,17 @@ export default function About() {
                 ))}
             </div>
 
+            {/* Markets We Serve Grid */}
+            <h2 className="reveal-elem font-sans font-bold text-3xl mb-4 text-center text-white uppercase">{t('about.markets_title')}</h2>
+            <p className="reveal-elem font-mono text-gray-400 text-center mb-12 max-w-2xl mx-auto">{t('about.markets_desc')}</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-32">
+                {Array.isArray(t('about.markets')) && t('about.markets').map((market, i) => (
+                    <div key={i} className="reveal-elem glass-panel rounded-2xl p-6 text-center shadow-none hover:border-accent transition-colors flex items-center justify-center min-h-[100px]">
+                        <span className="font-mono font-bold text-sm text-white leading-relaxed">{market}</span>
+                    </div>
+                ))}
+            </div>
+
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-32">
                 {Array.isArray(stats) && stats.map((stat, i) => (
