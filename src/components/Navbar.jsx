@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import MagneticButton from './MagneticButton';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useLanguage } from '../i18n/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,16 +12,21 @@ export default function Navbar() {
     const [isNavOpen, setIsNavOpen] = useState(false);
     const navRef = useRef(null);
     const location = useLocation();
+    const { t, language, setLanguage } = useLanguage();
 
     useEffect(() => {
         // ScrollTrigger removed to preserve solid navbar background
     }, [location.pathname]);
 
     const navLinks = [
-        { name: 'Home', path: '/' },
-        { name: 'Services', path: '/services' },
-        { name: 'Portfolio', path: '/portfolio' }
+        { name: t('nav.home'), path: '/' },
+        { name: t('nav.services'), path: '/services' },
+        { name: t('nav.portfolio'), path: '/portfolio' }
     ];
+
+    const toggleLanguage = () => {
+        setLanguage(language === 'en' ? 'ar' : 'en');
+    };
 
     return (
         <nav ref={navRef} className="fixed top-4 left-1/2 -translate-x-1/2 w-[90%] md:w-max rounded-full border border-white/20 bg-[#0A0A0A] px-6 py-4 flex items-center justify-between z-50 transition-all duration-300 shadow-2xl">
@@ -30,7 +36,7 @@ export default function Navbar() {
                 {navLinks.map((item) => (
                     item.external ? (
                         <a
-                            key={item.name}
+                            key={item.path}
                             href={item.path}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -40,7 +46,7 @@ export default function Navbar() {
                         </a>
                     ) : (
                         <Link
-                            key={item.name}
+                            key={item.path}
                             to={item.path}
                             className={`hover:!text-accent transition-colors ${location.pathname === item.path ? '!text-accent font-bold' : '!text-gray-100'}`}
                         >
@@ -50,12 +56,18 @@ export default function Navbar() {
                 ))}
             </div>
 
-            <div className="hidden md:block">
+            <div className="hidden md:flex items-center gap-3">
+                <button
+                    onClick={toggleLanguage}
+                    className="font-mono text-sm font-bold px-4 py-1.5 rounded-full border border-white/20 text-white hover:border-accent hover:text-accent transition-colors"
+                >
+                    {language === 'en' ? 'عربي' : 'EN'}
+                </button>
                 <MagneticButton
                     className="bg-white text-black font-bold px-6 py-2 rounded-full text-sm hover:bg-gray-200 transition-colors"
                     data-tally-open="Pd1MPe" data-tally-width="368" data-tally-emoji-text="👋" data-tally-emoji-animation="wave"
                 >
-                    Book AI Diagnostic
+                    {t('nav.book_cta')}
                 </MagneticButton>
             </div>
 
@@ -69,7 +81,7 @@ export default function Navbar() {
                     {navLinks.map((item) => (
                         item.external ? (
                             <a
-                                key={item.name}
+                                key={item.path}
                                 href={item.path}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -80,7 +92,7 @@ export default function Navbar() {
                             </a>
                         ) : (
                             <Link
-                                key={item.name}
+                                key={item.path}
                                 to={item.path}
                                 className="text-white font-mono text-lg hover:text-accent font-bold"
                                 onClick={() => setIsNavOpen(false)}
@@ -90,11 +102,17 @@ export default function Navbar() {
                         )
                     ))}
                     <button
+                        onClick={() => { toggleLanguage(); setIsNavOpen(false); }}
+                        className="text-white font-mono text-lg hover:text-accent font-bold text-start"
+                    >
+                        {language === 'en' ? 'عربي' : 'EN'}
+                    </button>
+                    <button
                         className="bg-white text-black font-bold text-center px-6 py-4 rounded-full text-sm w-full"
                         data-tally-open="Pd1MPe" data-tally-width="368" data-tally-emoji-text="👋" data-tally-emoji-animation="wave"
                         onClick={() => setIsNavOpen(false)}
                     >
-                        Book AI Diagnostic
+                        {t('nav.book_cta')}
                     </button>
                 </div>
             )}

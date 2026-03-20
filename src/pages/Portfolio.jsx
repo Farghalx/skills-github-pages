@@ -1,13 +1,21 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useLanguage } from '../i18n/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const projectMeta = [
+    { category: 'ai-agent', tools: ['Refelence AI', 'ChatGPT', 'Notion API', 'Custom Prompts'] },
+    { category: 'automation', tools: ['n8n', 'Airtable', 'Telegram Bot API', 'OpenAI GPT-4', 'Google Calendar'] },
+    { category: 'business-intelligence', tools: ['Google Sheets', 'Apps Script', 'Conditional Formatting', 'Data Validation'] }
+];
 
 export default function Portfolio() {
     const containerRef = useRef(null);
     const [filter, setFilter] = useState('all');
     const [activeProject, setActiveProject] = useState(null);
+    const { t } = useLanguage();
 
     useEffect(() => {
         let ctx = gsap.context(() => {
@@ -23,55 +31,32 @@ export default function Portfolio() {
         return () => ctx.revert();
     }, [filter]);
 
-    const projects = [
-        {
-            title: "AI Sales Research Agent",
-            type: "B2B Sales Automation",
-            category: "ai-agent",
-            stats: ["70% Faster", "3x More Calls", "35% More Meetings"],
-            problem: "Sales teams waste hours researching clients manually. B2B SaaS company's 5-person sales team spent 2-3 hours per prospect researching company websites, LinkedIn profiles, and recent news.",
-            solution: "Built an AI agent that summarizes LinkedIn + website insights in seconds with automated scraping, profile extraction, and personalized opening lines.",
-            tools: ["Refelence AI", "ChatGPT", "Notion API", "Custom Prompts"]
-        },
-        {
-            title: "WhatsApp CRM System",
-            type: "Lead Automation",
-            category: "automation",
-            stats: ["RM2,400/Month Saved", "65% Faster Response", "24/7 Coverage"],
-            problem: "Car dealership overwhelmed with 80+ daily WhatsApp inquiries asking repetitive questions about availability, pricing, and test drives. 4+ hour response times caused lost leads.",
-            solution: "Designed end-to-end WhatsApp CRM automation with AI intent recognition, automatic loan calculations, live inventory checks, and 24/7 instant responses.",
-            tools: ["n8n", "Airtable", "Telegram Bot API", "OpenAI GPT-4", "Google Calendar"]
-        },
-        {
-            title: "Balqiso Trade Inventory Tracker",
-            type: "Business Intelligence",
-            category: "business-intelligence",
-            stats: ["RM3,200/Month Saved", "80% Less Admin", "30% Better Turnover"],
-            problem: "Wholesale clothing business owner spent 15 hours/week manually tracking inventory across 3 supplier spreadsheets, leading to frequent stockouts and over-ordering.",
-            solution: "Created all-in-one Google Sheets system with centralized dashboard, automatic profit calculations, reorder alerts, and real-time analytics.",
-            tools: ["Google Sheets", "Apps Script", "Conditional Formatting", "Data Validation"]
-        }
-    ];
+    const translatedProjects = t('portfolio.projects');
+    const projects = Array.isArray(translatedProjects)
+        ? translatedProjects.map((p, i) => ({ ...p, ...projectMeta[i] }))
+        : [];
 
     const filteredProjects = filter === 'all' ? projects : projects.filter(p => p.category === filter);
+
+    const filters = [
+        { id: 'all', label: t('portfolio.filter_all') },
+        { id: 'ai-agent', label: t('portfolio.filter_ai') },
+        { id: 'automation', label: t('portfolio.filter_auto') },
+        { id: 'business-intelligence', label: t('portfolio.filter_bi') }
+    ];
 
     return (
         <div ref={containerRef} className="pt-40 pb-32 px-4 md:px-20 max-w-7xl mx-auto min-h-screen">
 
             {/* Header */}
             <div className="text-center mb-16 stagger-item">
-                <h1 className="font-drama italic text-5xl md:text-7xl text-white mb-6">Systems I've Built.</h1>
-                <p className="font-mono text-gray-400 max-w-2xl mx-auto">Detailed showcase of AI automation systems that transformed businesses and saved thousands in operational costs.</p>
+                <h1 className="font-drama italic text-5xl md:text-7xl text-white mb-6">{t('portfolio.page_title')}</h1>
+                <p className="font-mono text-gray-400 max-w-2xl mx-auto">{t('portfolio.page_desc')}</p>
             </div>
 
             {/* Filters */}
             <div className="flex flex-wrap justify-center gap-4 mb-20 stagger-item">
-                {[
-                    { id: 'all', label: 'All Projects' },
-                    { id: 'ai-agent', label: 'AI Agents' },
-                    { id: 'automation', label: 'Automation' },
-                    { id: 'business-intelligence', label: 'Business Intelligence' }
-                ].map(btn => (
+                {filters.map(btn => (
                     <button
                         key={btn.id}
                         onClick={() => setFilter(btn.id)}
@@ -99,7 +84,7 @@ export default function Portfolio() {
                             <span className="hidden md:block font-mono text-sm tracking-widest uppercase transition-colors" style={{ color: '#9ca3af' }}>{project.type}</span>
                         </div>
 
-                        {/* Expandable Content (Opacity stripped out for visibility bugs) */}
+                        {/* Expandable Content */}
                         <div className={`grid grid-cols-1 md:grid-cols-2 gap-12 transition-all duration-500 ease-in-out ${activeProject === i ? 'mt-12 max-h-[1500px]' : 'max-h-0 overflow-hidden'}`}>
                             {/* Left Side: Image/Visual */}
                             <div className="w-full h-64 md:h-full min-h-[300px] bg-black rounded-xl border border-zinc-700 overflow-hidden relative group-hover/image">
@@ -110,7 +95,7 @@ export default function Portfolio() {
                                 />
                                 <div className="absolute inset-0 bg-accent/10 mix-blend-overlay z-10"></div>
                                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                    <span className="font-mono !text-white bg-black/80 backdrop-blur border border-zinc-600 px-4 py-2 rounded-full text-xs tracking-widest z-20 shadow-xl">SYSTEM ARCHITECTURE</span>
+                                    <span className="font-mono !text-white bg-black/80 backdrop-blur border border-zinc-600 px-4 py-2 rounded-full text-xs tracking-widest z-20 shadow-xl">{t('portfolio.system_badge')}</span>
                                 </div>
                                 <div className="absolute inset-x-0 bottom-0 top-1/2 bg-gradient-to-t from-zinc-900 to-transparent z-10 pointer-events-none"></div>
                             </div>
@@ -123,18 +108,18 @@ export default function Portfolio() {
                                     ))}
                                 </div>
 
-                                <div className="mb-8 pl-4 border-l-2 border-accent/50">
-                                    <h4 className="font-bold text-sm !text-white uppercase mb-2">The Problem</h4>
+                                <div className="mb-8 ps-4 border-s-2 border-accent/50">
+                                    <h4 className="font-bold text-sm !text-white uppercase mb-2">{t('portfolio.problem_label')}</h4>
                                     <p className="!text-gray-100 text-base leading-relaxed">{project.problem}</p>
                                 </div>
 
-                                <div className="mb-8 pl-4 border-l-2 border-accent">
-                                    <h4 className="font-bold text-sm !text-white uppercase mb-2">The Solution</h4>
+                                <div className="mb-8 ps-4 border-s-2 border-accent">
+                                    <h4 className="font-bold text-sm !text-white uppercase mb-2">{t('portfolio.solution_label')}</h4>
                                     <p className="!text-white text-base leading-relaxed font-bold">{project.solution}</p>
                                 </div>
 
                                 <div>
-                                    <h4 className="font-mono font-bold text-xs !text-gray-300 uppercase mb-3 tracking-widest">Architecture</h4>
+                                    <h4 className="font-mono font-bold text-xs !text-gray-300 uppercase mb-3 tracking-widest">{t('portfolio.arch_label')}</h4>
                                     <div className="flex flex-wrap gap-2">
                                         {project.tools.map((tool, k) => (
                                             <span key={k} className="text-xs font-mono font-bold !text-white bg-zinc-800 px-3 py-1 rounded-full border border-zinc-600">{tool}</span>

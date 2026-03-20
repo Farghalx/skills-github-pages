@@ -1,0 +1,92 @@
+# Farghal X — Full Company Profile
+
+## About
+Farghal X is an AI automation agency founded by Ahmed Farghal. Based in Kuala Lumpur, Malaysia, the company specializes in building AI-powered automation systems for small and medium enterprises (SMEs) across Southeast Asia and the Middle East.
+
+## Founder
+Ahmed Farghal — Lead AI Architect and System Builder. Specializes in architecting n8n workflows that connect existing business tools to custom AI agents. Technical skills include n8n, Make.com, OpenAI and Claude APIs, React, Tailwind, Node.js, and Python.
+
+## Mission
+Replace manual busywork with intelligent, automated systems. We don't just add tools — we replace work.
+
+## Services in Detail
+
+### 1. AI Strategy Consultation
+Full business process audit to identify repetitive tasks costing time and money. We map every manual process, identify AI automation opportunities, and deliver an ROI roadmap showing projected time and cost savings. Ideal for businesses unsure where to start with AI.
+
+### 2. AI Implementation Services
+End-to-end implementation of AI-powered systems including:
+- Lead qualification bots that score and route inbound leads
+- CRM integration connecting WhatsApp, email, and web inquiries
+- Custom dashboards for real-time business intelligence
+- Automated follow-up sequences
+
+### 3. Workflow Automation
+Connecting existing business tools via n8n and Make to eliminate manual data entry. We build integrations between CRMs, messaging platforms, spreadsheets, calendars, and more — creating seamless automated workflows.
+
+## Portfolio / Case Studies
+
+### AI Sales Research Agent (B2B Sales Automation)
+- Problem: Sales teams spent 2–3 hours per prospect manually researching company websites, LinkedIn profiles, and recent news.
+- Solution: Built an AI agent that summarizes LinkedIn and website insights in seconds with automated scraping, profile extraction, and personalized opening lines.
+- Results: 70% faster research, 3x more calls, 35% more meetings booked.
+- Tools: Refelence AI, ChatGPT, Notion API, Custom Prompts.
+
+### WhatsApp CRM System (Lead Automation)
+- Problem: Car dealership overwhelmed with 80+ daily WhatsApp inquiries. 4+ hour response times caused lost leads.
+- Solution: End-to-end WhatsApp CRM automation with AI intent recognition, automatic loan calculations, live inventory checks, and 24/7 instant responses.
+- Results: RM2,400/month saved, 65% faster response, 24/7 coverage.
+- Tools: n8n, Airtable, Telegram Bot API, OpenAI GPT-4, Google Calendar.
+
+### Balqiso Trade Inventory Tracker (Business Intelligence)
+- Problem: Wholesale clothing business spent 15 hours/week manually tracking inventory across 3 supplier spreadsheets, leading to stockouts and over-ordering.
+- Solution: All-in-one Google Sheets system with centralized dashboard, automatic profit calculations, reorder alerts, and real-time analytics.
+- Results: RM3,200/month saved, 80% less admin, 30% better turnover.
+- Tools: Google Sheets, Apps Script, Conditional Formatting, Data Validation.
+
+## Industries Served
+Real Estate, Consultancies, Healthcare, E-commerce, Agencies
+
+## Target Markets
+- Malaysia (MY)
+- United Arab Emirates (AE)
+- Saudi Arabia (SA)
+- Egypt (EG)
+
+## Pricing Model
+Project-based pricing. One system, one price, no scope creep. Systems are typically delivered in 7–14 days.
+
+## Key Stats
+- 30+ workflows built
+- 500 hours saved monthly (across clients)
+- 100% uptime on delivered systems
+- 7-day average delivery time
+
+## Technical Stack
+- Automation: n8n, Make.com
+- AI: OpenAI APIs, Claude APIs
+- Frontend: React, Tailwind CSS
+- Backend: Node.js, Python
+- Platforms: Google Sheets, Airtable, Notion, Telegram, WhatsApp
+
+## FAQs
+
+Q: What types of businesses do you work with?
+A: We work with service-based SMEs including real estate agencies, consultancies, healthcare providers, e-commerce businesses, and marketing agencies.
+
+Q: How long does a typical project take?
+A: Most AI systems are delivered within 7–14 days.
+
+Q: What regions do you serve?
+A: We serve clients in Malaysia, UAE, Saudi Arabia, and Egypt. We work remotely.
+
+Q: How much can I save by automating?
+A: Clients typically save 10–30 hours per week in manual work, translating to thousands in operational cost savings monthly.
+
+Q: Do you offer ongoing support?
+A: Yes, all delivered systems include support and can be extended with maintenance packages.
+
+## Contact
+- Email: ahmed@farghalx.org
+- Website: https://farghalx.org
+- GitHub: https://github.com/AhmedFarghal25

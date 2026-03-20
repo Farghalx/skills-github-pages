@@ -20,6 +20,7 @@ export default {
         sans: ['"Space Grotesk"', 'sans-serif'],
         drama: ['"DM Serif Display"', 'serif'],
         dot: ['"DotGothic16"', 'sans-serif'],
+        arabic: ['"IBM Plex Sans Arabic"', 'sans-serif'],
       },
       scale: {
         '103': '1.03',

@@ -3,19 +3,132 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/Fxlogo.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/Fxlogo.png" />
+  <link rel="apple-touch-icon" href="/Fxlogo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FARGHAL X - AI Systems</title>
+  <title>Farghal X — AI Automation Systems for SMEs</title>
+  <meta name="description" content="Farghal X builds AI-powered automation systems for SMEs — lead generation, outreach, and workflow automation that save time and grow revenue." />
+  <link rel="canonical" href="https://farghalx.org" />
   <meta name="color-scheme" content="dark light">
   <meta name="darkreader-lock" content="true">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Farghal X — AI Automation Systems for SMEs" />
+  <meta property="og:description" content="Farghal X builds AI-powered automation systems for SMEs — lead generation, outreach, and workflow automation that save time and grow revenue." />
+  <meta property="og:image" content="https://farghalx.org/Fxlogo.png" />
+  <meta property="og:url" content="https://farghalx.org" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Farghal X — AI Automation Systems for SMEs" />
+  <meta name="twitter:description" content="Farghal X builds AI-powered automation systems for SMEs — lead generation, outreach, and workflow automation that save time and grow revenue." />
+
+  <!-- Additional SEO Meta Tags -->
+  <meta name="author" content="Ahmed Farghal" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <meta name="googlebot" content="index, follow" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+  <!-- Arabic SEO -->
+  <link rel="alternate" hreflang="en" href="https://farghalx.org" />
+  <link rel="alternate" hreflang="ar" href="https://farghalx.org" />
+  <meta name="description" lang="ar" content="فرغل إكس — أنظمة أتمتة بالذكاء الاصطناعي للشركات الصغيرة والمتوسطة. توليد العملاء المحتملين، التواصل الآلي، وأتمتة سير العمل." />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ar_SA" />
+  <meta name="keywords" content="AI automation, lead generation, workflow automation, أتمتة الذكاء الاصطناعي, توليد العملاء المحتملين, أتمتة سير العمل, شركات صغيرة ومتوسطة, ماليزيا, الشرق الأوسط" />
+
+  <!-- Structured Data: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Farghal X",
+    "url": "https://farghalx.org",
+    "description": "AI-powered automation systems for SMEs — lead generation, outreach, and workflow automation",
+    "founder": {
+      "@type": "Person",
+      "name": "Ahmed Farghal"
+    },
+    "areaServed": ["MY", "AE", "SA", "EG"],
+    "serviceType": ["AI Automation", "Lead Generation", "Workflow Automation"],
+    "sameAs": [
+      "https://github.com/AhmedFarghal25"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "ahmed@farghalx.org",
+      "contactType": "sales"
+    }
+  }
+  </script>
+
+  <!-- Structured Data: WebSite with SearchAction -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Farghal X",
+    "url": "https://farghalx.org",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://farghalx.org/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Structured Data: Services -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "AI Strategy Consultation",
+      "description": "Business process audit, AI opportunity identification, and ROI roadmap for SMEs.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Farghal X"
+      },
+      "areaServed": ["MY", "AE", "SA", "EG"],
+      "serviceType": "AI Automation"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "AI Implementation Services",
+      "description": "Lead qualification, CRM integration, and custom dashboards powered by AI.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Farghal X"
+      },
+      "areaServed": ["MY", "AE", "SA", "EG"],
+      "serviceType": "Lead Generation"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Workflow Automation",
+      "description": "Connecting tools via n8n and Make to eliminate manual data entry and repetitive tasks.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Farghal X"
+      },
+      "areaServed": ["MY", "AE", "SA", "EG"],
+      "serviceType": "Workflow Automation"
+    }
+  ]
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Space+Grotesk:wght@400;700&family=DM+Serif+Display:ital@0;1&display=swap"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;700&family=Space+Mono:wght@400;700&family=Space+Grotesk:wght@400;700&family=DM+Serif+Display:ital@0;1&display=swap"
     rel="stylesheet">
   <script async src="https://tally.so/widgets/embed.js"></script>
-  <script type="module" crossorigin src="/assets/index-Da7YPhn2.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-DjLchQEh.css">
+  <script type="module" crossorigin src="/assets/index-CjZGjfW_.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-raCdJpJx.css">
 </head>
 
 <body class="bg-[#0D0D0D] text-[#F5F3EE] antialiased">

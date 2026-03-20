@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Farghal X",
+  "name_for_model": "farghalx",
+  "description_for_human": "AI-powered automation systems for SMEs — lead generation, outreach, and workflow automation.",
+  "description_for_model": "Farghal X is an AI automation agency that builds AI-powered systems for small and medium enterprises. Services include AI strategy consultation, AI implementation (lead qualification, CRM integration, dashboards), and workflow automation via n8n and Make. Founded by Ahmed Farghal, based in Kuala Lumpur, Malaysia. Serves clients in Malaysia, UAE, Saudi Arabia, and Egypt.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://farghalx.org"
+  },
+  "logo_url": "https://farghalx.org/favicon.svg",
+  "contact_email": "ahmed@farghalx.org",
+  "legal_info_url": "https://farghalx.org"
+}
