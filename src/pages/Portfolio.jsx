@@ -17,6 +17,7 @@ export default function Portfolio() {
                 stagger: 0.1,
                 duration: 0.6,
                 ease: 'power2.out',
+                clearProps: 'all',
             });
         }, containerRef);
         return () => ctx.revert();
