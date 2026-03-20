@@ -1,6 +1,7 @@
 {
   "nav": {
     "home": "Home",
+    "about": "About",
     "services": "Services",
     "portfolio": "Portfolio",
     "blog": "Blog",
@@ -17,9 +18,16 @@
   },
   "home": {
     "hero_subtitle": "108.1 FM · ENTREPRENEUR SIGNAL · ON AIR",
-    "hero_h1": "Automate the",
-    "hero_h2": "Busywork.",
-    "hero_cta": "Book an AI Systems Diagnostic",
+    "hero_h1": "We Build AI Systems That",
+    "hero_h2": "Replace Your Busywork.",
+    "hero_subheadline": "Fixed price. Delivered in 14 days. No consulting fluff — just a working system that saves you 10-30 hours every week.",
+    "hero_cta": "Book a Free 30-Minute Diagnostic Call",
+    "social_proof": [
+      { "stat": "10+", "label": "AI Systems Deployed" },
+      { "stat": "5+", "label": "Countries Served" },
+      { "stat": "7-14", "label": "Day Delivery" },
+      { "stat": "24/7", "label": "Uptime" }
+    ],
     "feature1_title": "AI Systems Built in ",
     "feature1_highlight": "7–14 Days",
     "feature1_card1": "WhatsApp Lead Responder",
@@ -46,34 +54,31 @@
     "cta_button": "Let's Talk"
   },
   "about": {
-    "title": "Farghal X",
-    "role": "Lead AI Architect • System Builder",
-    "bio": "I don't just talk about AI; I build it. Based in Kuala Lumpur, I specialize in architecting n8n workflows for clients globally. From automated WhatsApp responders to deep content generation pipelines, I replace busywork with logic.",
-    "email_btn": "Email",
-    "github_btn": "GitHub",
-    "badge_org": "● FARGHALX",
-    "badge_id": "ID: FX-001",
-    "badge_name": "Ahmed Farghal",
-    "badge_title": "System Architect",
-    "skills_title": "Technical Arsenal",
-    "skills": ["n8n & Make.com", "OpenAI & Claude APIs", "React / Tailwind", "Node.js & Python"],
-    "markets_title": "Markets We Serve",
-    "markets_desc": "We work remotely with clients worldwide.",
-    "markets": [
-      "Southeast Asia (Malaysia, Singapore, Indonesia, Philippines)",
-      "Middle East (UAE, Saudi Arabia, Egypt)",
-      "Australia & UK"
+    "hero_headline": "I Build AI Systems. You Get Your Time Back.",
+    "story_paragraphs": [
+      "Every founder I talk to has the same problem — they're good at what they do, but they're drowning in the work around the work.",
+      "Manual lead research. Copy-paste reporting. WhatsApp messages sitting unanswered for hours. Following up on invoices instead of closing deals.",
+      "None of this is hard. It's just repetitive. And repetitive work is what AI was built for.",
+      "I started Farghal X to fix this. Not with slide decks and strategy sessions — with actual systems that work on day one.",
+      "One system. One problem. Fixed price. Delivered in 7-14 days. If it doesn't save you time, I'll fix it until it does."
     ],
-    "stats": [
-      { "num": "30+", "label": "Workflows Built" },
-      { "num": "500h", "label": "Saved Monthly" },
-      { "num": "100%", "label": "Uptime Systems" },
-      { "num": "7d", "label": "Avg Delivery" }
+    "how_title": "How I Work",
+    "how_steps": [
+      { "title": "You Book a Call", "desc": "30 minutes. I listen to where you're losing time." },
+      { "title": "I Map the Fix", "desc": "Same week. A clear proposal — what I'll build and what it costs." },
+      { "title": "I Build It", "desc": "7-14 days. You get a working system, not a PDF." },
+      { "title": "You Save Hours", "desc": "The system runs. You focus on growth. I'm here if you need changes." }
     ],
-    "cta_title": "Let's build your AI workforce.",
-    "cta_desc": "Whether you need a custom knowledge base, a lead qualifying agent, or an entire content engine, I can build the backend to run it seamlessly.",
-    "cta_button": "View Pricing",
-    "img_alt": "Abstract Code"
+    "how_caption": "Fixed price on every project. No hourly billing. No scope creep.",
+    "beliefs_title": "What I Believe",
+    "beliefs": [
+      "One system per project. I don't sell bundles — I solve one problem at a time.",
+      "Founders only. I work with decision makers, not committees.",
+      "Speed wins. A working system in 14 days beats a strategy deck in 3 months."
+    ],
+    "cta_title": "Got a workflow that's eating your time?",
+    "cta_desc": "Book a free 30-minute call. I'll tell you exactly what I'd automate and what it would cost.",
+    "cta_button": "Book Your Free Call"
   },
   "services": {
     "hero_headline": "AI Systems That Replace Busywork",
@@ -182,7 +187,7 @@
     "filter_ai": "AI Agents",
     "filter_auto": "Automation",
     "filter_bi": "Business Intelligence",
-    "system_badge": "SYSTEM ARCHITECTURE",
+
     "problem_label": "The Problem",
     "solution_label": "The Solution",
     "arch_label": "Architecture",

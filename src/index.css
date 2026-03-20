@@ -3,8 +3,14 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --bg-main: #030303;
+    --acc-glow: rgba(249, 115, 22, 0.08); /* Derived from accent #F97316 */
+  }
+
   body {
     @apply bg-background text-textMain antialiased min-h-screen relative overflow-x-hidden;
+    background: radial-gradient(circle at 50% -20%, #151515 0%, #030303 60%);
   }
 
   #root {
@@ -12,29 +18,19 @@
     z-index: 1;
   }
 
-  /* Global Dot Grid Background */
+  /* Refined Global Dot Grid */
   #root::before {
     content: "";
     position: fixed;
     inset: 0;
     pointer-events: none;
     z-index: -1;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1.5px, transparent 1.5px);
-    background-size: 35px 35px;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
   }
 
-  /* Global Noise Overlay using SVG filter */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.08;
-    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
-  }
-
-  /* Ambient Glows */
+  /* Moving Ambient Glows + Mouse Follow Glow */
   #root::after {
     content: "";
     position: fixed;
@@ -42,15 +38,45 @@
     pointer-events: none;
     z-index: -1;
     background: 
-      radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.08) 0%, transparent 500px),
-      radial-gradient(circle at 20% 80%, rgba(249, 115, 22, 0.06) 0%, transparent 600px);
-    animation: ambient-glow 25s ease-in-out infinite alternate;
+      radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.06) 0%, transparent 600px),
+      radial-gradient(circle at 20% 30%, var(--acc-glow) 0%, transparent 600px),
+      radial-gradient(circle at 80% 70%, rgba(249, 115, 22, 0.05) 0%, transparent 700px);
+    filter: blur(100px);
+    opacity: 0.6;
+    animation: move-glow 30s ease-in-out infinite alternate;
+  }
+
+  /* Subtle Noise overlay for texture */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0.015;
+    background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+  }
+
+  /* Custom Transparent Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(249, 115, 22, 0.3);
   }
 }
 
-@keyframes ambient-glow {
-  0% { transform: scale(1) translate(0, 0); }
-  100% { transform: scale(1.1) translate(-20px, 20px); }
+@keyframes move-glow {
+  0% { transform: translate(0, 0) scale(1.1); }
+  50% { transform: translate(-20px, 30px) scale(1); }
+  100% { transform: translate(30px, -20px) scale(1.2); }
 }
 
 @layer utilities {
@@ -59,7 +85,24 @@
   }
 
   .glass-panel {
-    @apply bg-glass backdrop-blur-xl border border-glassBorder;
+    @apply backdrop-blur-2xl border border-white/10 bg-white/[0.03];
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  .glow-border {
+    position: relative;
+  }
+  .glow-border::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    background: linear-gradient(to bottom right, rgba(255,255,255,0.1), transparent, rgba(255,255,255, 0.05));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    border-radius: inherit;
   }
 
   .animate-marquee {
@@ -75,6 +118,32 @@
   @keyframes marquee-rtl {
     0% { transform: translateX(0%); }
     100% { transform: translateX(50%); }
+  }
+
+  /* Hanging badge animations */
+  @keyframes badge-swing-in {
+    0%   { transform: rotate(-8deg); }
+    30%  { transform: rotate(5deg); }
+    55%  { transform: rotate(-2deg); }
+    75%  { transform: rotate(1deg); }
+    90%  { transform: rotate(-0.5deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  @keyframes badge-sway {
+    0%   { transform: rotate(0deg); }
+    25%  { transform: rotate(1.5deg); }
+    75%  { transform: rotate(-1.5deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  .badge-swing {
+    transform-origin: top center;
+    animation: badge-swing-in 1.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
+  }
+
+  .badge-swing:hover {
+    animation: badge-sway 2s ease-in-out infinite;
   }
 }
 

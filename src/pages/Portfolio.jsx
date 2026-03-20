@@ -76,7 +76,7 @@ export default function Portfolio() {
                 {filteredProjects.map((project, i) => (
                     <div
                         key={i}
-                        className={`stagger-item group border-b border-white/10 pb-4 transition-all duration-300 overflow-hidden cursor-pointer ${activeProject === i ? 'bg-zinc-900 rounded-3xl p-8 border border-zinc-700 shadow-[0_0_50px_rgba(0,0,0,0.8)] mt-4 mb-8 !opacity-100' : 'hover:bg-white/5 hover:px-4 px-0 py-4'}`}
+                        className={`stagger-item group border-b border-white/5 pb-4 transition-all duration-500 overflow-hidden cursor-pointer ${activeProject === i ? 'glass-panel rounded-3xl p-8 shadow-[0_32px_64px_rgba(0,0,0,0.6)] mt-4 mb-8 !opacity-100 scale-[1.01]' : 'hover:bg-white/[0.02] hover:px-4 px-0 py-6'}`}
                         onClick={() => setActiveProject(activeProject === i ? null : i)}
                     >
                         {/* Always visible header */}
@@ -91,17 +91,14 @@ export default function Portfolio() {
                         {/* Expandable Content */}
                         <div className={`grid grid-cols-1 md:grid-cols-2 gap-12 transition-all duration-500 ease-in-out ${activeProject === i ? 'mt-12 max-h-[1500px]' : 'max-h-0 overflow-hidden'}`}>
                             {/* Left Side: Image/Visual */}
-                            <div className="w-full h-64 md:h-full min-h-[300px] bg-black rounded-xl border border-zinc-700 overflow-hidden relative group-hover/image">
+                            <div className="w-full h-64 md:h-full min-h-[350px] bg-[#050505] rounded-2xl border border-white/5 overflow-hidden relative group/image shadow-2xl">
                                 <img
                                     src={project.image || `https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80&auto=format&fit=crop`}
                                     alt="System Preview"
-                                    className="absolute inset-0 w-full h-full object-contain p-4 transition-all duration-700 group-hover/image:scale-105 group-hover/image:drop-shadow-[0_0_30px_rgba(249,115,22,0.15)]"
+                                    className="absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover/image:scale-110 !opacity-90 group-hover/image:!opacity-100"
                                 />
-                                <div className="absolute inset-0 bg-accent/10 mix-blend-overlay z-10"></div>
-                                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                    <span className="font-mono !text-white bg-black/80 backdrop-blur border border-zinc-600 px-4 py-2 rounded-full text-xs tracking-widest z-20 shadow-xl">{t('portfolio.system_badge')}</span>
-                                </div>
-                                <div className="absolute inset-x-0 bottom-0 top-1/2 bg-gradient-to-t from-zinc-900 to-transparent z-10 pointer-events-none"></div>
+                                <div className="absolute inset-0 bg-accent/5 mix-blend-overlay z-10 pointer-events-none"></div>
+                                <div className="absolute inset-x-0 bottom-0 top-1/2 bg-gradient-to-t from-[#050505] to-transparent z-10 pointer-events-none"></div>
                             </div>
 
                             {/* Right Side: Details */}

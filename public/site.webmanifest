@@ -1,0 +1,19 @@
+{
+  "name": "Farghal X",
+  "short_name": "Farghal X",
+  "icons": [
+    {
+      "src": "/NOBGlogo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/NOBGlogo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#030303",
+  "background_color": "#030303",
+  "display": "standalone"
+}

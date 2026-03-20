@@ -127,13 +127,14 @@ export default function Services() {
           {Array.isArray(howItWorksSteps) && howItWorksSteps.map((step, i) => {
             const icons = [<Search className="w-8 h-8 text-accent" />, <Wrench className="w-8 h-8 text-accent" />, <Clock className="w-8 h-8 text-accent" />];
             return (
-              <div key={i} className="relative z-10 flex flex-col items-center text-center p-6 bg-[#050505] rounded-3xl border border-white/5 hover:border-white/10 transition-colors">
-                <div className="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(255,255,255,0.02)]">
-                  {icons[i] || <ArrowRight className="w-8 h-8 text-accent" />}
+              <div key={i} className="relative z-10 flex flex-col items-center text-center p-8 glass-panel rounded-3xl group hover:scale-105 transition-all duration-500">
+                <div className="w-20 h-20 rounded-full bg-white/[0.03] border border-white/10 flex items-center justify-center mb-8 shadow-2xl relative overflow-hidden">
+                  <div className="absolute inset-0 bg-accent/5 backdrop-blur-sm"></div>
+                  <div className="relative z-10">{icons[i] || <ArrowRight className="w-8 h-8 text-accent" />}</div>
                 </div>
-                <div className="font-mono text-accent text-xs font-bold mb-3 tracking-widest">STEP 0{i+1}</div>
-                <h3 className="font-sans font-bold text-2xl text-white mb-3">{step.title}</h3>
-                <p className="font-mono text-sm text-gray-400">{step.desc}</p>
+                <div className="font-mono text-accent text-xs font-bold mb-4 tracking-[0.2em]">0{i+1}</div>
+                <h3 className="font-sans font-bold text-2xl text-white mb-4">{step.title}</h3>
+                <p className="font-mono text-sm text-gray-400 leading-relaxed">{step.desc}</p>
               </div>
             );
           })}
@@ -157,29 +158,32 @@ export default function Services() {
             const isLast = i === 4;
             
             return (
-              <div key={i} className={`glass-panel rounded-[2rem] p-8 md:p-10 flex flex-col h-full bg-[#0A0A0A] border border-white/5 hover:-translate-y-2 hover:border-white/20 transition-all duration-300 shadow-none ${isLast ? 'md:col-span-2 lg:col-span-1 lg:col-start-2' : ''}`}>
-                <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mb-8 border border-white/5">
-                  {sysIcons[i] || <Bot className="w-8 h-8 text-white" />}
+              <div key={i} className={`glass-panel rounded-3xl p-8 md:p-10 flex flex-col h-full hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 group border-white/5`}>
+                <div className="w-16 h-16 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                  {sysIcons[i] || <Zap className="w-8 h-8 text-accent" />}
                 </div>
-                <h3 className="font-sans font-bold text-2xl text-white mb-4 leading-tight">{sys.name}</h3>
-                <p className="font-mono text-sm text-gray-400 mb-8 flex-grow">{sys.desc}</p>
+                <h3 className="font-sans font-bold text-2xl text-white mb-4 leading-tight group-hover:text-accent transition-colors">{sys.name}</h3>
+                <p className="font-mono text-sm text-gray-400 mb-8 leading-relaxed italic border-s-2 border-accent/20 ps-4">{sys.desc}</p>
                 
-                <div className="mb-8 p-6 bg-white/5 rounded-2xl border border-white/5">
+                <div className="mb-8 p-6 bg-white/[0.02] rounded-2xl border border-white/5">
                   <ul className="space-y-4">
                     {sys.points && sys.points.map((pt, idx) => (
-                      <li key={idx} className="flex items-start font-mono text-xs text-gray-300">
-                        <span className="text-accent mr-3 mt-0.5">▹</span>
+                      <li key={idx} className="flex items-start font-mono text-[11px] text-gray-400">
+                        <span className="text-accent/50 mr-3 mt-0.5">▹</span>
                         <span className="leading-relaxed">{pt}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 
-                <div className="mt-auto pt-6 border-t border-white/10 flex flex-col gap-4">
-                  <p className="font-mono text-xs text-gray-400 italic">{sys.custom_price}</p>
+                <div className="mt-auto pt-6 border-t border-white/5 flex flex-col gap-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <p className="font-mono text-[10px] text-gray-500 tracking-widest uppercase">Pricing</p>
+                    <p className="font-mono text-[10px] text-gray-400 font-bold">{sys.custom_price}</p>
+                  </div>
                   <button 
                     data-tally-open="Pd1MPe" data-tally-width="368" data-tally-emoji-text="👋" data-tally-emoji-animation="wave"
-                    className="w-full py-3 rounded-full bg-white/10 border border-white/10 hover:bg-accent hover:border-accent transition-colors font-mono text-sm font-bold text-white tracking-widest uppercase"
+                    className="w-full py-4 rounded-full bg-white text-black hover:bg-gray-100 transition-all font-mono text-xs font-bold tracking-[0.2em] uppercase shadow-[0_10px_30px_rgba(255,255,255,0.1)] hover:scale-[1.02]"
                   >
                     Book a Free Call
                   </button>
@@ -191,7 +195,9 @@ export default function Services() {
       </div>
 
       {/* 4. Value Ladder Section */}
-      <div className="scroll-section mb-32 relative overflow-hidden bg-gradient-to-b from-[#050505] to-[#111] border border-white/10 rounded-[3rem] p-10 md:p-20 text-center">
+      <div className="scroll-section mb-32 relative overflow-hidden glass-panel rounded-[3rem] p-10 md:p-20 text-center shadow-2xl">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#111] to-[#030303] z-0"></div>
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
         <h2 className="font-drama italic text-3xl md:text-4xl text-white mb-6 relative z-10 max-w-3xl mx-auto leading-tight">
           {t('services.value_ladder_title')}
         </h2>
@@ -199,10 +205,10 @@ export default function Services() {
         <div className="mt-16 flex flex-col md:flex-row justify-center items-end gap-4 md:gap-8 max-w-4xl mx-auto relative z-10">
           {Array.isArray(ladderSteps) && ladderSteps.map((step, i) => (
             <div key={i} className="w-full md:w-1/3 flex flex-col justify-end" style={{ minHeight: window.innerWidth > 768 ? `${200 + (i * 60)}px` : 'auto' }}>
-              <div className="bg-white/5 border border-white/10 rounded-2xl md:rounded-t-3xl md:rounded-b-none p-6 md:p-8 h-full flex flex-col items-center justify-center gap-4 transition-transform hover:-translate-y-2 relative group overflow-hidden">
+              <div className="bg-white/[0.03] border border-white/10 rounded-2xl md:rounded-t-3xl md:rounded-b-none p-6 md:p-8 h-full flex flex-col items-center justify-center gap-4 transition-all hover:-translate-y-2 relative group overflow-hidden shadow-2xl">
                 <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-t ${i===2 ? 'from-accent/20' : 'from-white/5'} to-transparent`}></div>
-                <div className={`font-mono text-[10px] tracking-widest uppercase px-3 py-1 rounded-full border z-10 ${i===2 ? 'border-accent/50 text-accent' : 'border-white/20 text-gray-400'}`}>{step.badge}</div>
-                <div className="font-drama italic text-2xl text-white text-center z-10">{step.step}</div>
+                <div className={`font-mono text-[10px] tracking-widest uppercase px-3 py-1 rounded-full border z-10 ${i===2 ? 'border-accent/40 text-accent shadow-[0_0_15px_rgba(249,115,22,0.2)]' : 'border-white/10 text-gray-500'}`}>{step.badge}</div>
+                <div className="font-drama italic text-2xl text-white text-center z-10 group-hover:scale-105 transition-transform">{step.step}</div>
                 <div className="font-mono text-xs text-gray-400 text-center z-10">{step.name}</div>
               </div>
             </div>
@@ -218,13 +224,13 @@ export default function Services() {
           </h2>
           <p className="font-mono text-gray-400 mb-12">{t('services.why_auto_desc')}</p>
         </div>
-        <div className="max-w-2xl mx-auto flex flex-col gap-4">
+        <div className="max-w-xl mx-auto flex flex-col gap-4">
           {Array.isArray(whyAutoPoints) && whyAutoPoints.map((point, i) => (
-            <div key={i} className="flex items-start gap-4 p-6 bg-white/5 border border-white/5 rounded-2xl hover:border-white/10 transition-colors">
-              <div className="w-8 h-8 rounded-full bg-accent/20 border border-accent/30 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <span className="text-accent text-sm font-bold">✓</span>
+            <div key={i} className="flex items-start gap-5 p-8 bg-white/[0.02] border border-white/5 rounded-3xl hover:border-white/10 transition-all hover:bg-white/[0.04] group shadow-xl">
+              <div className="w-10 h-10 rounded-full bg-accent/5 border border-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-accent/10 transition-colors">
+                <span className="text-accent text-lg font-bold">✓</span>
               </div>
-              <span className="font-mono text-gray-300 text-sm leading-relaxed">{point}</span>
+              <span className="font-mono text-gray-200 text-sm leading-relaxed">{point}</span>
             </div>
           ))}
         </div>

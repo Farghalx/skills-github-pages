@@ -18,6 +18,17 @@ export default function App() {
         window.scrollTo(0, 0);
     }, [pathname]);
 
+    // Global Mouse Tracking for Background Glow
+    useEffect(() => {
+        const handleMouseMove = (e) => {
+            document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+            document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, []);
+
     return (
         <div className="bg-background text-textMain font-sans overflow-x-hidden selection:bg-accent selection:text-white flex flex-col min-h-screen">
             <Navbar />

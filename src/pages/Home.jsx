@@ -105,19 +105,20 @@ export default function Home() {
                     <div
                         className="absolute inset-0 z-0 transition-opacity duration-300 pointer-events-none mix-blend-screen"
                         style={{
-                            background: `radial-gradient(800px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(249,115,22,0.15), transparent 80%)`
+                            background: `radial-gradient(1000px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(249,115,22,0.08), transparent 80%)`
                         }}
                     ></div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D] via-[#0D0D0D]/80 to-transparent"></div>
-                    <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-[#030303]/80 to-transparent"></div>
+                    <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
                 </div>
 
-                <div className="relative z-10 w-full md:w-2/3">
+                <div className="relative z-10 w-full md:w-3/4">
                     <p className="hero-anim font-mono text-gray-400 text-sm md:text-base mb-6 tracking-widest uppercase font-bold">
                         {t('home.hero_subtitle')}
                     </p>
-                    <h1 className="hero-anim font-dot text-5xl md:text-8xl leading-none mb-2 text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">{t('home.hero_h1')}</h1>
-                    <h2 className="hero-anim font-dot text-6xl md:text-[10rem] text-gray-300 leading-none mb-12 drop-shadow-[0_0_10px_rgba(255,255,255,0.1)]">{t('home.hero_h2')}</h2>
+                    <h1 className="hero-anim font-dot text-4xl md:text-7xl leading-tight mb-2 text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">{t('home.hero_h1')}</h1>
+                    <h2 className="hero-anim font-dot text-5xl md:text-8xl text-gray-300 leading-none mb-6 drop-shadow-[0_0_10px_rgba(255,255,255,0.1)]">{t('home.hero_h2')}</h2>
+                    <p className="hero-anim font-mono text-gray-400 text-base md:text-lg mb-10 max-w-2xl leading-relaxed">{t('home.hero_subheadline')}</p>
                     <div className="hero-anim">
                         <MagneticButton
                             className="bg-white text-black font-sans font-bold px-8 py-4 rounded-full text-lg md:text-xl flex items-center gap-2 hover:bg-gray-200 transition-colors whitespace-nowrap"
@@ -125,6 +126,31 @@ export default function Home() {
                         >
                             <span className="flex items-center gap-2">{t('home.hero_cta')} <ArrowRight size={24} className={`shrink-0 ${isRTL ? 'rotate-180' : ''}`} /></span>
                         </MagneticButton>
+                    </div>
+                </div>
+            </section>
+
+            {/* Social Proof Bar */}
+            <section className="py-12 px-4 md:px-20 relative z-10 overflow-hidden">
+                {/* Background ambient glow for this section */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[300px] bg-accent/2 blur-[100px] pointer-events-none"></div>
+                
+                <div className="container mx-auto px-4 md:px-20">
+                    <div className="glass-panel rounded-3xl p-6 md:p-8 flex flex-wrap justify-between items-center gap-12 shadow-2xl relative overflow-hidden group">
+                        {/* Shimmer effect */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
+                        
+                        {Array.isArray(t('home.social_proof')) && t('home.social_proof').map((item, i) => (
+                            <React.Fragment key={i}>
+                                <div className="text-center px-6 relative z-10 transition-transform duration-300 hover:scale-105">
+                                    <div className="font-drama italic text-4xl md:text-5xl text-white mb-2 drop-shadow-[0_0_15px_rgba(249,115,22,0.2)]">{item.stat}</div>
+                                    <div className="font-mono text-[10px] md:text-xs text-gray-400 uppercase tracking-[0.2em] font-bold">{item.label}</div>
+                                </div>
+                                {i < (t('home.social_proof', { returnObjects: true }).length - 1) && (
+                                    <div className="hidden md:block w-px h-12 bg-white/5 shadow-[0_0_10px_rgba(255,255,255,0.05)]"></div>
+                                )}
+                            </React.Fragment>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -196,7 +222,7 @@ export default function Home() {
                         <div
                             key={i}
                             ref={el => protocolCardsRef.current[i] = el}
-                            className="h-[60vh] md:h-[80vh] w-full bg-gray-100 border border-gray-300 rounded-[3rem] p-12 flex flex-col justify-center relative mb-10 shadow-sm origin-bottom"
+                            className="h-[40vh] md:h-[55vh] w-full bg-gray-100 border border-gray-300 rounded-[3rem] p-8 md:p-12 flex flex-col justify-center relative mb-10 shadow-sm origin-bottom"
                         >
                             <span className="font-mono text-accent font-bold text-xl mb-4">{item.step}</span>
                             <h3 className="font-sans font-bold text-6xl md:text-8xl mb-6 text-gray-900">{item.title}</h3>
