@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <rect width="600" height="400" fill="#0D0D0D" />
+  
+  <!-- Subtle background grid -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.05)"/>
+  </pattern>
+  <rect width="600" height="400" fill="url(#grid)" />
+  
+  <g transform="translate(300, 40)">
+    <!-- Top: scattered dots (raw leads) -->
+    <g opacity="0.6">
+      <circle cx="-120" cy="20" r="4" fill="#666"/>
+      <circle cx="-80" cy="10" r="5" fill="#f97316"/>
+      <circle cx="-40" cy="30" r="3" fill="#666"/>
+      <circle cx="0" cy="15" r="6" fill="#f97316"/>
+      <circle cx="40" cy="25" r="4" fill="#666"/>
+      <circle cx="90" cy="5" r="5" fill="#666"/>
+      <circle cx="130" cy="25" r="4" fill="#f97316"/>
+      
+      <!-- Flow lines down -->
+      <path d="M-120 20 L-60 120 M-80 10 L-40 120 M0 15 L0 120 M90 5 L40 120 M130 25 L60 120" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" stroke-dasharray="4,4"/>
+    </g>
+
+    <!-- Middle: Funnel & Filter Layer -->
+    <path d="M-150 100 L150 100 L80 180 L-80 180 Z" fill="rgba(249,115,22,0.03)" stroke="rgba(249,115,22,0.3)" stroke-width="2"/>
+    <text x="0" y="145" fill="#f97316" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle" letter-spacing="2">AI SCORING ENGINE</text>
+    
+    <!-- Lines out of funnel -->
+    <path d="M-50 180 L-50 250 M0 180 L0 250 M50 180 L50 250" stroke="rgba(255,255,255,0.2)" stroke-width="2" />
+    
+    <!-- Filtered out (Gray) -->
+    <circle cx="-100" cy="220" r="4" fill="#444"/>
+    <circle cx="120" cy="210" r="4" fill="#444"/>
+    <path d="M-60 180 L-100 220 M60 180 L120 210" stroke="#333" stroke-width="1.5" stroke-dasharray="2,2"/>
+
+    <!-- Bottom: Qualified Leads (Green) -->
+    <g transform="translate(0, 260)">
+      <!-- Target DB generic box -->
+      <rect x="-80" y="0" width="160" height="80" rx="8" fill="rgba(34,197,94,0.05)" stroke="#22c55e" stroke-width="2"/>
+      
+      <!-- Neat rows -->
+      <circle cx="-40" cy="30" r="5" fill="#22c55e"/>
+      <circle cx="0" cy="30" r="5" fill="#22c55e"/>
+      <circle cx="40" cy="30" r="5" fill="#22c55e"/>
+      
+      <circle cx="-40" cy="50" r="5" fill="#22c55e"/>
+      <circle cx="0" cy="50" r="5" fill="#22c55e"/>
+      <circle cx="40" cy="50" r="5" fill="#22c55e"/>
+    </g>
+  </g>
+</svg>

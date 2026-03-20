@@ -6,9 +6,13 @@ import { useLanguage } from '../i18n/LanguageContext';
 gsap.registerPlugin(ScrollTrigger);
 
 const projectMeta = [
-    { category: 'ai-agent', tools: ['Refelence AI', 'ChatGPT', 'Notion API', 'Custom Prompts'] },
-    { category: 'automation', tools: ['n8n', 'Airtable', 'Telegram Bot API', 'OpenAI GPT-4', 'Google Calendar'] },
-    { category: 'business-intelligence', tools: ['Google Sheets', 'Apps Script', 'Conditional Formatting', 'Data Validation'] }
+    { category: 'ai-agent', tools: ['Refelence AI', 'ChatGPT', 'Notion API', 'Custom Prompts'], image: '/images/portfolio/lead-gen-system.svg' },
+    { category: 'automation', tools: ['n8n', 'Airtable', 'Telegram Bot API', 'OpenAI GPT-4', 'Google Calendar'], image: '/images/portfolio/whatsapp-responder.svg' },
+    { category: 'business-intelligence', tools: ['Google Sheets', 'Apps Script', 'Conditional Formatting', 'Data Validation'], image: '/images/portfolio/reporting-dashboard.svg' },
+    { category: 'automation', tools: ['n8n', 'Apify', 'Claude AI', 'Google Sheets', 'LinkedIn'], image: '/images/portfolio/content-pipeline.svg' },
+    { category: 'ai-agent', tools: ['n8n', 'Apify', 'Claude AI', 'Gmail API', 'Custom Domain SMTP'], image: '/images/portfolio/outreach-system.svg' },
+    { category: 'ai-agent', tools: ['n8n', 'Claude AI', 'Notion', 'Google Calendar', 'WhatsApp API'], image: '/images/portfolio/executive-assistant.svg' },
+    { category: 'automation', tools: ['n8n', 'Claude AI', 'PDF Monkey', 'Google Docs', 'Gmail'], image: '/images/portfolio/proposal-generator.svg' }
 ];
 
 export default function Portfolio() {
@@ -89,9 +93,9 @@ export default function Portfolio() {
                             {/* Left Side: Image/Visual */}
                             <div className="w-full h-64 md:h-full min-h-[300px] bg-black rounded-xl border border-zinc-700 overflow-hidden relative group-hover/image">
                                 <img
-                                    src={`https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80&auto=format&fit=crop`}
+                                    src={project.image || `https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80&auto=format&fit=crop`}
                                     alt="System Preview"
-                                    className="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-screen transition-transform duration-700 hover:scale-110"
+                                    className="absolute inset-0 w-full h-full object-contain p-4 transition-all duration-700 group-hover/image:scale-105 group-hover/image:drop-shadow-[0_0_30px_rgba(249,115,22,0.15)]"
                                 />
                                 <div className="absolute inset-0 bg-accent/10 mix-blend-overlay z-10"></div>
                                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">

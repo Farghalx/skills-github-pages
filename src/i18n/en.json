@@ -76,32 +76,104 @@
     "img_alt": "Abstract Code"
   },
   "services": {
-    "page_title": "AI Implementation.",
-    "page_subtitle": "Building AI Solutions in Public • Live",
-    "services_list": [
+    "hero_headline": "AI Systems That Replace Busywork",
+    "hero_subheadline": "We build and install automation systems for SMEs. One system. One price. Working in 7-14 days.",
+    "hero_cta": "Book a Free Diagnostic Call",
+    "how_it_works_title": "How It Works",
+    "how_it_works_steps": [
       {
-        "title": "AI Strategy Consultation",
-        "desc": "Business process audit + AI opportunity identification + ROI roadmap",
-        "icon": "⭕"
+        "title": "Diagnostic Call",
+        "desc": "We audit your workflow and find the bottleneck."
       },
       {
-        "title": "AI Implementation Services",
-        "desc": "Lead qualification + CRM integration + Custom dashboards",
-        "icon": "⚡"
+        "title": "We Build It",
+        "desc": "Custom AI system delivered in 7-14 days."
       },
       {
-        "title": "Workflow Automation",
-        "desc": "Connecting tools via n8n/Make to eliminate manual data entry",
-        "icon": "〰"
+        "title": "You Save Hours",
+        "desc": "System runs 24/7, you focus on growth."
       }
     ],
-    "industry_title": "Built for Ambitious Businesses.",
-    "industry_desc": "We focus on practical, ROI-driven systems for service-based businesses.",
-    "industries": ["Real Estate", "Consultancies", "Healthcare", "E-commerce", "Agencies"],
-    "cta_title": "Ready to Automate?",
-    "cta_desc": "Stop paying for humans to act like robots. Book a diagnostic to see exactly how much time we can save you next week.",
-    "cta_book": "Book Diagnostic",
-    "cta_email": "Email Us"
+    "grid_title": "Our Systems",
+    "systems": [
+      {
+        "name": "WhatsApp Lead Responder",
+        "desc": "Auto-reply to leads in 60 seconds, qualify them, and book calls — while you sleep.",
+        "points": ["Auto-reply setup", "Qualification flow", "Calendly integration"],
+        "custom_price": "Custom pricing based on your needs",
+        "best_for": "Real estate, agencies, consultants"
+      },
+      {
+        "name": "AI Lead Generation Machine",
+        "desc": "Find 250+ qualified leads with verified emails in 10 minutes. Scored, tiered, and ready to contact.",
+        "points": ["Lead scraping", "Email validation, 100-point scoring", "Google Sheet export"],
+        "custom_price": "Custom pricing based on your needs",
+        "best_for": "Agencies, B2B services, consultants"
+      },
+      {
+        "name": "Cold Outreach System",
+        "desc": "AI-personalized email sequences that don't sound like spam. Research each lead, write custom icebreakers, send automatically.",
+        "points": ["AI lead research", "Personalized 3-email sequence", "Gmail integration"],
+        "custom_price": "Custom pricing based on your needs",
+        "best_for": "Agencies, SaaS, professional services"
+      },
+      {
+        "name": "Automated Reporting",
+        "desc": "Turn 6 hours of manual reporting into a 20-minute automated workflow. Pull from any platform, AI summarizes, client-ready report generated.",
+        "points": ["Multi-platform data pull", "AI summary, Google Docs report", "Auto-delivery"],
+        "custom_price": "Custom pricing based on your needs",
+        "best_for": "Marketing agencies managing multiple clients"
+      },
+      {
+        "name": "Internal AI Employee",
+        "desc": "A custom AI assistant for your team — answers questions, processes documents, handles routine tasks 24/7.",
+        "points": ["Custom AI bot", "Document processing", "Team integration, WhatsApp or Slack access"],
+        "custom_price": "Custom pricing based on your needs",
+        "best_for": "Growing teams, companies with complex SOPs"
+      }
+    ],
+    "learn_more": "Learn More",
+    "value_ladder_title": "Most clients start with one system and add more as they see results.",
+    "ladder_steps": [
+      {
+        "step": "Start Here",
+        "name": "AI Content System or Reporting",
+        "badge": "Entry"
+      },
+      {
+        "step": "Scale Up",
+        "name": "Lead Gen + Outreach Machine",
+        "badge": "Growth"
+      },
+      {
+        "step": "Go Premium",
+        "name": "Internal AI Employee",
+        "badge": "Premium"
+      }
+    ],
+    "social_proof_title": "Hear from our clients",
+    "case_studies_title": "As seen in our case studies",
+    "why_auto_title": "Why Automation Beats Hiring",
+    "why_auto_desc": "A custom AI system does the work — without the overhead.",
+    "why_auto_points": [
+      "Works 24/7 — no breaks, no sick days, no holidays",
+      "Zero training time — deployed in 7-14 days",
+      "One-time investment, not a monthly salary",
+      "Scales instantly as your business grows",
+      "No HR, no onboarding, no management overhead"
+    ],
+    "faq_title": "Frequently Asked Questions",
+    "faqs": [
+      { "q": "How long does it take to build?", "a": "7-14 days for most systems." },
+      { "q": "Do I need technical knowledge?", "a": "No, we handle everything. You just use the output." },
+      { "q": "What tools do you use?", "a": "n8n, WhatsApp Cloud API, Claude AI, Google Workspace, Apify." },
+      { "q": "Can I customize the system later?", "a": "Yes, we offer monthly support packages (RM 500-1,500/month)." },
+      { "q": "Do you work with companies outside Malaysia?", "a": "Yes, we serve clients in Southeast Asia, Middle East, Australia, and UK — all remote." },
+      { "q": "What if I'm not sure what I need?", "a": "Book a free diagnostic call. We'll audit your workflow and recommend the right system." }
+    ],
+    "bottom_cta_title": "Ready to stop doing busywork?",
+    "bottom_cta_desc": "Book a free 15-minute diagnostic call. We'll find your biggest time-waster and show you how to automate it.",
+    "bottom_cta_btn": "Book Free Call"
   },
   "portfolio": {
     "page_title": "Systems I've Built.",
@@ -135,6 +207,34 @@
         "stats": ["RM3,200/Month Saved", "80% Less Admin", "30% Better Turnover"],
         "problem": "Wholesale clothing business owner spent 15 hours/week manually tracking inventory across 3 supplier spreadsheets, leading to frequent stockouts and over-ordering.",
         "solution": "Created all-in-one Google Sheets system with centralized dashboard, automatic profit calculations, reorder alerts, and real-time analytics."
+      },
+      {
+        "title": "AI Content Research Pipeline",
+        "type": "Content Automation",
+        "stats": ["6-Tab Strategy Sheet", "100% Automated", "Hours → Minutes"],
+        "problem": "Content team was spending 10+ hours each week manually researching LinkedIn trends, tracking viral posts, and building content strategy documents from scratch.",
+        "solution": "Scrapes LinkedIn posts from top creators, searches trending keywords, runs AI analysis, and outputs a 6-tab content strategy spreadsheet — all automated."
+      },
+      {
+        "title": "AI Cold Outreach System",
+        "type": "Outreach Automation",
+        "stats": ["3-Email Sequences", "Zero Manual Work", "Personalised at Scale"],
+        "problem": "Sales team was sending generic cold emails with low reply rates, spending hours manually researching each lead and writing individual icebreakers.",
+        "solution": "Finds leads, researches each company with AI, generates personalized icebreaker emails, and sends 3-email sequences via custom domain — zero manual work."
+      },
+      {
+        "title": "AI Executive Assistant",
+        "type": "Productivity Automation",
+        "stats": ["4 Functions in 1", "Natural Language", "Always On"],
+        "problem": "Busy exec spent 2+ hours daily on calendar management, content planning, meeting prep, and business research — all scattered across different tools.",
+        "solution": "A personal command center that handles daily planning, content creation, call prep, and business research — all through natural language commands."
+      },
+      {
+        "title": "Automated Proposal Generator",
+        "type": "Sales Automation",
+        "stats": ["Minutes Not Days", "Custom Branding", "100% Consistent"],
+        "problem": "Agency owner was spending 3-4 hours writing each proposal manually after sales calls, delaying deals and losing momentum while clients were still excited.",
+        "solution": "Client says yes on a call → professional PDF proposal generated in seconds with custom branding, scope, timeline, and pricing. Delivered within minutes, not days."
       }
     ]
   }

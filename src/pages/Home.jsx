@@ -85,12 +85,23 @@ export default function Home() {
 
             {/* 2. HERO */}
             <section ref={heroRef} onMouseMove={(e) => setMousePosition({ x: e.clientX, y: e.clientY })} className="relative h-[100dvh] w-full flex items-end pb-20 px-4 md:px-20 pt-32">
-                <div className="absolute inset-0 z-0 overflow-hidden bg-[#0a0a0a]">
+                <div className="absolute inset-0 z-0 overflow-hidden bg-transparent">
                     <div className="absolute w-[200vw] h-[200vw] md:w-[100vw] md:h-[100vw] -top-[50vw] -left-[50vw] md:-top-[25vw] md:-left-[25vw] opacity-20 animate-[spin_60s_linear_infinite]"
                         style={{
                             background: 'conic-gradient(from 90deg at 50% 50%, #000000 0%, #000000 30%, #F97316 45%, #ea580c 55%, #000000 70%, #000000 100%)',
                             filter: 'blur(100px)'
                         }}></div>
+                    <div
+                        className="absolute inset-0 z-0 transition-opacity duration-300 pointer-events-none mix-blend-screen hidden md:block opacity-60"
+                        style={{
+                            backgroundImage: `
+                                linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+                                linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)`,
+                            backgroundSize: '40px 40px',
+                            WebkitMaskImage: `radial-gradient(150px circle at ${mousePosition.x}px ${mousePosition.y}px, black 0%, transparent 100%)`,
+                            maskImage: `radial-gradient(150px circle at ${mousePosition.x}px ${mousePosition.y}px, black 0%, transparent 100%)`
+                        }}
+                    ></div>
                     <div
                         className="absolute inset-0 z-0 transition-opacity duration-300 pointer-events-none mix-blend-screen"
                         style={{
@@ -200,7 +211,7 @@ export default function Home() {
             </section>
 
             {/* 6. BRANDS MARQUEE */}
-            <section className="py-20 bg-background relative z-10 border-t border-white/5 overflow-hidden">
+            <section className="py-20 bg-transparent relative z-10 border-t border-white/5 overflow-hidden">
                 <div className="max-w-7xl mx-auto px-4 md:px-20 mb-10 text-center">
                     <p className="font-mono text-sm font-bold text-gray-500 uppercase tracking-widest">{t('home.marquee_trust')}</p>
                 </div>
@@ -233,7 +244,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className="py-32 px-4 md:px-20 bg-background relative z-10 border-t border-white/5 flex flex-col justify-center items-center">
+            <section className="py-32 px-4 md:px-20 bg-transparent relative z-10 border-t border-white/5 flex flex-col justify-center items-center">
                 <h2 className="font-drama italic text-6xl text-center mb-12 text-white">{t('home.cta_title')}</h2>
                 <MagneticButton
                     className="bg-accent text-white font-sans font-bold px-12 py-6 rounded-full text-2xl shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:bg-opacity-90 transition-all flex items-center gap-4 hover:scale-105 whitespace-nowrap"

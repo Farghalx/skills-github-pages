@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <rect width="600" height="400" fill="#0D0D0D" />
+  
+  <rect width="600" height="400" fill="url(#grid)" />
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.05)"/>
+  </pattern>
+
+  <g transform="translate(150, 40)">
+    <!-- Phone Mockup Frame -->
+    <rect x="0" y="0" width="300" height="320" rx="20" fill="#111" stroke="#333" stroke-width="2"/>
+    <rect x="0" y="0" width="300" height="40" fill="#1a1a1a" rx="20" stroke="#333" stroke-width="2"/>
+    <circle cx="150" cy="20" r="4" fill="#333"/>
+    
+    <!-- Incoming bubble -->
+    <rect x="20" y="60" width="180" height="50" rx="12" fill="#222" />
+    <rect x="40" y="75" width="140" height="6" rx="3" fill="#444" />
+    <rect x="40" y="90" width="90" height="6" rx="3" fill="#444" />
+    
+    <!-- Lightning Bolt Center -->
+    <g transform="translate(150, 150)">
+      <circle cx="0" cy="0" r="25" fill="rgba(249,115,22,0.1)" stroke="#f97316" stroke-width="2"/>
+      <path d="M2 -10 L-6 2 L0 4 L-2 12 L8 0 L2 -2 Z" fill="#f97316"/>
+    </g>
+
+    <!-- AI Reply (Green) -->
+    <rect x="100" y="190" width="180" height="50" rx="12" fill="rgba(34,197,94,0.1)" stroke="#22c55e" stroke-width="1.5"/>
+    <rect x="120" y="205" width="140" height="6" rx="3" fill="#22c55e" opacity="0.8"/>
+    <rect x="150" y="220" width="110" height="6" rx="3" fill="#22c55e" opacity="0.6"/>
+    
+    <text x="70" y="220" font-family="monospace" font-size="14" fill="#22c55e" font-weight="bold">60s</text>
+
+    <!-- Calendar Booking -->
+    <rect x="100" y="250" width="180" height="40" rx="8" fill="#1a1a1a" stroke="#333" stroke-width="1.5"/>
+    <path d="M115 260 L115 264 M125 260 L125 264 M110 268 L130 268 M110 264 L130 264 L130 280 L110 280 Z" fill="none" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="140" y="275" font-family="sans-serif" font-size="12" fill="#888">Meeting Booked</text>
+  </g>
+</svg>
