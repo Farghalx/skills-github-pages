@@ -212,9 +212,7 @@ export default function Home() {
 
             {/* 4. PHILOSOPHY */}
             <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden py-32 px-4 md:px-20 text-center">
-                <div className="absolute inset-0 z-0 opacity-10 mix-blend-screen">
-                    <img src="https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=1920&q=80" alt="Texture" className="w-full h-full object-cover grayscale invert" />
-                </div>
+                <div className="absolute inset-0 z-0 opacity-10 mix-blend-screen" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.15) 0%, transparent 70%)' }}></div>
                 <div className="relative z-10 max-w-4xl mx-auto">
                     <p className="font-mono text-sm text-gray-400 font-bold mb-8 uppercase tracking-widest">{t('home.philosophy_pre')}</p>
                     <div ref={philosophyTextRef} className="font-drama italic text-5xl md:text-8xl leading-tight text-white">

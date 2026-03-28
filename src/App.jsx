@@ -43,7 +43,7 @@ export default function App() {
             <Navbar />
 
             <main className="flex-1">
-                <Suspense fallback={null}>
+                <Suspense fallback={<div className="min-h-screen" />}>
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/about" element={<About />} />

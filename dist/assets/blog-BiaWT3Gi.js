@@ -1,4 +1,4 @@
-import{c as be}from"./index-wAuB6619.js";const ke=[["path",{d:"m12 19-7-7 7-7",key:"1l729n"}],["path",{d:"M19 12H5",key:"x3x0zl"}]],zt=be("arrow-left",ke),we=`---
+import{c as be}from"./index-DXOlxckT.js";const ke=[["path",{d:"m12 19-7-7 7-7",key:"1l729n"}],["path",{d:"M19 12H5",key:"x3x0zl"}]],zt=be("arrow-left",ke),we=`---
 title: "5 Signs Your Business Needs Lead Generation Automation"
 description: "Is your sales process leaking money? Learn the 5 undeniable signs that it's time to automate your lead generation."
 date: "2026-03-21T10:00:00Z"

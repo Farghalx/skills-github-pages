@@ -93,7 +93,7 @@ export default function Portfolio() {
                             {/* Left Side: Image/Visual */}
                             <div className="w-full h-64 md:h-full min-h-[350px] bg-[#050505] rounded-2xl border border-white/5 overflow-hidden relative group/image shadow-2xl">
                                 <img
-                                    src={project.image || `https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80&auto=format&fit=crop`}
+                                    src={project.image}
                                     alt="System Preview"
                                     width="800"
                                     height="350"
