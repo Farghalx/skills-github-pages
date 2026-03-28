@@ -57,16 +57,21 @@ function HangingBadge({ t, isRTL }) {
                     <div
                         className="w-full h-auto rounded-xl overflow-hidden border border-white/10 shadow-lg bg-[#0d0d0d] relative"
                     >
-                        <img
-                            src="/images/portfolio/AhmedPhoto copy.png"
-                            alt="Ahmed Farghal"
-                            className="w-full h-auto block"
-                            style={{ objectPosition: 'center' }}
-                            onError={e => {
-                                e.target.style.display = 'none';
-                                e.target.nextSibling.style.display = 'flex';
-                            }}
-                        />
+                        <picture>
+                            <source srcSet="/images/portfolio/AhmedPhoto copy.webp" type="image/webp" />
+                            <img
+                                src="/images/portfolio/AhmedPhoto copy.png"
+                                alt="Ahmed Farghal"
+                                width="256"
+                                height="320"
+                                className="w-full h-auto block"
+                                style={{ objectPosition: 'center' }}
+                                onError={e => {
+                                    e.target.style.display = 'none';
+                                    e.target.parentElement.nextSibling.style.display = 'flex';
+                                }}
+                            />
+                        </picture>
                         {/* Fallback placeholder */}
                         <div className="absolute inset-0 bg-accent/10 hidden items-center justify-center">
                             <span className="font-drama italic text-4xl text-accent">AF</span>

@@ -67,7 +67,7 @@ export default function BlogList() {
                         <Link to={`/blog/${post.slug}`} key={post.slug} className="group flex flex-col items-start bg-[#0D0D0D] border border-white/10 rounded-[2rem] overflow-hidden hover:border-accent/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(249,115,22,0.08)]">
                             {post.thumbnail && (
                                 <div className="w-full h-48 bg-[#1A1A1A] overflow-hidden relative border-b border-white/5">
-                                    <img src={post.thumbnail} alt={post.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300 group-hover:scale-105" />
+                                    <img src={post.thumbnail} alt={post.title} width="600" height="192" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300 group-hover:scale-105" />
                                     <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md border border-white/20 text-white text-xs font-mono font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                                         {post.lang === 'ar' ? 'عربي' : 'EN'}
                                     </div>

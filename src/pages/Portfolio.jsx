@@ -95,6 +95,8 @@ export default function Portfolio() {
                                 <img
                                     src={project.image || `https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80&auto=format&fit=crop`}
                                     alt="System Preview"
+                                    width="800"
+                                    height="350"
                                     className="absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover/image:scale-110 !opacity-90 group-hover/image:!opacity-100"
                                 />
                                 <div className="absolute inset-0 bg-accent/5 mix-blend-overlay z-10 pointer-events-none"></div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
@@ -9,11 +9,27 @@ import { useLanguage } from '../i18n/LanguageContext';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const containerRef = useRef(null);
     const heroRef = useRef(null);
+    const heroGridRef = useRef(null);
+    const heroGlowRef = useRef(null);
+    const heroRafId = useRef(null);
     const philosophyTextRef = useRef(null);
     const protocolCardsRef = useRef([]);
+
+    const handleHeroMouseMove = (e) => {
+        if (heroRafId.current) return;
+        heroRafId.current = requestAnimationFrame(() => {
+            if (heroGridRef.current) {
+                heroGridRef.current.style.WebkitMaskImage = `radial-gradient(150px circle at ${e.clientX}px ${e.clientY}px, black 0%, transparent 100%)`;
+                heroGridRef.current.style.maskImage = `radial-gradient(150px circle at ${e.clientX}px ${e.clientY}px, black 0%, transparent 100%)`;
+            }
+            if (heroGlowRef.current) {
+                heroGlowRef.current.style.background = `radial-gradient(1000px circle at ${e.clientX}px ${e.clientY}px, rgba(249,115,22,0.08), transparent 80%)`;
+            }
+            heroRafId.current = null;
+        });
+    };
     const { t, isRTL } = useLanguage();
 
     useEffect(() => {
@@ -84,7 +100,7 @@ export default function Home() {
         <div ref={containerRef} className="pb-20"> {/* pb-20 prevents content hiding under footer */}
 
             {/* 2. HERO */}
-            <section ref={heroRef} onMouseMove={(e) => setMousePosition({ x: e.clientX, y: e.clientY })} className="relative h-[100dvh] w-full flex items-end pb-20 px-4 md:px-20 pt-32">
+            <section ref={heroRef} onMouseMove={handleHeroMouseMove} className="relative h-[100dvh] w-full flex items-end pb-20 px-4 md:px-20 pt-32">
                 <div className="absolute inset-0 z-0 overflow-hidden bg-transparent">
                     <div className="absolute w-[200vw] h-[200vw] md:w-[100vw] md:h-[100vw] -top-[50vw] -left-[50vw] md:-top-[25vw] md:-left-[25vw] opacity-20 animate-[spin_60s_linear_infinite]"
                         style={{
@@ -92,21 +108,18 @@ export default function Home() {
                             filter: 'blur(100px)'
                         }}></div>
                     <div
+                        ref={heroGridRef}
                         className="absolute inset-0 z-0 transition-opacity duration-300 pointer-events-none mix-blend-screen hidden md:block opacity-60"
                         style={{
                             backgroundImage: `
                                 linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
                                 linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)`,
                             backgroundSize: '40px 40px',
-                            WebkitMaskImage: `radial-gradient(150px circle at ${mousePosition.x}px ${mousePosition.y}px, black 0%, transparent 100%)`,
-                            maskImage: `radial-gradient(150px circle at ${mousePosition.x}px ${mousePosition.y}px, black 0%, transparent 100%)`
                         }}
                     ></div>
                     <div
+                        ref={heroGlowRef}
                         className="absolute inset-0 z-0 transition-opacity duration-300 pointer-events-none mix-blend-screen"
-                        style={{
-                            background: `radial-gradient(1000px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(249,115,22,0.08), transparent 80%)`
-                        }}
                     ></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-[#030303]/80 to-transparent"></div>
                     <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>

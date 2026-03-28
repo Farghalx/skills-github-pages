@@ -38,10 +38,13 @@ const AccordionItem = ({ question, answer }) => {
     <div className="border border-white/10 rounded-2xl mb-4 overflow-hidden bg-white/5">
       <button
         onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
         className="w-full flex justify-between items-center p-6 text-left transition-colors hover:bg-white/5 focus:outline-none"
       >
         <span className="font-sans font-bold text-lg text-white">{question}</span>
-        {isOpen ? <ChevronUp className="text-accent flex-shrink-0 ml-4" /> : <ChevronDown className="text-gray-400 flex-shrink-0 ml-4" />}
+        {isOpen
+          ? <ChevronUp aria-hidden="true" className="text-accent flex-shrink-0 ml-4" />
+          : <ChevronDown aria-hidden="true" className="text-gray-400 flex-shrink-0 ml-4" />}
       </button>
       <div ref={contentRef} className="h-0 opacity-0 overflow-hidden px-6">
         <p className="font-mono text-gray-400 pb-6">{answer}</p>

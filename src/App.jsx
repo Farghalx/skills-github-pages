@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
-// Pages
-import Home from './pages/Home';
-import About from './pages/About';
-import Services from './pages/Services';
-import Portfolio from './pages/Portfolio';
-import BlogList from './pages/BlogList';
-import BlogPost from './pages/BlogPost';
+// Route-level code splitting — each page loads only when navigated to
+const Home = lazy(() => import('./pages/Home'));
+const About = lazy(() => import('./pages/About'));
+const Services = lazy(() => import('./pages/Services'));
+const Portfolio = lazy(() => import('./pages/Portfolio'));
+const BlogList = lazy(() => import('./pages/BlogList'));
+const BlogPost = lazy(() => import('./pages/BlogPost'));
+
 export default function App() {
     const { pathname } = useLocation();
 
@@ -18,15 +19,23 @@ export default function App() {
         window.scrollTo(0, 0);
     }, [pathname]);
 
-    // Global Mouse Tracking for Background Glow
+    // Global Mouse Tracking for Background Glow — throttled via rAF
     useEffect(() => {
+        let rafId = null;
         const handleMouseMove = (e) => {
-            document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
-            document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+            if (rafId) return;
+            rafId = requestAnimationFrame(() => {
+                document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+                document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+                rafId = null;
+            });
         };
 
         window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+            if (rafId) cancelAnimationFrame(rafId);
+        };
     }, []);
 
     return (
@@ -34,14 +43,16 @@ export default function App() {
             <Navbar />
 
             <main className="flex-1">
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/services" element={<Services />} />
-                    <Route path="/portfolio" element={<Portfolio />} />
-                    <Route path="/blog" element={<BlogList />} />
-                    <Route path="/blog/:slug" element={<BlogPost />} />
-                </Routes>
+                <Suspense fallback={null}>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/services" element={<Services />} />
+                        <Route path="/portfolio" element={<Portfolio />} />
+                        <Route path="/blog" element={<BlogList />} />
+                        <Route path="/blog/:slug" element={<BlogPost />} />
+                    </Routes>
+                </Suspense>
             </main>
 
             <Footer />

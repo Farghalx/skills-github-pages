@@ -33,7 +33,10 @@ export default function Navbar() {
     return (
         <nav ref={navRef} className="fixed top-8 left-1/2 -translate-x-1/2 w-[95%] md:w-max backdrop-blur-2xl border border-white/10 bg-[#030303]/80 rounded-full px-4 md:px-5 py-2 flex items-center justify-between z-50 transition-all duration-300 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
             <Link to="/" className="flex items-center group">
-                <img src="/NOBGlogo.png" alt="Farghal X Logo" className="h-10 md:h-14 w-auto object-contain transition-transform group-hover:scale-105" />
+                <picture>
+                    <source srcSet="/NOBGlogo.webp" type="image/webp" />
+                    <img src="/NOBGlogo.png" alt="Farghal X Logo" width="56" height="56" className="h-10 md:h-14 w-auto object-contain transition-transform group-hover:scale-105" />
+                </picture>
             </Link>
 
             <div className="hidden md:flex items-center gap-8 px-8 font-mono text-sm !text-gray-100 font-bold">
@@ -75,8 +78,13 @@ export default function Navbar() {
                 </MagneticButton>
             </div>
 
-            <button className="md:hidden text-white relative z-50" onClick={() => setIsNavOpen(!isNavOpen)}>
-                {isNavOpen ? <X /> : <Menu />}
+            <button
+                className="md:hidden text-white relative z-50"
+                onClick={() => setIsNavOpen(!isNavOpen)}
+                aria-label={isNavOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={isNavOpen}
+            >
+                {isNavOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
             </button>
 
             {/* Mobile Menu */}
