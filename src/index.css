@@ -46,17 +46,6 @@
     animation: move-glow 30s ease-in-out infinite alternate;
   }
 
-  /* Subtle Noise overlay for texture */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 50;
-    opacity: 0.015;
-    background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
-  }
-
   /* Custom Transparent Scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
